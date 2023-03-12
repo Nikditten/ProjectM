@@ -16,6 +16,12 @@
 		85D9D68E29BDFFE5008C8106 /* ProjectMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D68D29BDFFE5008C8106 /* ProjectMTests.swift */; };
 		85D9D69829BDFFE5008C8106 /* ProjectMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D69729BDFFE5008C8106 /* ProjectMUITests.swift */; };
 		85D9D69A29BDFFE5008C8106 /* ProjectMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D69929BDFFE5008C8106 /* ProjectMUITestsLaunchTests.swift */; };
+		85D9D6A829BE00D7008C8106 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6A729BE00D7008C8106 /* Color+Extensions.swift */; };
+		85D9D6AB29BE029D008C8106 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6AA29BE029D008C8106 /* UIScreen+Extension.swift */; };
+		85D9D6AF29BE0496008C8106 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6AE29BE0496008C8106 /* View+Extensions.swift */; };
+		85D9D6B229BE0BC2008C8106 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6B129BE0BC2008C8106 /* CircularProgressBar.swift */; };
+		85D9D6B429BE11F7008C8106 /* DatepickerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6B329BE11F7008C8106 /* DatepickerHeader.swift */; };
+		85D9D6B629BE15DF008C8106 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6B529BE15DF008C8106 /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		85D9D69329BDFFE5008C8106 /* ProjectMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D9D69729BDFFE5008C8106 /* ProjectMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMUITests.swift; sourceTree = "<group>"; };
 		85D9D69929BDFFE5008C8106 /* ProjectMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		85D9D6A729BE00D7008C8106 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		85D9D6AA29BE029D008C8106 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
+		85D9D6AE29BE0496008C8106 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		85D9D6B129BE0BC2008C8106 /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
+		85D9D6B329BE11F7008C8106 /* DatepickerHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatepickerHeader.swift; sourceTree = "<group>"; };
+		85D9D6B529BE15DF008C8106 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,23 +111,15 @@
 		85D9D67529BDFFE5008C8106 /* ProjectM */ = {
 			isa = PBXGroup;
 			children = (
+				85D9D6A929BE027E008C8106 /* Extensions */,
+				85D9D6B029BE0BB2008C8106 /* Components */,
+				85D9D6A629BE0006008C8106 /* Resources */,
 				85D9D67629BDFFE5008C8106 /* ProjectMApp.swift */,
 				85D9D67829BDFFE5008C8106 /* ContentView.swift */,
-				85D9D67A29BDFFE5008C8106 /* Assets.xcassets */,
 				85D9D67F29BDFFE5008C8106 /* Persistence.swift */,
-				85D9D68429BDFFE5008C8106 /* Info.plist */,
 				85D9D68129BDFFE5008C8106 /* ProjectM.xcdatamodeld */,
-				85D9D67C29BDFFE5008C8106 /* Preview Content */,
 			);
 			path = ProjectM;
-			sourceTree = "<group>";
-		};
-		85D9D67C29BDFFE5008C8106 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				85D9D67D29BDFFE5008C8106 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		85D9D68C29BDFFE5008C8106 /* ProjectMTests */ = {
@@ -133,6 +137,36 @@
 				85D9D69929BDFFE5008C8106 /* ProjectMUITestsLaunchTests.swift */,
 			);
 			path = ProjectMUITests;
+			sourceTree = "<group>";
+		};
+		85D9D6A629BE0006008C8106 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				85D9D67D29BDFFE5008C8106 /* Preview Assets.xcassets */,
+				85D9D67A29BDFFE5008C8106 /* Assets.xcassets */,
+				85D9D68429BDFFE5008C8106 /* Info.plist */,
+				85D9D6A729BE00D7008C8106 /* Color+Extensions.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		85D9D6A929BE027E008C8106 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				85D9D6AA29BE029D008C8106 /* UIScreen+Extension.swift */,
+				85D9D6AE29BE0496008C8106 /* View+Extensions.swift */,
+				85D9D6B529BE15DF008C8106 /* Date+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		85D9D6B029BE0BB2008C8106 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				85D9D6B129BE0BC2008C8106 /* CircularProgressBar.swift */,
+				85D9D6B329BE11F7008C8106 /* DatepickerHeader.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,10 +299,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85D9D6A829BE00D7008C8106 /* Color+Extensions.swift in Sources */,
 				85D9D68029BDFFE5008C8106 /* Persistence.swift in Sources */,
 				85D9D68329BDFFE5008C8106 /* ProjectM.xcdatamodeld in Sources */,
+				85D9D6B629BE15DF008C8106 /* Date+Extensions.swift in Sources */,
+				85D9D6B229BE0BC2008C8106 /* CircularProgressBar.swift in Sources */,
+				85D9D6AF29BE0496008C8106 /* View+Extensions.swift in Sources */,
+				85D9D6B429BE11F7008C8106 /* DatepickerHeader.swift in Sources */,
 				85D9D67929BDFFE5008C8106 /* ContentView.swift in Sources */,
 				85D9D67729BDFFE5008C8106 /* ProjectMApp.swift in Sources */,
+				85D9D6AB29BE029D008C8106 /* UIScreen+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,7 +466,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ProjectM/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ProjectM/Resources\"";
 				DEVELOPMENT_TEAM = DJL65M64G7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -455,7 +495,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ProjectM/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ProjectM/Resources\"";
 				DEVELOPMENT_TEAM = DJL65M64G7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
