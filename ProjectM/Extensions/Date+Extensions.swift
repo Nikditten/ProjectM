@@ -13,6 +13,16 @@ extension Date {
         return Calendar.current.dateComponents([.day, .month, .year], from: self).day ?? -1
     }
     
+    func asYear() -> Int {
+        return Calendar.current.dateComponents([.day, .month, .year], from: self).year ?? -1
+    }
+    
+    func nameOfMonth() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM"
+        return  dateFormatter.string(from: self)
+    }
+    
     func nameOfDay() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "ccc"

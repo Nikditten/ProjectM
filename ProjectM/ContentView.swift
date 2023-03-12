@@ -9,12 +9,15 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    
+    @State var date: Date = Date.now
 
     var body: some View {
         VStack {
-            DatepickerHeader()
+            DatepickerHeader(selectedDay: $date)
+                .padding()
         }
-        .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .bottom)
+        .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .top)
         .background(Color.background)
     }
 
