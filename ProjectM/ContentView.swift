@@ -13,12 +13,36 @@ struct ContentView: View {
     @State var date: Date = Date.now
 
     var body: some View {
-        VStack {
+        VStack (alignment: .leading, spacing: 15) {
             DatepickerHeader(selectedDay: $date)
-                .padding()
-        }
-        .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .top)
-        .background(Color.background)
+            
+            Text("Dagens opgaver")
+                .foregroundColor(Color.text)
+                .font(.title2)
+                .fontWeight(.bold)
+                .padding(.horizontal)
+            
+
+                
+                ScrollView {
+                    VStack {
+                        ForEach(1..<12) { value in
+                            TaskCard()
+                            
+                            if (value != 11) {
+                                Divider()
+                                    .frame(height: 2)
+                                    .background(Color.header)
+                                
+                            }
+                        }
+                        .padding(.horizontal, 10)
+                    }
+                }
+            }
+            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .top)
+            .background(Color.background)
+        
     }
 
 

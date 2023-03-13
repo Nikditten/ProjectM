@@ -22,6 +22,7 @@
 		85D9D6B229BE0BC2008C8106 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6B129BE0BC2008C8106 /* CircularProgressBar.swift */; };
 		85D9D6B429BE11F7008C8106 /* DatepickerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6B329BE11F7008C8106 /* DatepickerHeader.swift */; };
 		85D9D6B629BE15DF008C8106 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6B529BE15DF008C8106 /* Date+Extensions.swift */; };
+		85E9598029BF92E400FCFCF4 /* TaskCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E9597F29BF92E400FCFCF4 /* TaskCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		85D9D6B129BE0BC2008C8106 /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		85D9D6B329BE11F7008C8106 /* DatepickerHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatepickerHeader.swift; sourceTree = "<group>"; };
 		85D9D6B529BE15DF008C8106 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		85E9597F29BF92E400FCFCF4 /* TaskCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			children = (
 				85D9D6B129BE0BC2008C8106 /* CircularProgressBar.swift */,
 				85D9D6B329BE11F7008C8106 /* DatepickerHeader.swift */,
+				85E9597F29BF92E400FCFCF4 /* TaskCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				85D9D6A829BE00D7008C8106 /* Color+Extensions.swift in Sources */,
 				85D9D68029BDFFE5008C8106 /* Persistence.swift in Sources */,
 				85D9D68329BDFFE5008C8106 /* ProjectM.xcdatamodeld in Sources */,
+				85E9598029BF92E400FCFCF4 /* TaskCard.swift in Sources */,
 				85D9D6B629BE15DF008C8106 /* Date+Extensions.swift in Sources */,
 				85D9D6B229BE0BC2008C8106 /* CircularProgressBar.swift in Sources */,
 				85D9D6AF29BE0496008C8106 /* View+Extensions.swift in Sources */,

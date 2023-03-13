@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct CircularProgressView: View {
+struct CircularProgressBar: View {
     
     let progress: Double
 
-    let height: CGFloat = 50
-    let width: CGFloat = 50
+    let height: CGFloat = 60
+    let width: CGFloat = 60
     
     var body: some View {
         ZStack {
             Circle()
                 .stroke(
-                    Color.header,
+                    Color.header.opacity(0.5),
                     lineWidth: 5
                 )
             Circle()
@@ -41,10 +41,10 @@ struct CircularProgressView: View {
 }
 
 
-struct CircularProgressView_Previews: PreviewProvider {
+struct CircularProgressBar_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            CircularProgressView(progress: 0.54)
+            CircularProgressBar(progress: 0.54)
         }
         .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight)
         .background(Color.background)
