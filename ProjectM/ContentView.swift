@@ -21,8 +21,6 @@ struct ContentView: View {
                 .font(.title2)
                 .fontWeight(.bold)
                 .padding(.horizontal)
-            
-
                 
                 ScrollView {
                     VStack {
@@ -40,9 +38,9 @@ struct ContentView: View {
                     }
                 }
             }
-            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .top)
-            .background(Color.background)
-        
+        .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .top)
+        .background(Color.background)
+            
     }
 
 
