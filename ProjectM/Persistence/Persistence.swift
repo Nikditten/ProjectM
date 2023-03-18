@@ -41,11 +41,6 @@ struct PersistenceController {
         }
     }
     
-    func addProject(_ project: Project) {
-        viewContext.insert(project)
-        save()
-    }
-    
     func addTask(_ task: Task) {
         viewContext.insert(task)
         save()
@@ -53,6 +48,11 @@ struct PersistenceController {
     
     func addSubTask(_ subtask: SubTask) {
         viewContext.insert(subtask)
+        save()
+    }
+    
+    func addTimesheet(_ timesheet: Timesheet) {
+        viewContext.insert(timesheet)
         save()
     }
 

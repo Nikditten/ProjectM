@@ -17,9 +17,10 @@ struct SubmitButton: View {
             Text(label)
                 .font(.title)
                 .foregroundColor(Color.white)
-                .padding()
+                .padding(15)
+                .frame(width: UIScreen.screenWidth - 32.5)
                 .background(Color.primaryButton)
-                .cornerRadius(15.0)
+                .cornerRadius(10)
         }
     }
 }
