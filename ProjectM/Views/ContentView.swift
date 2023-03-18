@@ -9,16 +9,18 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-
+    
+    @State var showingSheet: Bool = false
+    
     var body: some View {
         
         VStack {
-            
+            AddProjectView()
         }
-            
+        
     }
-
-
+    
+    
 }
 
 

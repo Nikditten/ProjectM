@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		852A1D1429C24BDD0082AA0B /* CreateProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852A1D1329C24BDD0082AA0B /* CreateProjectView.swift */; };
-		85BD54EE29C0F6B40063AF4A /* TaskHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BD54ED29C0F6B40063AF4A /* TaskHeader.swift */; };
+		8548108A29C5C93D002DC597 /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8548108929C5C93D002DC597 /* AddProjectView.swift */; };
+		8548109129C5CC29002DC597 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8548109029C5CC29002DC597 /* CustomTextField.swift */; };
 		85D9D67729BDFFE5008C8106 /* ProjectMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D67629BDFFE5008C8106 /* ProjectMApp.swift */; };
 		85D9D67929BDFFE5008C8106 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D67829BDFFE5008C8106 /* ContentView.swift */; };
 		85D9D67B29BDFFE5008C8106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85D9D67A29BDFFE5008C8106 /* Assets.xcassets */; };
@@ -20,11 +20,8 @@
 		85D9D69A29BDFFE5008C8106 /* ProjectMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D69929BDFFE5008C8106 /* ProjectMUITestsLaunchTests.swift */; };
 		85D9D6A829BE00D7008C8106 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6A729BE00D7008C8106 /* Color+Extensions.swift */; };
 		85D9D6AB29BE029D008C8106 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6AA29BE029D008C8106 /* UIScreen+Extension.swift */; };
-		85D9D6AF29BE0496008C8106 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6AE29BE0496008C8106 /* View+Extensions.swift */; };
-		85D9D6B229BE0BC2008C8106 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6B129BE0BC2008C8106 /* CircularProgressBar.swift */; };
-		85D9D6B429BE11F7008C8106 /* DatepickerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6B329BE11F7008C8106 /* DatepickerHeader.swift */; };
 		85D9D6B629BE15DF008C8106 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6B529BE15DF008C8106 /* Date+Extensions.swift */; };
-		85E9598029BF92E400FCFCF4 /* TaskCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E9597F29BF92E400FCFCF4 /* TaskCard.swift */; };
+		85EB960129C61438000B0AF2 /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EB960029C61438000B0AF2 /* SubmitButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,8 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		852A1D1329C24BDD0082AA0B /* CreateProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectView.swift; sourceTree = "<group>"; };
-		85BD54ED29C0F6B40063AF4A /* TaskHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHeader.swift; sourceTree = "<group>"; };
+		8548108929C5C93D002DC597 /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
+		8548109029C5CC29002DC597 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		85D9D67329BDFFE5008C8106 /* ProjectM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D9D67629BDFFE5008C8106 /* ProjectMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMApp.swift; sourceTree = "<group>"; };
 		85D9D67829BDFFE5008C8106 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,11 +59,8 @@
 		85D9D69929BDFFE5008C8106 /* ProjectMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		85D9D6A729BE00D7008C8106 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		85D9D6AA29BE029D008C8106 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
-		85D9D6AE29BE0496008C8106 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
-		85D9D6B129BE0BC2008C8106 /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
-		85D9D6B329BE11F7008C8106 /* DatepickerHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatepickerHeader.swift; sourceTree = "<group>"; };
 		85D9D6B529BE15DF008C8106 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
-		85E9597F29BF92E400FCFCF4 /* TaskCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCard.swift; sourceTree = "<group>"; };
+		85EB960029C61438000B0AF2 /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +101,18 @@
 			isa = PBXGroup;
 			children = (
 				85D9D67829BDFFE5008C8106 /* ContentView.swift */,
-				852A1D1329C24BDD0082AA0B /* CreateProjectView.swift */,
+				8548108929C5C93D002DC597 /* AddProjectView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8548108F29C5CC1D002DC597 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				8548109029C5CC29002DC597 /* CustomTextField.swift */,
+				85EB960029C61438000B0AF2 /* SubmitButton.swift */,
+			);
+			path = Form;
 			sourceTree = "<group>";
 		};
 		85D9D66A29BDFFE4008C8106 = {
@@ -177,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				85D9D6AA29BE029D008C8106 /* UIScreen+Extension.swift */,
-				85D9D6AE29BE0496008C8106 /* View+Extensions.swift */,
 				85D9D6B529BE15DF008C8106 /* Date+Extensions.swift */,
 			);
 			path = Extensions;
@@ -186,10 +188,7 @@
 		85D9D6B029BE0BB2008C8106 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				85D9D6B129BE0BC2008C8106 /* CircularProgressBar.swift */,
-				85D9D6B329BE11F7008C8106 /* DatepickerHeader.swift */,
-				85E9597F29BF92E400FCFCF4 /* TaskCard.swift */,
-				85BD54ED29C0F6B40063AF4A /* TaskHeader.swift */,
+				8548108F29C5CC1D002DC597 /* Form */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -324,19 +323,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85BD54EE29C0F6B40063AF4A /* TaskHeader.swift in Sources */,
 				85D9D6A829BE00D7008C8106 /* Color+Extensions.swift in Sources */,
 				85D9D68029BDFFE5008C8106 /* Persistence.swift in Sources */,
 				85D9D68329BDFFE5008C8106 /* ProjectM.xcdatamodeld in Sources */,
-				85E9598029BF92E400FCFCF4 /* TaskCard.swift in Sources */,
+				8548108A29C5C93D002DC597 /* AddProjectView.swift in Sources */,
+				8548109129C5CC29002DC597 /* CustomTextField.swift in Sources */,
 				85D9D6B629BE15DF008C8106 /* Date+Extensions.swift in Sources */,
-				85D9D6B229BE0BC2008C8106 /* CircularProgressBar.swift in Sources */,
-				85D9D6AF29BE0496008C8106 /* View+Extensions.swift in Sources */,
-				85D9D6B429BE11F7008C8106 /* DatepickerHeader.swift in Sources */,
 				85D9D67929BDFFE5008C8106 /* ContentView.swift in Sources */,
-				852A1D1429C24BDD0082AA0B /* CreateProjectView.swift in Sources */,
 				85D9D67729BDFFE5008C8106 /* ProjectMApp.swift in Sources */,
 				85D9D6AB29BE029D008C8106 /* UIScreen+Extension.swift in Sources */,
+				85EB960129C61438000B0AF2 /* SubmitButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

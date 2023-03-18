@@ -8,10 +8,10 @@
 import SwiftUI
 
 extension Color {
-    static let background = Color("Black")
-    static let text = Color("White")
-    static let secondary_text = Color("DarkGrey")
-    static let header = Color("DarkGrey")
-    static let secondary_header = Color("Purple")
-    static let card_background = Color("Purple")
+    static let background = Color("Primary")
+    static let text = Color("Text")
+    static let textfield_background = Color("Secondary")
+    
+    static let primaryButton = Color("Green")
+    static let buttonText = Color("Primary")
 }
