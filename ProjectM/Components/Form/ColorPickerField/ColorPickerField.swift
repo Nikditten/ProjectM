@@ -10,7 +10,7 @@ import SwiftUI
 struct ColorPickerField: View {
     
     let label: String
-    @State var activeColor: ProjectColors = .standard
+    @Binding var activeColor: ProjectColors
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -42,11 +42,5 @@ struct ColorPickerField: View {
             .padding(.horizontal, 1)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-    }
-}
-
-struct ColorPickerField_Previews: PreviewProvider {
-    static var previews: some View {
-        ColorPickerField(label: "Give the project a color")
     }
 }

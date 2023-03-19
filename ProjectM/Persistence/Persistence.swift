@@ -30,30 +30,37 @@ struct PersistenceController {
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
 
-    func save() {
+    func save() throws {
         let context = container.viewContext
         if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                print(error)
-            }
+            try context.save()
         }
     }
     
-    func addTask(_ task: Task) {
-        viewContext.insert(task)
-        save()
+    func add(_ object: NSManagedObject) throws {
+        viewContext.insert(object)
+        try save()
     }
-    
-    func addSubTask(_ subtask: SubTask) {
-        viewContext.insert(subtask)
-        save()
-    }
-    
-    func addTimesheet(_ timesheet: Timesheet) {
-        viewContext.insert(timesheet)
-        save()
+
+    func fetchAllTasks() -> [Task]{
+        
+        var tasks = [Task]()
+        
+        // Make a request for WorkItem objects
+        let request: NSFetchRequest<Task> = Task.fetchRequest()
+        
+        // Sort the object by the date attribute in a non ascending order
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Task.deadline, ascending: false)]
+        
+        // Fetch the result of the request
+        do {
+            tasks = try viewContext.fetch(request)
+        } catch let error as NSError {
+            // In case of an error - print the error description
+            print(error.localizedDescription)
+        }
+        
+        return tasks
     }
 
 }

@@ -16,7 +16,9 @@
 		85B6C0D129C6F29700125B05 /* ColorPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D029C6F29700125B05 /* ColorPickerField.swift */; };
 		85B6C0D529C6F4B200125B05 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D429C6F4B200125B05 /* ColorButton.swift */; };
 		85B6C0D829C6F89900125B05 /* ProjectColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D729C6F89900125B05 /* ProjectColors.swift */; };
-		85CFC4B829C722A200AD9186 /* TaskDBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFC4B729C722A200AD9186 /* TaskDBRepository.swift */; };
+		85CFC4BC29C736B300AD9186 /* TaskStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFC4BB29C736B300AD9186 /* TaskStates.swift */; };
+		85CFC4C229C73C4400AD9186 /* AddProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFC4C129C73C4400AD9186 /* AddProjectViewModel.swift */; };
+		85CFC4C529C73E7C00AD9186 /* TaskOverviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFC4C429C73E7C00AD9186 /* TaskOverviewModel.swift */; };
 		85D9D67729BDFFE5008C8106 /* ProjectMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D67629BDFFE5008C8106 /* ProjectMApp.swift */; };
 		85D9D67929BDFFE5008C8106 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D67829BDFFE5008C8106 /* ContentView.swift */; };
 		85D9D67B29BDFFE5008C8106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85D9D67A29BDFFE5008C8106 /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 		85D9D6AB29BE029D008C8106 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6AA29BE029D008C8106 /* UIScreen+Extension.swift */; };
 		85D9D6B629BE15DF008C8106 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6B529BE15DF008C8106 /* Date+Extensions.swift */; };
 		85EB960129C61438000B0AF2 /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EB960029C61438000B0AF2 /* SubmitButton.swift */; };
+		85FD2E3F29C74EAA0047DC3B /* TaskCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FD2E3E29C74EAA0047DC3B /* TaskCard.swift */; };
+		85FD2E4229C74F7A0047DC3B /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FD2E4129C74F7A0047DC3B /* CircularProgressBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +63,9 @@
 		85B6C0D029C6F29700125B05 /* ColorPickerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerField.swift; sourceTree = "<group>"; };
 		85B6C0D429C6F4B200125B05 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		85B6C0D729C6F89900125B05 /* ProjectColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectColors.swift; sourceTree = "<group>"; };
-		85CFC4B729C722A200AD9186 /* TaskDBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDBRepository.swift; sourceTree = "<group>"; };
+		85CFC4BB29C736B300AD9186 /* TaskStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStates.swift; sourceTree = "<group>"; };
+		85CFC4C129C73C4400AD9186 /* AddProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectViewModel.swift; sourceTree = "<group>"; };
+		85CFC4C429C73E7C00AD9186 /* TaskOverviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskOverviewModel.swift; sourceTree = "<group>"; };
 		85D9D67329BDFFE5008C8106 /* ProjectM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D9D67629BDFFE5008C8106 /* ProjectMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMApp.swift; sourceTree = "<group>"; };
 		85D9D67829BDFFE5008C8106 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,6 +83,8 @@
 		85D9D6AA29BE029D008C8106 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 		85D9D6B529BE15DF008C8106 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		85EB960029C61438000B0AF2 /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
+		85FD2E3E29C74EAA0047DC3B /* TaskCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCard.swift; sourceTree = "<group>"; };
+		85FD2E4129C74F7A0047DC3B /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +124,8 @@
 		852A1D1229C24BB40082AA0B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				85D9D67829BDFFE5008C8106 /* ContentView.swift */,
-				8548108929C5C93D002DC597 /* AddProjectSheet.swift */,
+				85CFC4C329C73E6600AD9186 /* TaskOverview */,
+				85CFC4C029C73C3400AD9186 /* AddProject */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -164,16 +172,27 @@
 			isa = PBXGroup;
 			children = (
 				85B6C0D729C6F89900125B05 /* ProjectColors.swift */,
+				85CFC4BB29C736B300AD9186 /* TaskStates.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
 		};
-		85CFC4B629C7223A00AD9186 /* Repositories */ = {
+		85CFC4C029C73C3400AD9186 /* AddProject */ = {
 			isa = PBXGroup;
 			children = (
-				85CFC4B729C722A200AD9186 /* TaskDBRepository.swift */,
+				8548108929C5C93D002DC597 /* AddProjectSheet.swift */,
+				85CFC4C129C73C4400AD9186 /* AddProjectViewModel.swift */,
 			);
-			path = Repositories;
+			path = AddProject;
+			sourceTree = "<group>";
+		};
+		85CFC4C329C73E6600AD9186 /* TaskOverview */ = {
+			isa = PBXGroup;
+			children = (
+				85D9D67829BDFFE5008C8106 /* ContentView.swift */,
+				85CFC4C429C73E7C00AD9186 /* TaskOverviewModel.swift */,
+			);
+			path = TaskOverview;
 			sourceTree = "<group>";
 		};
 		85D9D66A29BDFFE4008C8106 = {
@@ -199,11 +218,10 @@
 		85D9D67529BDFFE5008C8106 /* ProjectM */ = {
 			isa = PBXGroup;
 			children = (
-				85CFC4B629C7223A00AD9186 /* Repositories */,
+				852A1D1129C23EF10082AA0B /* Persistence */,
 				85B6C0D629C6F88E00125B05 /* Enums */,
 				85B6C0CD29C6EF4300125B05 /* Styles */,
 				852A1D1229C24BB40082AA0B /* Views */,
-				852A1D1129C23EF10082AA0B /* Persistence */,
 				85D9D6A929BE027E008C8106 /* Extensions */,
 				85D9D6B029BE0BB2008C8106 /* Components */,
 				85D9D6A629BE0006008C8106 /* Resources */,
@@ -252,7 +270,25 @@
 		85D9D6B029BE0BB2008C8106 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				85FD2E3D29C74EA00047DC3B /* Task */,
 				8548108F29C5CC1D002DC597 /* Form */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		85FD2E3D29C74EA00047DC3B /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				85FD2E4029C74F6E0047DC3B /* Components */,
+				85FD2E3E29C74EAA0047DC3B /* TaskCard.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		85FD2E4029C74F6E0047DC3B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				85FD2E4129C74F7A0047DC3B /* CircularProgressBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -387,13 +423,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85FD2E3F29C74EAA0047DC3B /* TaskCard.swift in Sources */,
+				85CFC4C229C73C4400AD9186 /* AddProjectViewModel.swift in Sources */,
 				85D9D6A829BE00D7008C8106 /* Color+Extensions.swift in Sources */,
 				85D9D68029BDFFE5008C8106 /* Persistence.swift in Sources */,
 				85B6C0CF29C6EF4C00125B05 /* CheckToggleStyle.swift in Sources */,
+				85FD2E4229C74F7A0047DC3B /* CircularProgressBar.swift in Sources */,
 				85386EFB29C6563800A69C15 /* DatePickerField.swift in Sources */,
+				85CFC4C529C73E7C00AD9186 /* TaskOverviewModel.swift in Sources */,
 				85D9D68329BDFFE5008C8106 /* ProjectM.xcdatamodeld in Sources */,
 				8548108A29C5C93D002DC597 /* AddProjectSheet.swift in Sources */,
-				85CFC4B829C722A200AD9186 /* TaskDBRepository.swift in Sources */,
 				8548109129C5CC29002DC597 /* CustomTextField.swift in Sources */,
 				85B6C0D529C6F4B200125B05 /* ColorButton.swift in Sources */,
 				85B6C0D829C6F89900125B05 /* ProjectColors.swift in Sources */,
@@ -405,6 +444,7 @@
 				85B6C0D129C6F29700125B05 /* ColorPickerField.swift in Sources */,
 				85EB960129C61438000B0AF2 /* SubmitButton.swift in Sources */,
 				85386EF329C6383B00A69C15 /* MultilineTextField.swift in Sources */,
+				85CFC4BC29C736B300AD9186 /* TaskStates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

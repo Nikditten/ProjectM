@@ -11,13 +11,7 @@ struct AddProjectSheet: View {
     
     @Binding var isPresented: Bool
     
-    @State var projectName: String = ""
-    @State var projectDeadline: Date = Date()
-    @State var projectHours: Double = 1.0
-    @State var note: String = ""
-    
-    @State var hasDeadline: Bool = false
-    @State var hasEstimation: Bool = false
+    @ObservedObject var vm: AddProjectViewModel = AddProjectViewModel()
     
     var body: some View {
         
@@ -25,23 +19,25 @@ struct AddProjectSheet: View {
             ScrollView {
                 VStack (spacing: 25) {
                     
-                    CustomTextField(label: "Name", value: $projectName)
+                    CustomTextField(label: "Name", value: $vm.projectName)
                     
-                    MultilineTextField(label: "Description", value: $note, linelimit: 3)
+                    MultilineTextField(label: "Description", value: $vm.projectNote, linelimit: 3)
                     
-                    DatePickerField(label: "Deadline", value: $projectDeadline, hasDay: $hasDeadline)
+                    DatePickerField(label: "Deadline", value: $vm.projectDeadline, hasDay: $vm.hasDeadline)
                     
-                    HourPickerField(label: "Estimated hours", value: $projectHours, showHours: $hasEstimation)
+                    HourPickerField(label: "Estimated hours", value: $vm.projectHours, showHours: $vm.hasEstimation)
 
                     // Custom radiobuttons to select color
-                    ColorPickerField(label: "Color")
+                    ColorPickerField(label: "Color", activeColor: $vm.projectColor)
                     
                     
                     SubmitButton(
                         label: "Done"
                     ) {
-                        isPresented = false
+                        
+                        isPresented = !vm.add()
                     }
+                    .disabled(vm.projectName.count == 0)
                     
                     
                 }

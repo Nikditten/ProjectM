@@ -17,6 +17,8 @@ extension Color {
     static let primaryButton = Color("Green")
     static let buttonText = Color("Primary")
     
+    static let progressBar = Color("Secondary")
+    
     static let onToggle = Color("Green")
     static let offToggle = Color.secondary
     

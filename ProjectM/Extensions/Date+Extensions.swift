@@ -47,4 +47,13 @@ extension Date {
             }
             return dates
     }
+    
+    func formatAsDate() -> String {
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
+        
+        return dateFormatter.string(from: self)
+    }
 }

@@ -9,11 +9,11 @@ import SwiftUI
 
 
 enum ProjectColors: String, CaseIterable {
-    case standard = "standard"
-    case green = "green"
-    case blue = "blue"
-    case purple = "purple"
-    case red = "red"
+    case standard = "Standard"
+    case green = "Green"
+    case blue = "Blue"
+    case purple = "Purple"
+    case red = "Red"
     
 
     func toColor() -> Color {
