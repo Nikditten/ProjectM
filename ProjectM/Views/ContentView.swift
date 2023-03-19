@@ -10,14 +10,19 @@ import CoreData
 
 struct ContentView: View {
     
-    @State var showingSheet: Bool = false
+    @State var showingSheet: Bool = true
     
     var body: some View {
         
-        VStack {
-            AddProjectView()
+        NavigationView {
+            Text("HELLO WORLD!")
+                .onTapGesture {
+                    showingSheet = true
+                }
         }
-        
+        .sheet(isPresented: $showingSheet) {
+            AddProjectSheet(isPresented: $showingSheet)
+        }
     }
     
     

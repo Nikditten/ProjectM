@@ -38,6 +38,6 @@ struct CustomTextField: View {
 
 struct CustomTextField_Previews: PreviewProvider {
     static var previews: some View {
-        AddProjectView()
+        AddProjectSheet(isPresented: .constant(true))
     }
 }

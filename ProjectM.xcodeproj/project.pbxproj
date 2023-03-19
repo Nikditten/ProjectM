@@ -10,8 +10,12 @@
 		85386EF329C6383B00A69C15 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85386EF229C6383B00A69C15 /* MultilineTextField.swift */; };
 		85386EF929C6505100A69C15 /* HourPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85386EF829C6505100A69C15 /* HourPickerField.swift */; };
 		85386EFB29C6563800A69C15 /* DatePickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85386EFA29C6563800A69C15 /* DatePickerField.swift */; };
-		8548108A29C5C93D002DC597 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8548108929C5C93D002DC597 /* AddTaskView.swift */; };
+		8548108A29C5C93D002DC597 /* AddProjectSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8548108929C5C93D002DC597 /* AddProjectSheet.swift */; };
 		8548109129C5CC29002DC597 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8548109029C5CC29002DC597 /* CustomTextField.swift */; };
+		85B6C0CF29C6EF4C00125B05 /* CheckToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0CE29C6EF4C00125B05 /* CheckToggleStyle.swift */; };
+		85B6C0D129C6F29700125B05 /* ColorPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D029C6F29700125B05 /* ColorPickerField.swift */; };
+		85B6C0D529C6F4B200125B05 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D429C6F4B200125B05 /* ColorButton.swift */; };
+		85B6C0D829C6F89900125B05 /* ProjectColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D729C6F89900125B05 /* ProjectColors.swift */; };
 		85D9D67729BDFFE5008C8106 /* ProjectMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D67629BDFFE5008C8106 /* ProjectMApp.swift */; };
 		85D9D67929BDFFE5008C8106 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D67829BDFFE5008C8106 /* ContentView.swift */; };
 		85D9D67B29BDFFE5008C8106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85D9D67A29BDFFE5008C8106 /* Assets.xcassets */; };
@@ -48,8 +52,12 @@
 		85386EF229C6383B00A69C15 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 		85386EF829C6505100A69C15 /* HourPickerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourPickerField.swift; sourceTree = "<group>"; };
 		85386EFA29C6563800A69C15 /* DatePickerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerField.swift; sourceTree = "<group>"; };
-		8548108929C5C93D002DC597 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
+		8548108929C5C93D002DC597 /* AddProjectSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectSheet.swift; sourceTree = "<group>"; };
 		8548109029C5CC29002DC597 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		85B6C0CE29C6EF4C00125B05 /* CheckToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckToggleStyle.swift; sourceTree = "<group>"; };
+		85B6C0D029C6F29700125B05 /* ColorPickerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerField.swift; sourceTree = "<group>"; };
+		85B6C0D429C6F4B200125B05 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
+		85B6C0D729C6F89900125B05 /* ProjectColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectColors.swift; sourceTree = "<group>"; };
 		85D9D67329BDFFE5008C8106 /* ProjectM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D9D67629BDFFE5008C8106 /* ProjectMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMApp.swift; sourceTree = "<group>"; };
 		85D9D67829BDFFE5008C8106 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,7 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				85D9D67829BDFFE5008C8106 /* ContentView.swift */,
-				8548108929C5C93D002DC597 /* AddTaskView.swift */,
+				8548108929C5C93D002DC597 /* AddProjectSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -115,6 +123,7 @@
 		8548108F29C5CC1D002DC597 /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				85B6C0D229C6F49200125B05 /* ColorPickerField */,
 				8548109029C5CC29002DC597 /* CustomTextField.swift */,
 				85EB960029C61438000B0AF2 /* SubmitButton.swift */,
 				85386EF229C6383B00A69C15 /* MultilineTextField.swift */,
@@ -122,6 +131,39 @@
 				85386EFA29C6563800A69C15 /* DatePickerField.swift */,
 			);
 			path = Form;
+			sourceTree = "<group>";
+		};
+		85B6C0CD29C6EF4300125B05 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				85B6C0CE29C6EF4C00125B05 /* CheckToggleStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		85B6C0D229C6F49200125B05 /* ColorPickerField */ = {
+			isa = PBXGroup;
+			children = (
+				85B6C0D329C6F4A700125B05 /* Components */,
+				85B6C0D029C6F29700125B05 /* ColorPickerField.swift */,
+			);
+			path = ColorPickerField;
+			sourceTree = "<group>";
+		};
+		85B6C0D329C6F4A700125B05 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				85B6C0D429C6F4B200125B05 /* ColorButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		85B6C0D629C6F88E00125B05 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				85B6C0D729C6F89900125B05 /* ProjectColors.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		85D9D66A29BDFFE4008C8106 = {
@@ -147,6 +189,8 @@
 		85D9D67529BDFFE5008C8106 /* ProjectM */ = {
 			isa = PBXGroup;
 			children = (
+				85B6C0D629C6F88E00125B05 /* Enums */,
+				85B6C0CD29C6EF4300125B05 /* Styles */,
 				852A1D1229C24BB40082AA0B /* Views */,
 				852A1D1129C23EF10082AA0B /* Persistence */,
 				85D9D6A929BE027E008C8106 /* Extensions */,
@@ -334,15 +378,19 @@
 			files = (
 				85D9D6A829BE00D7008C8106 /* Color+Extensions.swift in Sources */,
 				85D9D68029BDFFE5008C8106 /* Persistence.swift in Sources */,
+				85B6C0CF29C6EF4C00125B05 /* CheckToggleStyle.swift in Sources */,
 				85386EFB29C6563800A69C15 /* DatePickerField.swift in Sources */,
 				85D9D68329BDFFE5008C8106 /* ProjectM.xcdatamodeld in Sources */,
-				8548108A29C5C93D002DC597 /* AddTaskView.swift in Sources */,
+				8548108A29C5C93D002DC597 /* AddProjectSheet.swift in Sources */,
 				8548109129C5CC29002DC597 /* CustomTextField.swift in Sources */,
+				85B6C0D529C6F4B200125B05 /* ColorButton.swift in Sources */,
+				85B6C0D829C6F89900125B05 /* ProjectColors.swift in Sources */,
 				85D9D6B629BE15DF008C8106 /* Date+Extensions.swift in Sources */,
 				85D9D67929BDFFE5008C8106 /* ContentView.swift in Sources */,
 				85D9D67729BDFFE5008C8106 /* ProjectMApp.swift in Sources */,
 				85D9D6AB29BE029D008C8106 /* UIScreen+Extension.swift in Sources */,
 				85386EF929C6505100A69C15 /* HourPickerField.swift in Sources */,
+				85B6C0D129C6F29700125B05 /* ColorPickerField.swift in Sources */,
 				85EB960129C61438000B0AF2 /* SubmitButton.swift in Sources */,
 				85386EF329C6383B00A69C15 /* MultilineTextField.swift in Sources */,
 			);
