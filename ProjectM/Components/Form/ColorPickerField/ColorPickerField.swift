@@ -10,7 +10,7 @@ import SwiftUI
 struct ColorPickerField: View {
     
     let label: String
-    @State var activeColor: Color = Color.primaryTaskColor
+    @State var activeColor: ProjectColors = .standard
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -18,18 +18,28 @@ struct ColorPickerField: View {
                 .foregroundColor(Color.text)
                 .font(.footnote)
             
-            HStack (spacing: 25) {
+            HStack {
                 
-                ColorButton(color: Color.primaryTaskColor, activeColor: $activeColor)
+                ColorButton(color: .standard, activeColor: $activeColor)
                 
-                ColorButton(color: Color.greenTaskColor, activeColor: $activeColor)
+                Spacer()
                 
-                ColorButton(color: Color.blueTaskColor, activeColor: $activeColor)
+                ColorButton(color: .green, activeColor: $activeColor)
                 
-                ColorButton(color: Color.purpleTaskColor, activeColor: $activeColor)
+                Spacer()
+                
+                ColorButton(color: .blue, activeColor: $activeColor)
+                
+                Spacer()
+                
+                ColorButton(color: .purple, activeColor: $activeColor)
+                
+                Spacer()
+                
+                ColorButton(color: .red, activeColor: $activeColor)
                 
             }
-            .padding(.leading, 1)
+            .padding(.horizontal, 1)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }

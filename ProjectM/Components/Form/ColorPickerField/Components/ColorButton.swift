@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ColorButton: View {
 
-    let color: Color
-    @Binding var activeColor: Color
+    let color: ProjectColors
+    @Binding var activeColor: ProjectColors
     
     var body: some View {
         Button(action: {
@@ -19,7 +19,7 @@ struct ColorButton: View {
             }
         }) {
             Circle()
-                .fill(color)
+                .fill(color.toColor())
                 .frame(width: 50, height: 50)
                 .overlay(
                     Circle()

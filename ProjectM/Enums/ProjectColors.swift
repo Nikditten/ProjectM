@@ -5,17 +5,18 @@
 //  Created by Niklas Børner on 19/03/2023.
 //
 
-import Foundation
+import SwiftUI
 
 
 enum ProjectColors: String, CaseIterable {
     case standard = "standard"
     case green = "green"
     case blue = "blue"
-    case purple = "pruple"
+    case purple = "purple"
+    case red = "red"
     
 
-    func getColor() -> Color {
+    func toColor() -> Color {
         switch self {
         case .standard:
             return Color.primaryTaskColor
@@ -28,6 +29,29 @@ enum ProjectColors: String, CaseIterable {
             
         case .purple:
             return Color.purpleTaskColor
+            
+        case .red:
+            return Color.redTaskColor
+        
+        }
+    }
+
+    func toString() -> String {
+        switch self {
+        case .standard:
+            return "Standard"
+            
+        case .green:
+            return "Green"
+            
+        case .blue:
+            return "Blue"
+            
+        case .purple:
+            return "Purple"
+            
+        case .red:
+            return "Red"
         
         }
     }
