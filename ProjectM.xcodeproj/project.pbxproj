@@ -16,6 +16,7 @@
 		85B6C0D129C6F29700125B05 /* ColorPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D029C6F29700125B05 /* ColorPickerField.swift */; };
 		85B6C0D529C6F4B200125B05 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D429C6F4B200125B05 /* ColorButton.swift */; };
 		85B6C0D829C6F89900125B05 /* ProjectColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D729C6F89900125B05 /* ProjectColors.swift */; };
+		85CFC4B829C722A200AD9186 /* TaskDBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFC4B729C722A200AD9186 /* TaskDBRepository.swift */; };
 		85D9D67729BDFFE5008C8106 /* ProjectMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D67629BDFFE5008C8106 /* ProjectMApp.swift */; };
 		85D9D67929BDFFE5008C8106 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D67829BDFFE5008C8106 /* ContentView.swift */; };
 		85D9D67B29BDFFE5008C8106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85D9D67A29BDFFE5008C8106 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		85B6C0D029C6F29700125B05 /* ColorPickerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerField.swift; sourceTree = "<group>"; };
 		85B6C0D429C6F4B200125B05 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		85B6C0D729C6F89900125B05 /* ProjectColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectColors.swift; sourceTree = "<group>"; };
+		85CFC4B729C722A200AD9186 /* TaskDBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDBRepository.swift; sourceTree = "<group>"; };
 		85D9D67329BDFFE5008C8106 /* ProjectM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D9D67629BDFFE5008C8106 /* ProjectMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMApp.swift; sourceTree = "<group>"; };
 		85D9D67829BDFFE5008C8106 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,8 +107,8 @@
 		852A1D1129C23EF10082AA0B /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				85D9D67F29BDFFE5008C8106 /* Persistence.swift */,
 				85D9D68129BDFFE5008C8106 /* ProjectM.xcdatamodeld */,
+				85D9D67F29BDFFE5008C8106 /* Persistence.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -166,6 +168,14 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		85CFC4B629C7223A00AD9186 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				85CFC4B729C722A200AD9186 /* TaskDBRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		85D9D66A29BDFFE4008C8106 = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +199,7 @@
 		85D9D67529BDFFE5008C8106 /* ProjectM */ = {
 			isa = PBXGroup;
 			children = (
+				85CFC4B629C7223A00AD9186 /* Repositories */,
 				85B6C0D629C6F88E00125B05 /* Enums */,
 				85B6C0CD29C6EF4300125B05 /* Styles */,
 				852A1D1229C24BB40082AA0B /* Views */,
@@ -382,6 +393,7 @@
 				85386EFB29C6563800A69C15 /* DatePickerField.swift in Sources */,
 				85D9D68329BDFFE5008C8106 /* ProjectM.xcdatamodeld in Sources */,
 				8548108A29C5C93D002DC597 /* AddProjectSheet.swift in Sources */,
+				85CFC4B829C722A200AD9186 /* TaskDBRepository.swift in Sources */,
 				8548109129C5CC29002DC597 /* CustomTextField.swift in Sources */,
 				85B6C0D529C6F4B200125B05 /* ColorButton.swift in Sources */,
 				85B6C0D829C6F89900125B05 /* ProjectColors.swift in Sources */,
