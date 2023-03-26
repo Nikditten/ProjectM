@@ -50,7 +50,7 @@ struct PersistenceController {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
         
         // Sort the object by the date attribute in a non ascending order
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \Task.deadline, ascending: false)]
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Task.deadline, ascending: true)]
         
         // Fetch the result of the request
         do {

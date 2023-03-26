@@ -17,13 +17,13 @@ struct CircularProgressBar: View {
             ZStack {
                 Circle()
                     .stroke(
-                        Color.progressBar,
+                        Color.progressBarBackground.opacity(0.5),
                         lineWidth: 5
                     )
                 Circle()
                     .trim(from: 0, to: progress)
                     .stroke(
-                        Color.white,
+                        Color.progressBar,
                         style: StrokeStyle(
                             lineWidth: 5,
                             lineCap: .round
@@ -33,7 +33,7 @@ struct CircularProgressBar: View {
                     .animation(.easeOut, value: progress)
                 
                 Text("80%")
-                    .foregroundColor(Color.text)
+                    .foregroundColor(Color.white)
             }
             .frame(width: width, height: height)
         }

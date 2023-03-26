@@ -14,6 +14,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="note" optional="YES" attributeType="String"/>
         <attribute name="state" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="subtasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubTask" inverseName="task" inverseEntity="SubTask"/>
         <relationship name="timesheets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Timesheet" inverseName="task" inverseEntity="Timesheet"/>
     </entity>

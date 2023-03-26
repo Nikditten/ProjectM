@@ -12,21 +12,25 @@ extension Color {
     
     static let text = Color("Text")
     
+    static let taskcardText = Color.white
+    
     static let textfield_background = Color("Secondary")
     
     static let primaryButton = Color("Green")
     static let buttonText = Color("Primary")
     
-    static let progressBar = Color("Secondary")
+    static let progressBarBackground = Color("Secondary")
+    static let progressBar = Color("Primary")
     
     static let onToggle = Color("Green")
     static let offToggle = Color.secondary
     
-    static let primaryTaskColor = Color("Secondary")
+    static let primaryTaskColor = Color("onPrimary")
     static let greenTaskColor = Color("Green")
     static let blueTaskColor = Color("Blue")
     static let purpleTaskColor = Color("Purple")
     static let redTaskColor = Color("Red")
+    static let colorPicker = Color.white
     
     static let iconColor = Color("Text")
 }

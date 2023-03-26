@@ -15,44 +15,39 @@ struct TaskCard: View {
         HStack(alignment: .center) {
             VStack(alignment: .leading, spacing: 5) {
                 Text(task.name ?? "Task")
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.taskcardText)
                     .font(.system(size: 15))
                     .fontWeight(.bold)
+                    .truncationMode(.tail)
+                    .lineLimit(1)
                 
-                if (task.estimation != 0.0) {
-                    HStack {
-                        Image(systemName: "alarm")
-                        Text(String(task.estimation) + " hours")
-                    }
-                    .foregroundColor(Color.white.opacity(0.75))
-                    .font(.system(size: 15))
+                HStack {
+                    Image(systemName: "alarm")
+                    Text(
+                        task.estimation != 0.0 ? String(task.estimation) + " hours" : "No estimation"
+                    )
                 }
+                .foregroundColor(Color.taskcardText.opacity(0.75))
+                .font(.system(size: 15))
                 
-                if (task.deadline != nil) {
-                    HStack {
-                        Image(systemName: "calendar")
-                        Text(task.deadline!.formatAsDate())
-                    }
-                    .foregroundColor(Color.white.opacity(0.75))
-                    .font(.system(size: 15))
+                HStack {
+                    Image(systemName: "calendar")
+                    Text(task.deadline != nil ? task.deadline!.formatAsDate() : "No deadline")
                 }
+                .foregroundColor(Color.taskcardText.opacity(0.75))
+                .font(.system(size: 15))
                 
-                if ((task.deadline == nil || task.estimation == 0.0) && task.note != nil) {
-                    HStack {
-                        Image(systemName: "text.alignleft")
-                        Text(task.note!)
-                            .truncationMode(.tail)
-                            .lineLimit(task.deadline == nil && task.estimation == 0.0 ? 2 : 1)
-                    }
-                        .foregroundColor(Color.white.opacity(0.75))
-                        .font(.system(size: 15))
-                }
+                Text(task.timestamp!.formatAsDate())
+                    .foregroundColor(Color.taskcardText.opacity(0.75))
+                    .font(.system(size: 10))
+                    .padding(.top, 4)
                 
             }
+            .padding(.trailing)
             Spacer()
             CircularProgressBar(progress: 0.23)
         }
-        .padding(10)
+        .padding(15)
         .background(ProjectColors(rawValue: task.color!)!.toColor())
         .cornerRadius(10)
       }

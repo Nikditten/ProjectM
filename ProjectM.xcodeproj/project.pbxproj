@@ -12,6 +12,9 @@
 		85386EFB29C6563800A69C15 /* DatePickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85386EFA29C6563800A69C15 /* DatePickerField.swift */; };
 		8548108A29C5C93D002DC597 /* AddProjectSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8548108929C5C93D002DC597 /* AddProjectSheet.swift */; };
 		8548109129C5CC29002DC597 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8548109029C5CC29002DC597 /* CustomTextField.swift */; };
+		854E999C29D07FD8000E411E /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854E999B29D07FD8000E411E /* TaskDetailView.swift */; };
+		854E999E29D07FFE000E411E /* TaskDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854E999D29D07FFE000E411E /* TaskDetailViewModel.swift */; };
+		854E99A029D0834E000E411E /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854E999F29D0834E000E411E /* View+Extensions.swift */; };
 		85B6C0CF29C6EF4C00125B05 /* CheckToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0CE29C6EF4C00125B05 /* CheckToggleStyle.swift */; };
 		85B6C0D129C6F29700125B05 /* ColorPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D029C6F29700125B05 /* ColorPickerField.swift */; };
 		85B6C0D529C6F4B200125B05 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D429C6F4B200125B05 /* ColorButton.swift */; };
@@ -59,6 +62,9 @@
 		85386EFA29C6563800A69C15 /* DatePickerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerField.swift; sourceTree = "<group>"; };
 		8548108929C5C93D002DC597 /* AddProjectSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectSheet.swift; sourceTree = "<group>"; };
 		8548109029C5CC29002DC597 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		854E999B29D07FD8000E411E /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
+		854E999D29D07FFE000E411E /* TaskDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewModel.swift; sourceTree = "<group>"; };
+		854E999F29D0834E000E411E /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		85B6C0CE29C6EF4C00125B05 /* CheckToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckToggleStyle.swift; sourceTree = "<group>"; };
 		85B6C0D029C6F29700125B05 /* ColorPickerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerField.swift; sourceTree = "<group>"; };
 		85B6C0D429C6F4B200125B05 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
@@ -124,6 +130,7 @@
 		852A1D1229C24BB40082AA0B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				854E999A29D07FB8000E411E /* TaskDetail */,
 				85CFC4C329C73E6600AD9186 /* TaskOverview */,
 				85CFC4C029C73C3400AD9186 /* AddProject */,
 			);
@@ -141,6 +148,15 @@
 				85386EFA29C6563800A69C15 /* DatePickerField.swift */,
 			);
 			path = Form;
+			sourceTree = "<group>";
+		};
+		854E999A29D07FB8000E411E /* TaskDetail */ = {
+			isa = PBXGroup;
+			children = (
+				854E999B29D07FD8000E411E /* TaskDetailView.swift */,
+				854E999D29D07FFE000E411E /* TaskDetailViewModel.swift */,
+			);
+			path = TaskDetail;
 			sourceTree = "<group>";
 		};
 		85B6C0CD29C6EF4300125B05 /* Styles */ = {
@@ -271,6 +287,7 @@
 			children = (
 				85D9D6AA29BE029D008C8106 /* UIScreen+Extension.swift */,
 				85D9D6B529BE15DF008C8106 /* Date+Extensions.swift */,
+				854E999F29D0834E000E411E /* View+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -423,6 +440,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				854E999C29D07FD8000E411E /* TaskDetailView.swift in Sources */,
 				85FD2E3F29C74EAA0047DC3B /* TaskCard.swift in Sources */,
 				85CFC4C229C73C4400AD9186 /* AddProjectViewModel.swift in Sources */,
 				85D9D6A829BE00D7008C8106 /* Color+Extensions.swift in Sources */,
@@ -435,7 +453,9 @@
 				8548108A29C5C93D002DC597 /* AddProjectSheet.swift in Sources */,
 				8548109129C5CC29002DC597 /* CustomTextField.swift in Sources */,
 				85B6C0D529C6F4B200125B05 /* ColorButton.swift in Sources */,
+				854E99A029D0834E000E411E /* View+Extensions.swift in Sources */,
 				85B6C0D829C6F89900125B05 /* ProjectColors.swift in Sources */,
+				854E999E29D07FFE000E411E /* TaskDetailViewModel.swift in Sources */,
 				85D9D6B629BE15DF008C8106 /* Date+Extensions.swift in Sources */,
 				85D9D67929BDFFE5008C8106 /* ContentView.swift in Sources */,
 				85D9D67729BDFFE5008C8106 /* ProjectMApp.swift in Sources */,

@@ -20,12 +20,16 @@ struct ContentView: View {
             ScrollView {
                 VStack {
                     ForEach(vm.tasks) { task in
-                        TaskCard(task: task)
+                        NavigationLink {
+                            TaskDetailView()
+                        } label: {
+                            TaskCard(task: task)
+                        }
                     }
                 }
             }
             .frame(alignment: .top)
-            .padding()
+            .padding([.leading, .trailing])
             .navigationTitle("Tasks")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

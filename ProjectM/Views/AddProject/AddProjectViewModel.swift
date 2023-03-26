@@ -34,6 +34,8 @@ class AddProjectViewModel: ObservableObject {
         
         newTask.color = projectColor.toString()
         
+        newTask.timestamp = Date()
+        
         var success = false
         
         do {
