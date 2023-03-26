@@ -295,19 +295,19 @@
 		85D9D6B029BE0BB2008C8106 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				85FD2E3D29C74EA00047DC3B /* Task */,
+				85FD2E3D29C74EA00047DC3B /* TaskCard */,
 				8548108F29C5CC1D002DC597 /* Form */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		85FD2E3D29C74EA00047DC3B /* Task */ = {
+		85FD2E3D29C74EA00047DC3B /* TaskCard */ = {
 			isa = PBXGroup;
 			children = (
 				85BEFE6929D04AE40003A7B0 /* Components */,
 				85FD2E3E29C74EAA0047DC3B /* TaskCard.swift */,
 			);
-			path = Task;
+			path = TaskCard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
