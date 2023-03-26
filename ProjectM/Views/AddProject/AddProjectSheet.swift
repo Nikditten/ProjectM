@@ -27,23 +27,21 @@ struct AddProjectSheet: View {
                     
                     HourPickerField(label: "Estimated hours", value: $vm.projectHours, showHours: $vm.hasEstimation)
 
-                    // Custom radiobuttons to select color
                     ColorPickerField(label: "Color", activeColor: $vm.projectColor)
                     
-                    
                     SubmitButton(
-                        label: "Done"
+                        label: "Create"
                     ) {
                         
                         isPresented = !vm.add()
                     }
                     .disabled(vm.projectName.count == 0)
+                    .padding(.bottom, 40)
                     
                     
                 }
             }
             .padding()
-            .padding(.bottom, 40)
             .background(Color.background)
             .ignoresSafeArea(.container, edges: [.bottom])
             .navigationTitle("New Task")

@@ -20,7 +20,6 @@ class TaskOverviewModel: ObservableObject {
     
     func refreshTasks() {
         tasks = dbController.fetchAllTasks()
-        print(tasks[0])
     }
     
 }

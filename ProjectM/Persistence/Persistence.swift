@@ -44,7 +44,7 @@ struct PersistenceController {
 
     func fetchAllTasks() -> [Task]{
         
-        var tasks = [Task]()
+        var tasks: [Task] = []
         
         // Make a request for WorkItem objects
         let request: NSFetchRequest<Task> = Task.fetchRequest()

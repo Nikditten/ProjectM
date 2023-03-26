@@ -29,7 +29,7 @@ struct ColorButton: View {
                     Group {
                         if (color == activeColor) {
                             Image(systemName: "checkmark")
-                                .foregroundColor(.white)
+                                .foregroundColor(Color.iconColor)
                         }
                     }
                 )

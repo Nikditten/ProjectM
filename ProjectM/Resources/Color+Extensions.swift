@@ -27,4 +27,6 @@ extension Color {
     static let blueTaskColor = Color("Blue")
     static let purpleTaskColor = Color("Purple")
     static let redTaskColor = Color("Red")
+    
+    static let iconColor = Color("Text")
 }

@@ -27,11 +27,22 @@ struct ContentView: View {
             .frame(alignment: .top)
             .padding()
             .navigationTitle("Tasks")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        showingSheet.toggle()
+                    }, label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(Color.iconColor)
+                    })
+                }
+            }
         }
         .background(Color.background)
         .sheet(isPresented: $showingSheet, onDismiss: vm.refreshTasks) {
             AddProjectSheet(isPresented: $showingSheet)
         }
+        
     }
     
     

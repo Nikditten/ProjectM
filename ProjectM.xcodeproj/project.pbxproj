@@ -16,6 +16,7 @@
 		85B6C0D129C6F29700125B05 /* ColorPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D029C6F29700125B05 /* ColorPickerField.swift */; };
 		85B6C0D529C6F4B200125B05 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D429C6F4B200125B05 /* ColorButton.swift */; };
 		85B6C0D829C6F89900125B05 /* ProjectColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D729C6F89900125B05 /* ProjectColors.swift */; };
+		85BEFE6B29D04AEE0003A7B0 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BEFE6A29D04AEE0003A7B0 /* CircularProgressBar.swift */; };
 		85CFC4BC29C736B300AD9186 /* TaskStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFC4BB29C736B300AD9186 /* TaskStates.swift */; };
 		85CFC4C229C73C4400AD9186 /* AddProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFC4C129C73C4400AD9186 /* AddProjectViewModel.swift */; };
 		85CFC4C529C73E7C00AD9186 /* TaskOverviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFC4C429C73E7C00AD9186 /* TaskOverviewModel.swift */; };
@@ -33,7 +34,6 @@
 		85D9D6B629BE15DF008C8106 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D6B529BE15DF008C8106 /* Date+Extensions.swift */; };
 		85EB960129C61438000B0AF2 /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EB960029C61438000B0AF2 /* SubmitButton.swift */; };
 		85FD2E3F29C74EAA0047DC3B /* TaskCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FD2E3E29C74EAA0047DC3B /* TaskCard.swift */; };
-		85FD2E4229C74F7A0047DC3B /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FD2E4129C74F7A0047DC3B /* CircularProgressBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +63,7 @@
 		85B6C0D029C6F29700125B05 /* ColorPickerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerField.swift; sourceTree = "<group>"; };
 		85B6C0D429C6F4B200125B05 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		85B6C0D729C6F89900125B05 /* ProjectColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectColors.swift; sourceTree = "<group>"; };
+		85BEFE6A29D04AEE0003A7B0 /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		85CFC4BB29C736B300AD9186 /* TaskStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStates.swift; sourceTree = "<group>"; };
 		85CFC4C129C73C4400AD9186 /* AddProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectViewModel.swift; sourceTree = "<group>"; };
 		85CFC4C429C73E7C00AD9186 /* TaskOverviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskOverviewModel.swift; sourceTree = "<group>"; };
@@ -84,7 +85,6 @@
 		85D9D6B529BE15DF008C8106 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		85EB960029C61438000B0AF2 /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
 		85FD2E3E29C74EAA0047DC3B /* TaskCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCard.swift; sourceTree = "<group>"; };
-		85FD2E4129C74F7A0047DC3B /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +175,14 @@
 				85CFC4BB29C736B300AD9186 /* TaskStates.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		85BEFE6929D04AE40003A7B0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				85BEFE6A29D04AEE0003A7B0 /* CircularProgressBar.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		85CFC4C029C73C3400AD9186 /* AddProject */ = {
@@ -279,18 +287,10 @@
 		85FD2E3D29C74EA00047DC3B /* Task */ = {
 			isa = PBXGroup;
 			children = (
-				85FD2E4029C74F6E0047DC3B /* Components */,
+				85BEFE6929D04AE40003A7B0 /* Components */,
 				85FD2E3E29C74EAA0047DC3B /* TaskCard.swift */,
 			);
 			path = Task;
-			sourceTree = "<group>";
-		};
-		85FD2E4029C74F6E0047DC3B /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				85FD2E4129C74F7A0047DC3B /* CircularProgressBar.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,7 +428,7 @@
 				85D9D6A829BE00D7008C8106 /* Color+Extensions.swift in Sources */,
 				85D9D68029BDFFE5008C8106 /* Persistence.swift in Sources */,
 				85B6C0CF29C6EF4C00125B05 /* CheckToggleStyle.swift in Sources */,
-				85FD2E4229C74F7A0047DC3B /* CircularProgressBar.swift in Sources */,
+				85BEFE6B29D04AEE0003A7B0 /* CircularProgressBar.swift in Sources */,
 				85386EFB29C6563800A69C15 /* DatePickerField.swift in Sources */,
 				85CFC4C529C73E7C00AD9186 /* TaskOverviewModel.swift in Sources */,
 				85D9D68329BDFFE5008C8106 /* ProjectM.xcdatamodeld in Sources */,

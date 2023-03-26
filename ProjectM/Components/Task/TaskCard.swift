@@ -12,55 +12,48 @@ struct TaskCard: View {
     let task: Task
     
     var body: some View {
-          HStack {
-              Button {
-                  withAnimation {
-                      if (task.state == 0) {
-                          task.state = 1
-                      } else {
-                          task.state = 0
-                      }
-                  }
-              } label: {
-                  Image(systemName: task.state == 1 ? "checkmark.circle.fill" : "circle")
-                      .foregroundColor(task.state == 1 ? Color.onToggle : Color.offToggle)
-                      .accessibility(label: Text(task.state == 1 ? "Checked" : "Unchecked"))
-                      .imageScale(.large)
-              }
-              .font(.footnote)
-              .buttonStyle(PlainButtonStyle())
-              .padding(.trailing, 20)
-              
-              HStack(alignment: .center) {
-                  VStack(alignment: .leading, spacing: 5) {
-                      Text(task.name ?? "Task")
-                          .foregroundColor(Color.text)
-                          .font(.system(size: 15))
-                          .fontWeight(.bold)
-                      
-                      HStack {
-                          Image(systemName: "alarm")
-                          Text(String(task.estimation) + " hours")
-                      }
-                      .foregroundColor(Color.text.opacity(0.5))
-                      .font(.system(size: 15))
-                      
-                      if (task.deadline != nil) {
-                          HStack {
-                              Image(systemName: "calendar")
-                              Text(task.deadline!.formatAsDate())
-                          }
-                          .foregroundColor(Color.text.opacity(0.5))
-                          .font(.system(size: 15))
-                      }
-                      
-                  }
-                  Spacer()
-                  CircularProgressBar(progress: 0.23)
-              }
-              .padding(10)
-              .background(ProjectColors(rawValue: task.color!)!.toColor())
-              .cornerRadius(10)
-          }
+        HStack(alignment: .center) {
+            VStack(alignment: .leading, spacing: 5) {
+                Text(task.name ?? "Task")
+                    .foregroundColor(Color.white)
+                    .font(.system(size: 15))
+                    .fontWeight(.bold)
+                
+                if (task.estimation != 0.0) {
+                    HStack {
+                        Image(systemName: "alarm")
+                        Text(String(task.estimation) + " hours")
+                    }
+                    .foregroundColor(Color.white.opacity(0.75))
+                    .font(.system(size: 15))
+                }
+                
+                if (task.deadline != nil) {
+                    HStack {
+                        Image(systemName: "calendar")
+                        Text(task.deadline!.formatAsDate())
+                    }
+                    .foregroundColor(Color.white.opacity(0.75))
+                    .font(.system(size: 15))
+                }
+                
+                if ((task.deadline == nil || task.estimation == 0.0) && task.note != nil) {
+                    HStack {
+                        Image(systemName: "text.alignleft")
+                        Text(task.note!)
+                            .truncationMode(.tail)
+                            .lineLimit(task.deadline == nil && task.estimation == 0.0 ? 2 : 1)
+                    }
+                        .foregroundColor(Color.white.opacity(0.75))
+                        .font(.system(size: 15))
+                }
+                
+            }
+            Spacer()
+            CircularProgressBar(progress: 0.23)
+        }
+        .padding(10)
+        .background(ProjectColors(rawValue: task.color!)!.toColor())
+        .cornerRadius(10)
       }
   }
