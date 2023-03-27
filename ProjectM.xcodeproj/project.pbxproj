@@ -10,6 +10,7 @@
 		85386EF329C6383B00A69C15 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85386EF229C6383B00A69C15 /* MultilineTextField.swift */; };
 		85386EF929C6505100A69C15 /* HourPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85386EF829C6505100A69C15 /* HourPickerField.swift */; };
 		85386EFB29C6563800A69C15 /* DatePickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85386EFA29C6563800A69C15 /* DatePickerField.swift */; };
+		85444E3B29D208480093243C /* SubTaskCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85444E3A29D208480093243C /* SubTaskCard.swift */; };
 		8548108A29C5C93D002DC597 /* AddProjectSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8548108929C5C93D002DC597 /* AddProjectSheet.swift */; };
 		8548109129C5CC29002DC597 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8548109029C5CC29002DC597 /* CustomTextField.swift */; };
 		854E999C29D07FD8000E411E /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854E999B29D07FD8000E411E /* TaskDetailView.swift */; };
@@ -60,6 +61,7 @@
 		85386EF229C6383B00A69C15 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 		85386EF829C6505100A69C15 /* HourPickerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourPickerField.swift; sourceTree = "<group>"; };
 		85386EFA29C6563800A69C15 /* DatePickerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerField.swift; sourceTree = "<group>"; };
+		85444E3A29D208480093243C /* SubTaskCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskCard.swift; sourceTree = "<group>"; };
 		8548108929C5C93D002DC597 /* AddProjectSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectSheet.swift; sourceTree = "<group>"; };
 		8548109029C5CC29002DC597 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		854E999B29D07FD8000E411E /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
@@ -135,6 +137,14 @@
 				85CFC4C029C73C3400AD9186 /* AddProject */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		85444E3929D2083B0093243C /* SubTaskCard */ = {
+			isa = PBXGroup;
+			children = (
+				85444E3A29D208480093243C /* SubTaskCard.swift */,
+			);
+			path = SubTaskCard;
 			sourceTree = "<group>";
 		};
 		8548108F29C5CC1D002DC597 /* Form */ = {
@@ -295,6 +305,7 @@
 		85D9D6B029BE0BB2008C8106 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				85444E3929D2083B0093243C /* SubTaskCard */,
 				85FD2E3D29C74EA00047DC3B /* TaskCard */,
 				8548108F29C5CC1D002DC597 /* Form */,
 			);
@@ -461,6 +472,7 @@
 				85D9D67729BDFFE5008C8106 /* ProjectMApp.swift in Sources */,
 				85D9D6AB29BE029D008C8106 /* UIScreen+Extension.swift in Sources */,
 				85386EF929C6505100A69C15 /* HourPickerField.swift in Sources */,
+				85444E3B29D208480093243C /* SubTaskCard.swift in Sources */,
 				85B6C0D129C6F29700125B05 /* ColorPickerField.swift in Sources */,
 				85EB960129C61438000B0AF2 /* SubmitButton.swift in Sources */,
 				85386EF329C6383B00A69C15 /* MultilineTextField.swift in Sources */,

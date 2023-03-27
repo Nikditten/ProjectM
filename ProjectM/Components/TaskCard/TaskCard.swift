@@ -16,7 +16,7 @@ struct TaskCard: View {
             VStack(alignment: .leading, spacing: 5) {
                 Text(task.name ?? "Task")
                     .foregroundColor(Color.taskcardText)
-                    .font(.system(size: 15))
+                    .font(.system(size: 14))
                     .fontWeight(.bold)
                     .truncationMode(.tail)
                     .lineLimit(1)
@@ -28,18 +28,18 @@ struct TaskCard: View {
                     )
                 }
                 .foregroundColor(Color.taskcardText.opacity(0.75))
-                .font(.system(size: 15))
+                .font(.system(size: 10))
                 
                 HStack {
                     Image(systemName: "calendar")
                     Text(task.deadline != nil ? task.deadline!.formatAsDate() : "No deadline")
                 }
                 .foregroundColor(Color.taskcardText.opacity(0.75))
-                .font(.system(size: 15))
+                .font(.system(size: 10))
                 
                 Text(task.timestamp!.formatAsDate())
                     .foregroundColor(Color.taskcardText.opacity(0.75))
-                    .font(.system(size: 10))
+                    .font(.system(size: 8))
                     .padding(.top, 4)
                 
             }

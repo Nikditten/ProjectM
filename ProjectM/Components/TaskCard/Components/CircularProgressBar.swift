@@ -10,8 +10,8 @@ import SwiftUI
 struct CircularProgressBar: View {
     let progress: Double
 
-        let height: CGFloat = 60
-        let width: CGFloat = 60
+        let height: CGFloat = 50
+        let width: CGFloat = 50
         
         var body: some View {
             ZStack {
@@ -34,6 +34,7 @@ struct CircularProgressBar: View {
                 
                 Text("80%")
                     .foregroundColor(Color.white)
+                    .font(.system(size: 15))
             }
             .frame(width: width, height: height)
         }

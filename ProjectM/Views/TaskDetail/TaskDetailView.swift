@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+struct subtask: Hashable {
+var name: String
+var note: String
+var state: TaskState
+    
+    init(name: String, note: String, state: TaskState) {
+        self.name = name
+        self.note = note
+        self.state = state
+    }
+}
+
 struct TaskDetailView: View {
     
     //let task: Task
@@ -21,7 +33,11 @@ struct TaskDetailView: View {
     
     let desciption = "Creating a landing page is an important task that involves designing and developing a webpage with the specific goal of converting visitors into leads or customers. The landing page should be visually appealing, user-friendly, and optimized for search engines to drive traffic to the website. To create a landing page, you will need to start by defining the objective and audience of the page. This will involve researching the target market, identifying their pain points and needs, and creating a value proposition that addresses these issues. Once you have a clear understanding of the target audience and objectives, you can begin designing the layout and content of the landing page. This will involve creating a headline that grabs the visitor's attention, crafting persuasive copy that highlights the benefits of your product or service, and adding compelling images or videos that reinforce your message."
     
-    let subtasks = ["This is a test"]
+    let subtasks = [
+        subtask(name: "Clean the floor", note: "This has to be done", state: TaskState.ToDo),
+        subtask(name: "This is a very long name for a subtask", note: "The description can be even longer so we can see how the User experience is and if we can optimize it", state: TaskState.Completed)
+    ]
+    
     
     
     var body: some View {
@@ -31,9 +47,9 @@ struct TaskDetailView: View {
                 
                 Text(name)
                     .foregroundColor(Color.taskcardText)
-                    .font(name.count > 30 ? .title : .largeTitle)
+                    .font(name.count > 25 ? .title : .largeTitle)
                     .fontWeight(.bold)
-                    .lineLimit(2)
+                    
                     .truncationMode(.tail)
                     .padding([.top, .bottom])
                 
@@ -72,7 +88,7 @@ struct TaskDetailView: View {
                 
             }
             .padding([.bottom, .horizontal])
-            .frame(width: UIScreen.screenWidth, alignment: .leading)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             
             ScrollView {
                 VStack (alignment: .leading) {
@@ -81,6 +97,7 @@ struct TaskDetailView: View {
                         .fontWeight(.bold)
                         .foregroundColor(Color.text)
                         .padding(.bottom, 5)
+                        .padding(.top)
                     
                     VStack {
                         Text(desciption)
@@ -132,26 +149,21 @@ struct TaskDetailView: View {
                     ScrollView {
                         VStack{
                             ForEach(subtasks, id: \.self) { subtask in
-                                Text(subtask)
+                                SubTaskCard(_subtask: subtask)
                             }
-                            
-                            
-                            
                         }
                     }
-                    .padding(.bottom, 50)
-                    
+                    .padding(.bottom)
                 }
             }
             .padding()
-            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.70, alignment: .top)
+            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.7, alignment: .bottom)
             .background(Color.background)
             .roundedCorner(30, corners: [.topLeft, .topRight])
             
         }
-        .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .bottom)
         .background(ProjectColors.green.toColor())
-        
+        .ignoresSafeArea(.all, edges: .bottom)
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

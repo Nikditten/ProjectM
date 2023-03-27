@@ -18,7 +18,7 @@ struct ContentView: View {
         
         NavigationView {
             ScrollView {
-                VStack {
+                VStack (spacing: 15) {
                     ForEach(vm.tasks) { task in
                         NavigationLink {
                             TaskDetailView()
