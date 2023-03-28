@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SubTaskCard: View {
     
-    let _subtask: subtask
+    let _subtask: SubTask
     
     @State var completed = false
     
@@ -26,10 +26,10 @@ struct SubTaskCard: View {
                     .imageScale(.large)
             }
             .font(.footnote)
-            .frame(alignment: .leading)
+            .frame(alignment: .topLeading)
             .buttonStyle(PlainButtonStyle())
             
-            Text(_subtask.name)
+            Text(_subtask.name!)
                 .foregroundColor(Color.white)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -39,10 +39,3 @@ struct SubTaskCard: View {
       }
   }
 
-struct SubTaskCard_Previews: PreviewProvider {
-    static var previews: some View {
-        SubTaskCard(
-            _subtask: subtask(name: "This is a test", note: "This is a test description", state: TaskState.ToDo)
-        )
-    }
-}

@@ -21,7 +21,7 @@ struct ContentView: View {
                 VStack (spacing: 15) {
                     ForEach(vm.tasks) { task in
                         NavigationLink {
-                            TaskDetailView()
+                            TaskDetailView(task: task)
                         } label: {
                             TaskCard(task: task)
                         }
