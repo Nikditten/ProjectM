@@ -13,6 +13,8 @@ struct TaskDetailView: View {
     
     @ObservedObject var vm: TaskDetailViewModel
     
+    @State var completed = false
+    
     // init viewmodel with task as parameter
     init(taskId: UUID) {
         self.vm = TaskDetailViewModel(taskId: taskId)
@@ -80,12 +82,35 @@ struct TaskDetailView: View {
                         .padding(.bottom, 5)
                         .padding(.top)
                     
+                    HStack (alignment: .center) {
+                        
+                        Text(completed ? "Completed" : "Ongoing")
+                            .font(.headline)
+                            .foregroundColor(Color.text)
+                        
+                        Spacer()
+                        
+                        Button {
+                            withAnimation {
+                                completed.toggle()
+                            }
+                        } label: {
+                            Image(systemName: completed ? "checkmark.circle.fill" : "circle")
+                                .foregroundColor(ProjectColors(rawValue: vm.task.color!)?.toColor())
+                                .accessibility(label: Text(completed ? "Checked" : "Unchecked"))
+                                .imageScale(.large)
+                        }
+                        .font(.title3)
+                        .buttonStyle(PlainButtonStyle())
+                    }
+                    
                     ProgressView(value: 0.2, total: 1)
                         .tint(ProjectColors(rawValue: vm.task.color!)?.toColor())
                         .scaleEffect(x: 1, y: 2, anchor: .center)
                         .padding(.bottom)
                     
                     if (vm.task.note != nil && vm.task.note?.count ?? 0 > 0) {
+
                         Text("Description")
                             .font(.title2)
                             .fontWeight(.bold)
@@ -93,38 +118,30 @@ struct TaskDetailView: View {
                             .padding(.bottom, 5)
                             .padding(.top)
                         
-                        VStack {
-                            Text(vm.task.note!)
-                                .lineLimit(vm.showFullDescription ? .max : 4)
-                                .truncationMode(.tail)
-                                .foregroundColor(Color.text)
-                            
-                            Button {
-                                withAnimation {
-                                    vm.showFullDescription.toggle()
-                                }
-                                
-                            } label: {
-                                HStack {
-                                    Text("See full description")
-                                    Image(systemName: vm.showFullDescription ? "chevron.up" : "chevron.down")
-                                }
-                                
-                            }
-                            .padding(.top, 2)
-                            .font(.callout)
-                            .fontWeight(.bold)
-                            .foregroundColor(ProjectColors(rawValue: vm.task.color!)?.toColor())
-                            
-                        }
-                        .padding(.bottom)
+                        ExpandableText(vm.task.note!, color: (ProjectColors(rawValue: vm.task.color!)?.toColor())!)
+                            .padding(.bottom)
                     }
                     
-                    Text("Sub task")
-                        .foregroundColor(Color.text)
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .padding(.bottom, 5)
+                    HStack {
+                        Text("Sub task")
+                            .foregroundColor(Color.text)
+                            .fontWeight(.bold)
+                            .padding(.bottom, 5)
+                        
+                        Spacer()
+                        
+                        if (vm.task.subtasks?.count ?? 0 > 0) {
+                            Button {
+                                withAnimation {
+                                    vm.showInputField.toggle()
+                                }
+                            } label: {
+                                Image(systemName: vm.showInputField ?  "xmark.circle": "plus.circle")
+                                    .foregroundColor(ProjectColors(rawValue: vm.task.color!)?.toColor())
+                            }
+                        }
+                    }
+                    .font(.title2)
                     
                     ScrollView {
                         VStack{
@@ -133,25 +150,7 @@ struct TaskDetailView: View {
                                     SubTaskCard(projectColor: (ProjectColors(rawValue: vm.task.color!)?.toColor())!, _subtask: subtask)
                                 }}
                             
-                            Button {
-                                withAnimation {
-                                    vm.showInputField.toggle()
-                                }
-                            } label: {
-                                Image(systemName: vm.showInputField ? "xmark" : "plus")
-                                    .foregroundColor(Color.taskDetailAddSubTask)
-                                    .frame(maxWidth: .infinity, alignment: .center)
-                                    .padding()
-                                    .cornerRadius(10)
-                            }
-                            .background(ProjectColors(rawValue: vm.task.color!)!.toColor())
-                            .cornerRadius(10)
-                            
                             if (vm.showInputField) {
-                                
-                                Divider()
-                                    .padding(.horizontal)
-                                
                                 TextField("New subtask", text: $vm.value)
                                     .keyboardType(.default)
                                     .padding(15)
@@ -164,6 +163,24 @@ struct TaskDetailView: View {
                                         vm.add()
                                     }
                             }
+                            
+                            if (vm.task.subtasks?.count ?? 0 == 0) {
+                                Button {
+                                    withAnimation {
+                                        vm.showInputField.toggle()
+                                    }
+                                } label: {
+                                    Image(systemName: vm.showInputField ? "xmark" : "plus")
+                                        .foregroundColor(Color.taskDetailAddSubTask)
+                                        .frame(maxWidth: .infinity, alignment: .center)
+                                        .padding()
+                                        .cornerRadius(10)
+                                }
+                                .frame(maxWidth: .infinity)
+                                .background(ProjectColors(rawValue: vm.task.color!)?.toColor())
+                                .cornerRadius(10)
+                            }
+                            
                         }
                     }
                     .padding(.bottom)

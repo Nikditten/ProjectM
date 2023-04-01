@@ -16,22 +16,24 @@ struct SubTaskCard: View {
     
     var body: some View {
         HStack {
+            
             Button {
                 withAnimation {
                     completed.toggle()
                 }
             } label: {
                 Image(systemName: completed ? "checkmark.circle.fill" : "circle")
-                    .foregroundColor(completed ? projectColor : Color.subTaskCheckbox)
+                    .foregroundColor(projectColor)
                     .accessibility(label: Text(completed ? "Checked" : "Unchecked"))
                     .imageScale(.large)
             }
-            .font(.footnote)
+            .font(.headline)
             .frame(alignment: .topLeading)
             .buttonStyle(PlainButtonStyle())
             
             Text(_subtask.name!)
                 .foregroundColor(Color.subTaskCardText)
+            
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
