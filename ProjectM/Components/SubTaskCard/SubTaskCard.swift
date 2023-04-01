@@ -9,9 +9,8 @@ import SwiftUI
 
 struct SubTaskCard: View {
     
-    let _subtask: SubTask
-    
     let projectColor: Color
+    let _subtask: SubTask
     
     @State var completed = false
     
@@ -23,7 +22,7 @@ struct SubTaskCard: View {
                 }
             } label: {
                 Image(systemName: completed ? "checkmark.circle.fill" : "circle")
-                    .foregroundColor(completed ? Color.white : Color.white)
+                    .foregroundColor(completed ? projectColor : Color.subTaskCheckbox)
                     .accessibility(label: Text(completed ? "Checked" : "Unchecked"))
                     .imageScale(.large)
             }
@@ -32,11 +31,11 @@ struct SubTaskCard: View {
             .buttonStyle(PlainButtonStyle())
             
             Text(_subtask.name!)
-                .foregroundColor(Color.white)
+                .foregroundColor(Color.subTaskCardText)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
-        .background(projectColor)
+        .background(Color.subTaskCardBackground)
         .cornerRadius(10)
       }
   }

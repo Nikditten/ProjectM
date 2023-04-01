@@ -19,7 +19,7 @@ struct CircularProgressBar: View {
         ZStack {
             Circle()
                 .stroke(
-                    Color.progressBarBackground.opacity(0.5),
+                    Color.progressBarBackground,
                     lineWidth: 5
                 )
             Circle()
@@ -36,11 +36,11 @@ struct CircularProgressBar: View {
             
             if (progress == 1) {
                 Image(systemName: "checkmark")
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.text)
                     .font(.system(size: 14))
             } else {
                 Text(Formatter.percent.string(from: NSNumber(value: progress))!)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.progressBarText)
                     .font(.system(size: 14))
                     .minimumScaleFactor(0.25)
             }

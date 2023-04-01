@@ -45,10 +45,10 @@ struct TaskCard: View {
             }
             .padding(.trailing)
             Spacer()
-            CircularProgressBar(progress: 0.75)
+            CircularProgressBar(color: ProjectColors(rawValue: task.color!)!.toColor(), progress: 0.75)
         }
         .padding(15)
-        .background(ProjectColors(rawValue: task.color!)!.toColor())
+        .background(Color.textfield_background)
         .cornerRadius(10)
       }
   }

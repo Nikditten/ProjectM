@@ -62,7 +62,7 @@ struct TaskDetailView: View {
                         
                     }
                     .font(.largeTitle)
-                    .foregroundColor(Color.background)
+                    .foregroundColor(ProjectColors(rawValue: vm.task.color!)!.toColor())
                     
                 }
                 
@@ -130,7 +130,7 @@ struct TaskDetailView: View {
                         VStack{
                             if let subtasks = vm.task.subtasks?.allObjects as? [SubTask] {
                                 ForEach(subtasks, id: \.self) { subtask in
-                                    SubTaskCard(_subtask: subtask,  projectColor: (ProjectColors(rawValue: vm.task.color!)?.toColor())!)
+                                    SubTaskCard(projectColor: (ProjectColors(rawValue: vm.task.color!)?.toColor())!, _subtask: subtask)
                                 }}
                             
                             Button {
@@ -139,16 +139,12 @@ struct TaskDetailView: View {
                                 }
                             } label: {
                                 Image(systemName: vm.showInputField ? "xmark" : "plus")
-                                    .foregroundColor(ProjectColors(rawValue: vm.task.color!)?.toColor())
+                                    .foregroundColor(Color.taskDetailAddSubTask)
                                     .frame(maxWidth: .infinity, alignment: .center)
                                     .padding()
                                     .cornerRadius(10)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(ProjectColors(rawValue: vm.task.color!)!.toColor(), lineWidth: 4)
-                                    )
                             }
-                            .background(Color.background)
+                            .background(ProjectColors(rawValue: vm.task.color!)!.toColor())
                             .cornerRadius(10)
                             
                             if (vm.showInputField) {
@@ -175,11 +171,11 @@ struct TaskDetailView: View {
             }
             .padding()
             .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.65, alignment: .bottom)
-            .background(Color.background)
+            .background(Color.taskDetailBodyBackground)
             .roundedCorner(30, corners: [.topLeft, .topRight])
             
         }
-        .background(ProjectColors(rawValue: vm.task.color!)!.toColor())
+        .background(Color.taskDetailHeaderBackground)
         .ignoresSafeArea(.all, edges: .bottom)
         .navigationBarBackButtonHidden()
         .toolbar {
@@ -191,7 +187,7 @@ struct TaskDetailView: View {
                     Image(systemName: "chevron.backward")
                 }
                 .font(.title3)
-                .foregroundColor(Color.background)
+                .foregroundColor(Color.taskDetailIcon)
             }
             
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -203,7 +199,7 @@ struct TaskDetailView: View {
                     
                 }
                 .font(.title3)
-                .foregroundColor(Color.background)
+                .foregroundColor(Color.taskDetailIcon)
             }
         }
     }
