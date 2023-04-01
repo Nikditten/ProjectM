@@ -7,38 +7,27 @@
 
 import SwiftUI
 
-struct subtask: Hashable {
-    var name: String
-    var note: String
-    var state: TaskState
-    
-    init(name: String, note: String, state: TaskState) {
-        self.name = name
-        self.note = note
-        self.state = state
-    }
-}
-
 struct TaskDetailView: View {
-    
-    let task: Task
     
     @Environment(\.dismiss) private var dismiss
     
-    @State var showFullDescription = false
-    @State var showInputField = false
-    @State var value = ""
+    @ObservedObject var vm: TaskDetailViewModel
     
+    // init viewmodel with task as parameter
+    init(taskId: UUID) {
+        self.vm = TaskDetailViewModel(taskId: taskId)
+    }
     
+    @State private var progress = 0.2
     
     var body: some View {
         VStack {
             
             VStack (alignment: .leading) {
                 
-                Text(task.name!)
+                Text(vm.task.name!)
                     .foregroundColor(Color.taskcardText)
-                    .font(task.name!.count > 25 ? .title : .largeTitle)
+                    .font(vm.task.name!.count > 25 ? .title : .largeTitle)
                     .fontWeight(.bold)
                     .minimumScaleFactor(0.1)
                     .truncationMode(.tail)
@@ -49,13 +38,13 @@ struct TaskDetailView: View {
                     VStack (alignment: .leading, spacing: 5) {
                         HStack {
                             Image(systemName: "alarm")
-                            Text(task.estimation != 0.0 ? String(task.estimation) + " hours" : "No estimation")
+                            Text(vm.task.estimation != 0.0 ? Formatter.hoursFull.string(from: vm.task.estimation * 60 * 60)! : "No estimation")
                         }
                         
                         
                         HStack {
                             Image(systemName: "calendar")
-                            Text(task.deadline != nil ? task.deadline!.formatAsDate() : "No deadline")
+                            Text(vm.task.deadline != nil ? vm.task.deadline!.formatAsDate() : "No deadline")
                         }
                     }
                     .foregroundColor(Color.taskcardText.opacity(0.75))
@@ -83,36 +72,49 @@ struct TaskDetailView: View {
             
             ScrollView {
                 VStack (alignment: .leading) {
-                    Text("Description")
+                    
+                    Text("Progression")
                         .font(.title2)
                         .fontWeight(.bold)
                         .foregroundColor(Color.text)
                         .padding(.bottom, 5)
                         .padding(.top)
-                    if (task.note != nil && task.note?.count ?? 0 > 0) {
+                    
+                    ProgressView(value: 0.2, total: 1)
+                        .tint(ProjectColors(rawValue: vm.task.color!)?.toColor())
+                        .scaleEffect(x: 1, y: 2, anchor: .center)
+                        .padding(.bottom)
+                    
+                    if (vm.task.note != nil && vm.task.note?.count ?? 0 > 0) {
+                        Text("Description")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.text)
+                            .padding(.bottom, 5)
+                            .padding(.top)
                         
                         VStack {
-                            Text(task.note!)
-                                .lineLimit(showFullDescription ? .max : 4)
+                            Text(vm.task.note!)
+                                .lineLimit(vm.showFullDescription ? .max : 4)
                                 .truncationMode(.tail)
                                 .foregroundColor(Color.text)
                             
                             Button {
                                 withAnimation {
-                                    showFullDescription.toggle()
+                                    vm.showFullDescription.toggle()
                                 }
                                 
                             } label: {
                                 HStack {
                                     Text("See full description")
-                                    Image(systemName: showFullDescription ? "chevron.up" : "chevron.down")
+                                    Image(systemName: vm.showFullDescription ? "chevron.up" : "chevron.down")
                                 }
                                 
                             }
                             .padding(.top, 2)
                             .font(.callout)
                             .fontWeight(.bold)
-                            .foregroundColor(ProjectColors(rawValue: task.color!)?.toColor())
+                            .foregroundColor(ProjectColors(rawValue: vm.task.color!)?.toColor())
                             
                         }
                         .padding(.bottom)
@@ -126,41 +128,45 @@ struct TaskDetailView: View {
                     
                     ScrollView {
                         VStack{
-                            if let subtasks = task.subtasks?.allObjects as? [SubTask] {
+                            if let subtasks = vm.task.subtasks?.allObjects as? [SubTask] {
                                 ForEach(subtasks, id: \.self) { subtask in
-                                    SubTaskCard(_subtask: subtask)
+                                    SubTaskCard(_subtask: subtask,  projectColor: (ProjectColors(rawValue: vm.task.color!)?.toColor())!)
                                 }}
                             
                             Button {
                                 withAnimation {
-                                    showInputField.toggle()
+                                    vm.showInputField.toggle()
                                 }
                             } label: {
-                                Image(systemName: showInputField ? "xmark" : "plus")
-                                    .foregroundColor(ProjectColors(rawValue: task.color!)?.toColor())
+                                Image(systemName: vm.showInputField ? "xmark" : "plus")
+                                    .foregroundColor(ProjectColors(rawValue: vm.task.color!)?.toColor())
                                     .frame(maxWidth: .infinity, alignment: .center)
                                     .padding()
                                     .cornerRadius(10)
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(ProjectColors(rawValue: task.color!)!.toColor(), lineWidth: 4)
+                                            .stroke(ProjectColors(rawValue: vm.task.color!)!.toColor(), lineWidth: 4)
                                     )
                             }
                             .background(Color.background)
                             .cornerRadius(10)
                             
-                            if (showInputField) {
+                            if (vm.showInputField) {
                                 
                                 Divider()
                                     .padding(.horizontal)
                                 
-                                TextField("New subtask", text: $value)
+                                TextField("New subtask", text: $vm.value)
                                     .keyboardType(.default)
                                     .padding(15)
                                     .padding(.trailing, 30)
                                     .background(Color.textfield_background)
                                     .cornerRadius(10)
                                     .foregroundColor(.text)
+                                    .submitLabel(.done)
+                                    .onSubmit {
+                                        vm.add()
+                                    }
                             }
                         }
                     }
@@ -173,7 +179,7 @@ struct TaskDetailView: View {
             .roundedCorner(30, corners: [.topLeft, .topRight])
             
         }
-        .background(ProjectColors(rawValue: task.color!)!.toColor())
+        .background(ProjectColors(rawValue: vm.task.color!)!.toColor())
         .ignoresSafeArea(.all, edges: .bottom)
         .navigationBarBackButtonHidden()
         .toolbar {

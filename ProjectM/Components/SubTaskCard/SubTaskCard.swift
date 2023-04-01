@@ -11,6 +11,8 @@ struct SubTaskCard: View {
     
     let _subtask: SubTask
     
+    let projectColor: Color
+    
     @State var completed = false
     
     var body: some View {
@@ -34,7 +36,7 @@ struct SubTaskCard: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
-        .background(ProjectColors.green.toColor())
+        .background(projectColor)
         .cornerRadius(10)
       }
   }

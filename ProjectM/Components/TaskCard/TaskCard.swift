@@ -24,7 +24,7 @@ struct TaskCard: View {
                 HStack {
                     Image(systemName: "alarm")
                     Text(
-                        task.estimation != 0.0 ? String(task.estimation) + " hours" : "No estimation"
+                        task.estimation != 0.0 ? Formatter.hoursBrief.string(from: task.estimation * 60 * 60)! : "No estimation"
                     )
                 }
                 .foregroundColor(Color.taskcardText.opacity(0.75))
@@ -45,7 +45,7 @@ struct TaskCard: View {
             }
             .padding(.trailing)
             Spacer()
-            CircularProgressBar(progress: 0.23)
+            CircularProgressBar(progress: 0.75)
         }
         .padding(15)
         .background(ProjectColors(rawValue: task.color!)!.toColor())

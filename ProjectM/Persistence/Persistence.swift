@@ -42,6 +42,19 @@ struct PersistenceController {
         try save()
     }
 
+    func fetchTaskById(_ id: UUID) -> Task? {
+        let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Task")
+        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        request.fetchLimit = 1
+        do {
+            let result = try viewContext.fetch(request)
+            return result.first as? Task
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+
     func fetchAllTasks() -> [Task]{
         
         var tasks: [Task] = []
