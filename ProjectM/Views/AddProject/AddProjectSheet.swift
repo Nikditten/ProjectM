@@ -35,11 +35,11 @@ struct AddProjectSheet: View {
                     ColorPickerField(label: "Color", activeColor: $vm.projectColor)
                     
                     SubmitButton(
-                        label: "Create",
+                        label: vm.editMode ? "Update" : "Create",
                         color: vm.projectColor.toColor()
                     ) {
                         
-                        isPresented = !vm.add()
+                        isPresented = !vm.onSaveClicked()
                     }
                     .disabled(vm.projectName.count == 0)
                     .padding(.bottom, 40)

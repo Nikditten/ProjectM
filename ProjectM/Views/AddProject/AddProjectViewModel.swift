@@ -11,6 +11,10 @@ class AddProjectViewModel: ObservableObject {
     
     private let dbController: PersistenceController
     
+    private var task: Task? = nil
+    
+    @Published var editMode: Bool = false
+    
     @Published var projectName: String = ""
     @Published var projectDeadline: Date = Date()
     @Published var projectHours: Double = 0.0
@@ -23,7 +27,8 @@ class AddProjectViewModel: ObservableObject {
     init(taskId: UUID? = nil) {
         dbController = PersistenceController.shared
         if (taskId != nil) {
-            let task = dbController.fetchTaskById(taskId!)
+            editMode = true
+            self.task = dbController.fetchTaskById(taskId!)
             projectName = task?.name ?? ""
             projectDeadline = task?.deadline ?? Date()
             projectHours = task?.estimation ?? 0.0
@@ -35,6 +40,31 @@ class AddProjectViewModel: ObservableObject {
         }
     }
     
+    func onSaveClicked() -> Bool {
+        if (editMode) {
+            return edit()
+        }
+        return add()
+    }
+    
+    func edit() -> Bool {
+        task!.name = projectName
+        task!.note = projectNote
+        task!.deadline = projectDeadline
+        task!.estimation = projectHours
+        task!.color = projectColor.toString()
+        
+        var success = false
+        
+        do {
+            try dbController.save()
+            success = true
+        } catch {
+            print(error)
+        }
+        
+        return success
+    }
     
     func add() -> Bool {
         let newTask = Task(context: dbController.viewContext)
