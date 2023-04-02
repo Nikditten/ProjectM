@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CheckToggleStyle: ToggleStyle {
+    
+    let color: Color
+    
     func makeBody(configuration: Configuration) -> some View {
         Button {
             withAnimation {
@@ -19,7 +22,7 @@ struct CheckToggleStyle: ToggleStyle {
                     .foregroundColor(Color.text)
             } icon: {
                 Image(systemName: configuration.isOn ? "checkmark.circle.fill" : "circle")
-                    .foregroundColor(configuration.isOn ? Color.onToggle : Color.offToggle)
+                    .foregroundColor(configuration.isOn ? color : Color.offToggle)
                     .accessibility(label: Text(configuration.isOn ? "Checked" : "Unchecked"))
                     .imageScale(.large)
             }

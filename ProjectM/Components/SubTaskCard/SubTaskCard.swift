@@ -14,25 +14,74 @@ struct SubTaskCard: View {
     
     @State var completed = false
     
+    @State var showMore = false
+    
     var body: some View {
-        HStack {
+        VStack {
             
-            Button {
-                withAnimation {
-                    completed.toggle()
+            HStack {
+                Button {
+                    withAnimation {
+                        completed.toggle()
+                    }
+                } label: {
+                    Image(systemName: completed ? "checkmark.circle.fill" : "circle")
+                        .foregroundColor(projectColor)
+                        .accessibility(label: Text(completed ? "Checked" : "Unchecked"))
+                        .imageScale(.large)
                 }
-            } label: {
-                Image(systemName: completed ? "checkmark.circle.fill" : "circle")
-                    .foregroundColor(projectColor)
-                    .accessibility(label: Text(completed ? "Checked" : "Unchecked"))
-                    .imageScale(.large)
+                .font(.headline)
+                .frame(alignment: .topLeading)
+                .buttonStyle(PlainButtonStyle())
+                
+                Text(_subtask.name!)
+                    .foregroundColor(Color.subTaskCardText)
+                    .minimumScaleFactor(0.2)
+                    .truncationMode(.tail)
+                
+                Spacer()
+                
+                Button {
+                    withAnimation {
+                        showMore.toggle()
+                    }
+                } label: {
+                    Image(systemName: showMore ? "chevron.up" : "chevron.down")
+                        .foregroundColor(projectColor)
+                        .accessibility(label: Text(completed ? "Show More" : "Show less"))
+                        .imageScale(.large)
+                }
+                .font(.subheadline)
+                .frame(alignment: .topLeading)
+                .buttonStyle(PlainButtonStyle())
             }
-            .font(.headline)
-            .frame(alignment: .topLeading)
-            .buttonStyle(PlainButtonStyle())
             
-            Text(_subtask.name!)
-                .foregroundColor(Color.subTaskCardText)
+            if (showMore) {
+                Text(_subtask.note ?? "No description")
+                    .font(.subheadline)
+                    .foregroundColor(_subtask.note?.count ?? 0 > 0 ? Color.text : Color.text.opacity(0.25))
+                    .lineLimit(2...)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 34)
+                
+                HStack (spacing: 20) {
+                    Spacer()
+                    
+                    Button {
+                        withAnimation {
+                            showMore.toggle()
+                        }
+                    } label: {
+                        Image(systemName: "highlighter")
+                            .foregroundColor(.subTaskCardText)
+                            .accessibility(label: Text("Edit"))
+                            .imageScale(.large)
+                    }
+                    .font(.subheadline)
+                    .frame(alignment: .topLeading)
+                    .buttonStyle(PlainButtonStyle())
+                }
+            }
             
         }
         .frame(maxWidth: .infinity, alignment: .leading)

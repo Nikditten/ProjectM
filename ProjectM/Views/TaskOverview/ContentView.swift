@@ -44,7 +44,7 @@ struct ContentView: View {
         }
         .background(Color.background)
         .sheet(isPresented: $showingSheet, onDismiss: vm.refreshTasks) {
-            AddProjectSheet(isPresented: $showingSheet)
+            AddProjectSheet(taskId: nil, isPresented: $showingSheet)
         }
         
     }

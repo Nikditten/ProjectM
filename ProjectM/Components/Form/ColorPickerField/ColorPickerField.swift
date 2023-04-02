@@ -24,8 +24,7 @@ struct ColorPickerField: View {
                 
                 Divider()
                     .scaleEffect(x: 2, y: 1, anchor: .center)
-                
-                Spacer()
+                    .padding(.horizontal)
                 
                 ColorButton(color: .green, activeColor: $activeColor)
                 

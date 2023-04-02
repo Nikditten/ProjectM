@@ -11,7 +11,12 @@ struct AddProjectSheet: View {
     
     @Binding var isPresented: Bool
     
-    @ObservedObject var vm: AddProjectViewModel = AddProjectViewModel()
+    @ObservedObject var vm: AddProjectViewModel
+    
+    init(taskId: UUID?, isPresented: Binding<Bool>) {
+        self._isPresented = isPresented
+        self.vm = AddProjectViewModel(taskId: taskId)
+    }
     
     var body: some View {
         
@@ -23,14 +28,15 @@ struct AddProjectSheet: View {
                     
                     MultilineTextField(label: "Description", value: $vm.projectNote, linelimit: 3)
                     
-                    DatePickerField(label: "Deadline", value: $vm.projectDeadline, hasDay: $vm.hasDeadline)
+                    DatePickerField(label: "Deadline", color: vm.projectColor.toColor(), value: $vm.projectDeadline, hasDay: $vm.hasDeadline)
                     
-                    HourPickerField(label: "Estimated hours", value: $vm.projectHours, showHours: $vm.hasEstimation)
+                    HourPickerField(label: "Estimated hours", color: vm.projectColor.toColor(), value: $vm.projectHours, showHours: $vm.hasEstimation)
 
                     ColorPickerField(label: "Color", activeColor: $vm.projectColor)
                     
                     SubmitButton(
-                        label: "Create"
+                        label: "Create",
+                        color: vm.projectColor.toColor()
                     ) {
                         
                         isPresented = !vm.add()
@@ -46,11 +52,5 @@ struct AddProjectSheet: View {
             .ignoresSafeArea(.container, edges: [.bottom])
             .navigationTitle("New Task")
         }
-    }
-}
-
-struct AddProjectView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddProjectSheet(isPresented: .constant(true))
     }
 }

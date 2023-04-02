@@ -10,6 +10,7 @@ import SwiftUI
 struct SubmitButton: View {
     
     let label: String
+    let color: Color
     let action: () -> Void
     
     var body: some View {
@@ -19,7 +20,7 @@ struct SubmitButton: View {
                 .foregroundColor(Color.white)
                 .padding(15)
                 .frame(width: UIScreen.screenWidth - 32.5)
-                .background(Color.primaryButton)
+                .background(color)
                 .cornerRadius(10)
         }
     }

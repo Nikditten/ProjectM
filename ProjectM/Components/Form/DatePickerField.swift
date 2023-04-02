@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct DatePickerField: View {
-    var label: String
+    private var label: String
+    private var color: Color
     @Binding var value: Date
     
     @Binding var hasDay: Bool
     @State var showDatePicker: Bool = false
     
-    init(label: String, value: Binding<Date>, hasDay: Binding<Bool>) {
+    init(label: String, color: Color, value: Binding<Date>, hasDay: Binding<Bool>) {
         self.label = label
+        self.color = color
         self._value = value
         self._hasDay = hasDay
     }
@@ -32,7 +34,7 @@ struct DatePickerField: View {
             Toggle(isOn: $hasDay) {
                     Text(label)
                 }
-                .toggleStyle(CheckToggleStyle())
+                .toggleStyle(CheckToggleStyle(color: color))
             
             if (hasDay) {
                 TextField("", value: $value, formatter: formatter)
@@ -40,19 +42,20 @@ struct DatePickerField: View {
                     .background(Color.textfield_background)
                     .cornerRadius(10)
                     .foregroundColor(.text)
+                    .disabled(true)
                     .overlay(
                         HStack {
                             Spacer()
                             Image(systemName: showDatePicker ? "xmark.square" : "calendar")
                                 .padding(.trailing, 15)
                                 .foregroundColor(.text)
-                                .onTapGesture {
-                                    withAnimation {
-                                        showDatePicker.toggle()
-                                    }
-                                }
                         }
                     )
+                    .onTapGesture {
+                        withAnimation {
+                            showDatePicker.toggle()
+                        }
+                    }
                 
                 if (showDatePicker) {
                     // Graphical date picker

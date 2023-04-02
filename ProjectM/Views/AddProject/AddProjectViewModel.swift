@@ -9,7 +9,7 @@ import Foundation
 
 class AddProjectViewModel: ObservableObject {
     
-    private let dbController: PersistenceController = PersistenceController.shared
+    private let dbController: PersistenceController
     
     @Published var projectName: String = ""
     @Published var projectDeadline: Date = Date()
@@ -19,6 +19,21 @@ class AddProjectViewModel: ObservableObject {
     
     @Published var hasDeadline: Bool = false
     @Published var hasEstimation: Bool = false
+    
+    init(taskId: UUID? = nil) {
+        dbController = PersistenceController.shared
+        if (taskId != nil) {
+            let task = dbController.fetchTaskById(taskId!)
+            projectName = task?.name ?? ""
+            projectDeadline = task?.deadline ?? Date()
+            projectHours = task?.estimation ?? 0.0
+            projectNote = task?.note ?? ""
+            projectColor = ProjectColors(rawValue: (task?.color!)!)!
+            
+            hasDeadline = task?.deadline != nil ? true : false
+            hasEstimation = task?.estimation != 0.0 ? true : false
+        }
+    }
     
     
     func add() -> Bool {

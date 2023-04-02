@@ -18,6 +18,8 @@ class TaskDetailViewModel: ObservableObject {
         self.task = dbController.fetchTaskById(taskId)!
     }
     
+    @Published var showEditSheet: Bool = false
+    
     // MARK: SubTask
     @Published var value: String = ""
     

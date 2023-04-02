@@ -30,6 +30,8 @@ extension Color {
     static let subTaskCardBackground = Color("Secondary")
     static let subTaskCardText = Color("Text")
     static let subTaskCheckbox = Color("Text")
+    static let subTaskDelete = Color.red
+    static let subTaskEdit = Color.orange
     
     static let onToggle = Color("Green")
     static let offToggle = Color.secondary

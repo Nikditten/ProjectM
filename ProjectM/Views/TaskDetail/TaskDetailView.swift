@@ -15,7 +15,6 @@ struct TaskDetailView: View {
     
     @State var completed = false
     
-    // init viewmodel with task as parameter
     init(taskId: UUID) {
         self.vm = TaskDetailViewModel(taskId: taskId)
     }
@@ -85,7 +84,6 @@ struct TaskDetailView: View {
                     HStack (alignment: .center) {
                         
                         Text(completed ? "Completed" : "Ongoing")
-                            .font(.headline)
                             .foregroundColor(Color.text)
                         
                         Spacer()
@@ -100,9 +98,9 @@ struct TaskDetailView: View {
                                 .accessibility(label: Text(completed ? "Checked" : "Unchecked"))
                                 .imageScale(.large)
                         }
-                        .font(.title3)
                         .buttonStyle(PlainButtonStyle())
                     }
+                    .font(.headline)
                     
                     ProgressView(value: 0.2, total: 1)
                         .tint(ProjectColors(rawValue: vm.task.color!)?.toColor())
@@ -126,60 +124,58 @@ struct TaskDetailView: View {
                         Text("Sub task")
                             .foregroundColor(Color.text)
                             .fontWeight(.bold)
-                            .padding(.bottom, 5)
                         
                         Spacer()
                         
-                        if (vm.task.subtasks?.count ?? 0 > 0) {
-                            Button {
-                                withAnimation {
-                                    vm.showInputField.toggle()
-                                }
-                            } label: {
-                                Image(systemName: vm.showInputField ?  "xmark.circle": "plus.circle")
-                                    .foregroundColor(ProjectColors(rawValue: vm.task.color!)?.toColor())
+                        Button {
+                            withAnimation {
+                                vm.showInputField.toggle()
                             }
+                        } label: {
+                            Image(systemName: vm.showInputField ?  "xmark.circle": "plus.circle")
+                                .foregroundColor(ProjectColors(rawValue: vm.task.color!)?.toColor())
                         }
                     }
                     .font(.title2)
+                    .padding(.bottom, 5)
                     
                     ScrollView {
                         VStack{
+                            if (vm.showInputField) {
+                                HStack {
+                                    Button {
+                                        withAnimation {
+                                            completed.toggle()
+                                        }
+                                    } label: {
+                                        Image(systemName: completed ? "checkmark.circle.fill" : "circle")
+                                            .foregroundColor(ProjectColors(rawValue: vm.task.color!)?.toColor())
+                                            .accessibility(label: Text(completed ? "Checked" : "Unchecked"))
+                                            .imageScale(.large)
+                                    }
+                                    .font(.headline)
+                                    .frame(alignment: .topLeading)
+                                    .buttonStyle(PlainButtonStyle())
+                                    
+                                    TextField("New subtask", text: $vm.value)
+                                        .keyboardType(.default)
+                                        .cornerRadius(10)
+                                        .foregroundColor(Color.subTaskCardText)
+                                        .submitLabel(.done)
+                                        .onSubmit {
+                                            vm.add()
+                                        }
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding()
+                                .background(Color.subTaskCardBackground)
+                                .cornerRadius(10)
+                            }
+                            
                             if let subtasks = vm.task.subtasks?.allObjects as? [SubTask] {
                                 ForEach(subtasks, id: \.self) { subtask in
                                     SubTaskCard(projectColor: (ProjectColors(rawValue: vm.task.color!)?.toColor())!, _subtask: subtask)
                                 }}
-                            
-                            if (vm.showInputField) {
-                                TextField("New subtask", text: $vm.value)
-                                    .keyboardType(.default)
-                                    .padding(15)
-                                    .padding(.trailing, 30)
-                                    .background(Color.textfield_background)
-                                    .cornerRadius(10)
-                                    .foregroundColor(.text)
-                                    .submitLabel(.done)
-                                    .onSubmit {
-                                        vm.add()
-                                    }
-                            }
-                            
-                            if (vm.task.subtasks?.count ?? 0 == 0) {
-                                Button {
-                                    withAnimation {
-                                        vm.showInputField.toggle()
-                                    }
-                                } label: {
-                                    Image(systemName: vm.showInputField ? "xmark" : "plus")
-                                        .foregroundColor(Color.taskDetailAddSubTask)
-                                        .frame(maxWidth: .infinity, alignment: .center)
-                                        .padding()
-                                        .cornerRadius(10)
-                                }
-                                .frame(maxWidth: .infinity)
-                                .background(ProjectColors(rawValue: vm.task.color!)?.toColor())
-                                .cornerRadius(10)
-                            }
                             
                         }
                     }
@@ -209,8 +205,7 @@ struct TaskDetailView: View {
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    print("EDIT")
-                    
+                    vm.showEditSheet.toggle()
                 } label: {
                     Image(systemName: "highlighter")
                     
@@ -218,6 +213,9 @@ struct TaskDetailView: View {
                 .font(.title3)
                 .foregroundColor(Color.taskDetailIcon)
             }
+        }
+        .sheet(isPresented: $vm.showEditSheet) {
+            AddProjectSheet(taskId: vm.task.id, isPresented: $vm.showEditSheet)
         }
     }
 }

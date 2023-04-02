@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct HourPickerField: View {
-    var label: String
+    private var label: String
+    private var color: Color
     @Binding var value: Double
     @Binding var showHours: Bool
     
-    init(label: String, value: Binding<Double>, showHours: Binding<Bool>) {
+    init(label: String, color: Color, value: Binding<Double>, showHours: Binding<Bool>) {
         self.label = label
+        self.color = color
         self._value = value
         self._showHours = showHours
     }
@@ -35,7 +37,7 @@ struct HourPickerField: View {
             Toggle(isOn: $showHours) {
                     Text(label)
                 }
-                .toggleStyle(CheckToggleStyle())
+                .toggleStyle(CheckToggleStyle(color: color))
             
             if (showHours) {
                 TextField("", value: $value, formatter: formatter)
