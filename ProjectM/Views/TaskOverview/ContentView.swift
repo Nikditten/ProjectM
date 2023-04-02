@@ -20,11 +20,14 @@ struct ContentView: View {
             ScrollView {
                 VStack (spacing: 15) {
                     ForEach(vm.tasks) { task in
-                        NavigationLink {
+                        NavigationLink () {
                             TaskDetailView(taskId: task.id!)
                         } label: {
                             TaskCard(task: task)
                         }
+                    }
+                    .onAppear {
+                        vm.refreshTasks()
                     }
                 }
             }
