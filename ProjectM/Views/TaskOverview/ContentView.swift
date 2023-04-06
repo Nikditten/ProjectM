@@ -12,7 +12,7 @@ struct ContentView: View {
     
     @State var showingSheet: Bool = false
     
-    @ObservedObject var vm: TaskOverviewModel = TaskOverviewModel()
+    @StateObject var vm: TaskOverviewModel = TaskOverviewModel()
     
     var body: some View {
         
@@ -21,13 +21,10 @@ struct ContentView: View {
                 VStack (spacing: 15) {
                     ForEach(vm.tasks) { task in
                         NavigationLink () {
-                            TaskDetailView(taskId: task.id!)
+                            TaskDetailView(task: task)
                         } label: {
                             TaskCard(task: task)
                         }
-                    }
-                    .onAppear {
-                        vm.refreshTasks()
                     }
                 }
             }
@@ -46,8 +43,13 @@ struct ContentView: View {
             }
         }
         .background(Color.background)
-        .sheet(isPresented: $showingSheet, onDismiss: vm.refreshTasks) {
+        .sheet(isPresented: $showingSheet) {
             AddProjectSheet(taskId: nil, isPresented: $showingSheet)
+        }
+        .onAppear {
+            withAnimation{
+                vm.fetchTasks()
+            }
         }
         
     }

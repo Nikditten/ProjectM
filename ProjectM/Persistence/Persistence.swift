@@ -9,14 +9,11 @@ import CoreData
 import Combine
 
 struct PersistenceController {
-    static let shared = PersistenceController()
     
     let container: NSPersistentCloudKitContainer
     
-    var viewContext: NSManagedObjectContext {
-        return container.viewContext
-    }
-
+    var viewContext: NSManagedObjectContext { container.viewContext }
+    
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "ProjectM")
         if inMemory {
@@ -29,51 +26,15 @@ struct PersistenceController {
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
-
-    func save() throws {
-        let context = container.viewContext
-        if context.hasChanges {
-            try context.save()
+    
+    func saveContext() {
+        if viewContext.hasChanges {
+            do {
+                try viewContext.save()
+            } catch let error as NSError {
+                NSLog("Unresolved error saving context: \(error), \(error.userInfo)")
+            }
         }
     }
     
-    func add(_ object: NSManagedObject) throws {
-        viewContext.insert(object)
-        try save()
-    }
-
-    func fetchTaskById(_ id: UUID) -> Task? {
-        let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Task")
-        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-        request.fetchLimit = 1
-        do {
-            let result = try viewContext.fetch(request)
-            return result.first as? Task
-        } catch {
-            print(error)
-            return nil
-        }
-    }
-
-    func fetchAllTasks() -> [Task]{
-        
-        var tasks: [Task] = []
-        
-        // Make a request for WorkItem objects
-        let request: NSFetchRequest<Task> = Task.fetchRequest()
-        
-        // Sort the object by the date attribute in a non ascending order
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \Task.deadline, ascending: true)]
-        
-        // Fetch the result of the request
-        do {
-            tasks = try viewContext.fetch(request)
-        } catch let error as NSError {
-            // In case of an error - print the error description
-            print(error.localizedDescription)
-        }
-        
-        return tasks
-    }
-
 }

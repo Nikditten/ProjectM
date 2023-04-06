@@ -5,21 +5,29 @@
 //  Created by Niklas Børner on 19/03/2023.
 //
 
-import Foundation
+import SwiftUI
+import Combine
 
 
 class TaskOverviewModel: ObservableObject {
     
-    let dbController: PersistenceController = PersistenceController.shared
+    @Published private var dataSource: DataSource
     
-    @Published var tasks: [Task] = []
+    var anyCancellable: AnyCancellable? = nil
     
-    init () {
-        refreshTasks()
+    init(dataSource: DataSource = DataSource.shared) {
+        self.dataSource = dataSource
+        anyCancellable = dataSource.objectWillChange.sink { [weak self] (_) in
+            self?.objectWillChange.send()
+        }
     }
     
-    func refreshTasks() {
-        tasks = dbController.fetchAllTasks()
+    var tasks: [Task] {
+        dataSource.tasksArray
+    }
+    
+    func fetchTasks() {
+        dataSource.fetchTasks()
     }
     
 }

@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-
-enum ProjectColors: String, CaseIterable {
-    case standard = "Standard"
-    case green = "Green"
-    case blue = "Blue"
-    case purple = "Purple"
-    case red = "Red"
+@objc
+public enum ProjectColors: Int16 {
+    case standard
+    case green
+    case blue
+    case purple
+    case red
     
 
     func toColor() -> Color {
@@ -32,6 +32,9 @@ enum ProjectColors: String, CaseIterable {
             
         case .red:
             return Color.redTaskColor
+            
+        default:
+            return Color.primaryTaskColor
         
         }
     }
@@ -52,6 +55,9 @@ enum ProjectColors: String, CaseIterable {
             
         case .red:
             return "Red"
+            
+        default:
+            return "Standard"
         
         }
     }

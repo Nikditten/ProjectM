@@ -7,6 +7,7 @@
 
 import Foundation
 
+@objc
 public enum TaskState: Int16 {
     case ToDo
     case Completed

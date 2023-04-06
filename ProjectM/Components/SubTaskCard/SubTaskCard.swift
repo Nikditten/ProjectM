@@ -34,7 +34,7 @@ struct SubTaskCard: View {
                 .frame(alignment: .topLeading)
                 .buttonStyle(PlainButtonStyle())
                 
-                Text(_subtask.name!)
+                Text(_subtask.title)
                     .foregroundColor(Color.subTaskCardText)
                     .minimumScaleFactor(0.2)
                     .truncationMode(.tail)
@@ -57,9 +57,9 @@ struct SubTaskCard: View {
             }
             
             if (showMore) {
-                Text(_subtask.note ?? "No description")
+                Text(_subtask.description)
                     .font(.subheadline)
-                    .foregroundColor(_subtask.note?.count ?? 0 > 0 ? Color.text : Color.text.opacity(0.25))
+                    .foregroundColor(_subtask.description.count > 0 ? Color.text : Color.text.opacity(0.25))
                     .lineLimit(2...)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 34)

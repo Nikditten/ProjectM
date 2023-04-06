@@ -5,42 +5,37 @@
 //  Created by Niklas Børner on 26/03/2023.
 //
 
-import Foundation
+import SwiftUI
+import Combine
 
 class TaskDetailViewModel: ObservableObject {
     
-    let task: Task
+    @Published var task: Task
     
-    private let dbController: PersistenceController
+    @Published private var dataSource: DataSource
     
-    init(taskId: UUID) {
-        self.dbController = PersistenceController.shared
-        self.task = dbController.fetchTaskById(taskId)!
+    var anyCancellable: AnyCancellable? = nil
+    
+    init(task: Task, dataSource: DataSource = DataSource.shared) {
+        self.task = task
+        self.dataSource = dataSource
+        anyCancellable = dataSource.objectWillChange.sink { [weak self] (_) in
+            self?.objectWillChange.send()
+        }
     }
     
     @Published var showEditSheet: Bool = false
     
     // MARK: SubTask
-    @Published var value: String = ""
-    
-    @Published var showFullDescription = false
-    @Published var showInputField = false
+    @Published var newSubTask = SubTask()
     
     func add() -> Void {
-        let newSubTask = SubTask(context: dbController.viewContext)
         
-        newSubTask.id = UUID()
+        newSubTask.taskId = task.id
         
-        newSubTask.name = value
+        dataSource.updateAndSave(subTask: newSubTask)
         
-        newSubTask.task = task
-        
-        do {
-            try dbController.add(newSubTask)
-            value = ""
-        } catch {
-            print(error)
-        }
+        newSubTask = SubTask()
     
     }
     
