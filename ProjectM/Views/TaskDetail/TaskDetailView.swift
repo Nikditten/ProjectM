@@ -11,12 +11,12 @@ struct TaskDetailView: View {
     
     @Environment(\.dismiss) private var dismiss
     
-    @StateObject var vm: TaskDetailViewModel
+    @ObservedObject var vm: TaskDetailViewModel
     
     @State var completed = false
     
-    init(task: Task) {
-        self.vm = TaskDetailViewModel(task: task)
+    init(task: Task, dataSource: DataSource = DataSource.shared) {
+        self.vm = TaskDetailViewModel(task: task, dataSource: dataSource)
     }
     
     @State private var progress = 0.2
@@ -157,7 +157,7 @@ struct TaskDetailView: View {
                                     .frame(alignment: .topLeading)
                                     .buttonStyle(PlainButtonStyle())
                                     
-                                    TextField("New subtask", text: $vm.value)
+                                    TextField("New subtask", text: $vm.newSubTask.title)
                                         .keyboardType(.default)
                                         .cornerRadius(10)
                                         .foregroundColor(Color.subTaskCardText)
@@ -172,9 +172,9 @@ struct TaskDetailView: View {
                                 .cornerRadius(10)
                             }
                             
-                            if let subtasks = vm.task.subtasks?.allObjects as? [SubTask] {
-                                ForEach(subtasks, id: \.self) { subtask in
-                                    SubTaskCard(projectColor: vm.task.color.toColor(), _subtask: subtask)
+                            if let subtasks = vm.task.subtasks as? [UUID] {
+                                ForEach(subtasks, id: \.self) { subtaskId in
+                                    SubTaskCard(projectColor: vm.task.color.toColor(), subTaskId: subtaskId)
                                 }}
                             
                         }

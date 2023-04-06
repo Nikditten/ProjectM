@@ -13,9 +13,9 @@ struct AddProjectSheet: View {
     
     @ObservedObject var vm: AddProjectViewModel
     
-    init(taskId: UUID?, isPresented: Binding<Bool>) {
+    init(task: Task?, isPresented: Binding<Bool>) {
         self._isPresented = isPresented
-        self.vm = AddProjectViewModel(taskId: taskId)
+        self.vm = AddProjectViewModel(task: task)
     }
     
     var body: some View {

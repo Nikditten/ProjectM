@@ -25,6 +25,7 @@ class TaskDetailViewModel: ObservableObject {
     }
     
     @Published var showEditSheet: Bool = false
+    @Published var showInputField: Bool = false
     
     // MARK: SubTask
     @Published var newSubTask = SubTask()

@@ -10,9 +10,17 @@ import SwiftUI
 struct SubTaskCard: View {
     
     let projectColor: Color
-    let _subtask: SubTask
+    let title: String
+    let description: String
     
-    @State var completed = false
+    @Binding var completed: Bool
+    
+    init(projectColor: Color, title: String, description: String, completed: Binding<Bool>, dataSource: DataSource = DataSource.shared) {
+        self.projectColor = projectColor
+        self.title = title
+        self.description = description
+        self._completed = completed
+    }
     
     @State var showMore = false
     
@@ -34,7 +42,7 @@ struct SubTaskCard: View {
                 .frame(alignment: .topLeading)
                 .buttonStyle(PlainButtonStyle())
                 
-                Text(_subtask.title)
+                Text(title)
                     .foregroundColor(Color.subTaskCardText)
                     .minimumScaleFactor(0.2)
                     .truncationMode(.tail)
@@ -57,9 +65,9 @@ struct SubTaskCard: View {
             }
             
             if (showMore) {
-                Text(_subtask.description)
+                Text(description)
                     .font(.subheadline)
-                    .foregroundColor(_subtask.description.count > 0 ? Color.text : Color.text.opacity(0.25))
+                    .foregroundColor(description.count > 0 ? Color.text : Color.text.opacity(0.25))
                     .lineLimit(2...)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 34)
