@@ -24,24 +24,24 @@ struct AddProjectSheet: View {
             ScrollView {
                 VStack (spacing: 25) {
                     
-                    CustomTextField(label: "Name", value: $vm.projectName)
+                    CustomTextField(label: "Name", value: $vm.title)
                     
-                    MultilineTextField(label: "Description", value: $vm.projectNote, linelimit: 3)
+                    MultilineTextField(label: "Description", value: $vm.description, linelimit: 3)
                     
-                    DatePickerField(label: "Deadline", color: vm.projectColor.toColor(), value: $vm.projectDeadline, hasDay: $vm.hasDeadline)
+                    DatePickerField(label: "Deadline", color: vm.color.toColor(), value: $vm.deadline, hasDay: $vm.hasDeadline)
                     
-                    HourPickerField(label: "Estimated hours", color: vm.projectColor.toColor(), value: $vm.projectHours, showHours: $vm.hasEstimation)
+                    HourPickerField(label: "Estimated hours", color: vm.color.toColor(), value: $vm.estimation, showHours: $vm.hasEstimation)
 
-                    ColorPickerField(label: "Color", activeColor: $vm.projectColor)
+                    ColorPickerField(label: "Color", activeColor: $vm.color)
                     
                     SubmitButton(
                         label: vm.editMode ? "Update" : "Create",
-                        color: vm.projectColor.toColor()
+                        color: vm.color.toColor()
                     ) {
                         
-                        isPresented = !vm.onSaveClicked()
+                        isPresented = !vm.submit()
                     }
-                    .disabled(vm.projectName.count == 0)
+                    .disabled(vm.title.count == 0)
                     .padding(.bottom, 40)
                     
                     

@@ -14,7 +14,7 @@ struct TaskCard: View {
     var body: some View {
         HStack(alignment: .center) {
             VStack(alignment: .leading, spacing: 5) {
-                Text(task.name ?? "Task")
+                Text(task.title)
                     .foregroundColor(Color.taskcardText)
                     .font(.system(size: 14))
                     .fontWeight(.bold)
@@ -24,7 +24,7 @@ struct TaskCard: View {
                 HStack {
                     Image(systemName: "alarm")
                     Text(
-                        task.estimation != 0.0 ? Formatter.hoursBrief.string(from: task.estimation * 60 * 60)! : "No estimation"
+                        task.estimation != 0.0 ? Formatter.hoursBrief.string(from: task.estimation! * 60 * 60)! : "No estimation"
                     )
                 }
                 .foregroundColor(Color.taskcardText.opacity(0.75))
@@ -37,7 +37,7 @@ struct TaskCard: View {
                 .foregroundColor(Color.taskcardText.opacity(0.75))
                 .font(.system(size: 10))
                 
-                Text(task.timestamp!.formatAsDate())
+                Text(task.timestamp.formatAsDate())
                     .foregroundColor(Color.taskcardText.opacity(0.75))
                     .font(.system(size: 8))
                     .padding(.top, 4)
@@ -45,7 +45,7 @@ struct TaskCard: View {
             }
             .padding(.trailing)
             Spacer()
-            CircularProgressBar(color: ProjectColors(rawValue: task.color!)!.toColor(), progress: 0.75)
+            CircularProgressBar(color: task.color.toColor(), progress: 0.75)
         }
         .padding(15)
         .background(Color.textfield_background)

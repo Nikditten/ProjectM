@@ -172,10 +172,11 @@ struct TaskDetailView: View {
                                 .cornerRadius(10)
                             }
                             
-                            if let subtasks = vm.task.subtasks as? [UUID] {
-                                ForEach(subtasks, id: \.self) { subtaskId in
-                                    SubTaskCard(projectColor: vm.task.color.toColor(), subTaskId: subtaskId)
-                                }}
+                            ForEach(vm.task.subtasks, id: \.self) { subtaskId in
+                                    SubTaskCard(
+                                        subtaskId: subtaskId, color: vm.task.color
+                                    )
+                                }
                             
                         }
                     }
@@ -215,7 +216,7 @@ struct TaskDetailView: View {
             }
         }
         .sheet(isPresented: $vm.showEditSheet) {
-            AddProjectSheet(taskId: vm.task.id, isPresented: $vm.showEditSheet)
+            AddProjectSheet(task: vm.task, isPresented: $vm.showEditSheet)
         }
     }
 }

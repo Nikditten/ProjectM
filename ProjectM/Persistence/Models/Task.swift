@@ -18,7 +18,7 @@ struct Task: Identifiable, Hashable {
     var timestamp: Date
     var subtasks: [UUID]
     
-    init(title: String = "", description: String? = nil, state: TaskState = TaskState.ToDo, color: ProjectColors = ProjectColors.standard, deadline: Date? = nil, estimation: Double? = nil, timestamp: Date = Date(), subtasks: [UUID] = []) {
+    init(title: String = "", description: String = "", state: TaskState = TaskState.ToDo, color: ProjectColors = ProjectColors.standard, deadline: Date? = nil, estimation: Double? = nil, timestamp: Date = Date(), subtasks: [UUID] = []) {
         self.id = UUID()
         self.title = title
         self.description = description

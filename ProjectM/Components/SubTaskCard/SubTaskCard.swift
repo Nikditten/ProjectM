@@ -9,17 +9,12 @@ import SwiftUI
 
 struct SubTaskCard: View {
     
-    let projectColor: Color
-    let title: String
-    let description: String
+    var subTask: SubTask
+    var color: ProjectColors = ProjectColors.standard
     
-    @Binding var completed: Bool
-    
-    init(projectColor: Color, title: String, description: String, completed: Binding<Bool>, dataSource: DataSource = DataSource.shared) {
-        self.projectColor = projectColor
-        self.title = title
-        self.description = description
-        self._completed = completed
+    init(subtaskId: UUID, color: ProjectColors, dataSource: DataSource = DataSource.shared) {
+        self.subTask = dataSource.getSubTask(with: subtaskId)!
+        self.color = color
     }
     
     @State var showMore = false
@@ -30,19 +25,19 @@ struct SubTaskCard: View {
             HStack {
                 Button {
                     withAnimation {
-                        completed.toggle()
+                        print("HHHH")
                     }
                 } label: {
-                    Image(systemName: completed ? "checkmark.circle.fill" : "circle")
-                        .foregroundColor(projectColor)
-                        .accessibility(label: Text(completed ? "Checked" : "Unchecked"))
+                    Image(systemName: subTask.state == TaskState.Completed ? "checkmark.circle.fill" : "circle")
+                        .foregroundColor(color.toColor())
+                        .accessibility(label: Text(subTask.state == TaskState.Completed ? "Checked" : "Unchecked"))
                         .imageScale(.large)
                 }
                 .font(.headline)
                 .frame(alignment: .topLeading)
                 .buttonStyle(PlainButtonStyle())
                 
-                Text(title)
+                Text(subTask.title)
                     .foregroundColor(Color.subTaskCardText)
                     .minimumScaleFactor(0.2)
                     .truncationMode(.tail)
@@ -55,8 +50,8 @@ struct SubTaskCard: View {
                     }
                 } label: {
                     Image(systemName: showMore ? "chevron.up" : "chevron.down")
-                        .foregroundColor(projectColor)
-                        .accessibility(label: Text(completed ? "Show More" : "Show less"))
+                        .foregroundColor(color.toColor())
+                        .accessibility(label: Text(subTask.state == TaskState.Completed ? "Show More" : "Show less"))
                         .imageScale(.large)
                 }
                 .font(.subheadline)
@@ -65,9 +60,9 @@ struct SubTaskCard: View {
             }
             
             if (showMore) {
-                Text(description)
+                Text(subTask.description)
                     .font(.subheadline)
-                    .foregroundColor(description.count > 0 ? Color.text : Color.text.opacity(0.25))
+                    .foregroundColor(subTask.description.count > 0 ? Color.text : Color.text.opacity(0.25))
                     .lineLimit(2...)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 34)

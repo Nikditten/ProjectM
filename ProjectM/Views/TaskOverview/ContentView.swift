@@ -44,7 +44,7 @@ struct ContentView: View {
         }
         .background(Color.background)
         .sheet(isPresented: $showingSheet) {
-            AddProjectSheet(taskId: nil, isPresented: $showingSheet)
+            AddProjectSheet(task: nil, isPresented: $showingSheet)
         }
         .onAppear {
             withAnimation{
