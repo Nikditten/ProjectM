@@ -13,13 +13,9 @@ struct TaskDetailView: View {
     
     @ObservedObject var vm: TaskDetailViewModel
     
-    @State var completed = false
-    
     init(task: Task, dataSource: DataSource = DataSource.shared) {
         self.vm = TaskDetailViewModel(task: task, dataSource: dataSource)
     }
-    
-    @State private var progress = 0.2
     
     var body: some View {
         VStack {
@@ -28,7 +24,7 @@ struct TaskDetailView: View {
                 
                 Text(vm.task.title)
                     .foregroundColor(Color.taskcardText)
-                    .font(vm.task.title.count > 25 ? .title : .largeTitle)
+                    .font(.largeTitle)
                     .fontWeight(.bold)
                     .minimumScaleFactor(0.1)
                     .truncationMode(.tail)
@@ -39,13 +35,13 @@ struct TaskDetailView: View {
                     VStack (alignment: .leading, spacing: 5) {
                         HStack {
                             Image(systemName: "alarm")
-                            Text(vm.task.estimation != 0.0 ? Formatter.hoursFull.string(from: (vm.task.estimation ?? 0) * 60 * 60)! : "No estimation")
+                            Text(vm.task.hasEstimation ? Formatter.hoursFull.string(from: (vm.task.estimation ?? 0) * 60 * 60)! : "No estimation")
                         }
                         
                         
                         HStack {
                             Image(systemName: "calendar")
-                            Text(vm.task.deadline != nil ? vm.task.deadline!.formatAsDate() : "No deadline")
+                            Text(vm.task.hasDeadline ? vm.task.deadline!.formatAsDate() : "No deadline")
                         }
                     }
                     .foregroundColor(Color.taskcardText.opacity(0.75))
@@ -83,31 +79,31 @@ struct TaskDetailView: View {
                     
                     HStack (alignment: .center) {
                         
-                        Text(completed ? "Completed" : "Ongoing")
+                        Text(vm.markAsCompleted ? "Completed" : "Ongoing")
                             .foregroundColor(Color.text)
                         
                         Spacer()
                         
                         Button {
                             withAnimation {
-                                completed.toggle()
+                                vm.toggleState()
                             }
                         } label: {
-                            Image(systemName: completed ? "checkmark.circle.fill" : "circle")
+                            Image(systemName: vm.markAsCompleted ? "checkmark.circle.fill" : "circle")
                                 .foregroundColor(vm.task.color.toColor())
-                                .accessibility(label: Text(completed ? "Checked" : "Unchecked"))
+                                .accessibility(label: Text(vm.markAsCompleted ? "Checked" : "Unchecked"))
                                 .imageScale(.large)
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
                     .font(.headline)
                     
-                    ProgressView(value: 0.2, total: 1)
+                    ProgressView(value: vm.progression, total: 1)
                         .tint(vm.task.color.toColor())
                         .scaleEffect(x: 1, y: 2, anchor: .center)
                         .padding(.bottom)
                     
-                    if (vm.task.description != nil && vm.task.description?.count ?? 0 > 0) {
+                    if (vm.task.hasDescription) {
 
                         Text("Description")
                             .font(.title2)
@@ -143,19 +139,11 @@ struct TaskDetailView: View {
                         VStack{
                             if (vm.showInputField) {
                                 HStack {
-                                    Button {
-                                        withAnimation {
-                                            completed.toggle()
-                                        }
-                                    } label: {
-                                        Image(systemName: completed ? "checkmark.circle.fill" : "circle")
-                                            .foregroundColor(vm.task.color.toColor())
-                                            .accessibility(label: Text(completed ? "Checked" : "Unchecked"))
-                                            .imageScale(.large)
-                                    }
-                                    .font(.headline)
-                                    .frame(alignment: .topLeading)
-                                    .buttonStyle(PlainButtonStyle())
+                                    Image(systemName: vm.task.completed ? "checkmark.circle.fill" : "circle")
+                                        .foregroundColor(vm.task.color.toColor())
+                                        .accessibility(label: Text(vm.task.completed ? "Checked" : "Unchecked"))
+                                        .imageScale(.large)
+                                        .font(.headline)
                                     
                                     TextField("New subtask", text: $vm.newSubTask.title)
                                         .keyboardType(.default)
@@ -174,7 +162,7 @@ struct TaskDetailView: View {
                             
                             ForEach(vm.task.subtasks, id: \.self) { subtaskId in
                                     SubTaskCard(
-                                        subtaskId: subtaskId, color: vm.task.color
+                                        subtaskId: subtaskId
                                     )
                                 }
                             

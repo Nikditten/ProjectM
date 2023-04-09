@@ -9,12 +9,10 @@ import SwiftUI
 
 struct SubTaskCard: View {
     
-    var subTask: SubTask
-    var color: ProjectColors = ProjectColors.standard
+    @ObservedObject var vm: SubTaskViewModel
     
-    init(subtaskId: UUID, color: ProjectColors, dataSource: DataSource = DataSource.shared) {
-        self.subTask = dataSource.getSubTask(with: subtaskId)!
-        self.color = color
+    init(subtaskId: UUID, dataSource: DataSource = DataSource.shared) {
+        self.vm = SubTaskViewModel(subTaskId: subtaskId, dataSource: dataSource)
     }
     
     @State var showMore = false
@@ -25,19 +23,19 @@ struct SubTaskCard: View {
             HStack {
                 Button {
                     withAnimation {
-                        print("HHHH")
+                        vm.toggleState()
                     }
                 } label: {
-                    Image(systemName: subTask.state == TaskState.Completed ? "checkmark.circle.fill" : "circle")
-                        .foregroundColor(color.toColor())
-                        .accessibility(label: Text(subTask.state == TaskState.Completed ? "Checked" : "Unchecked"))
+                    Image(systemName: vm.completed ? "checkmark.circle.fill" : "circle")
+                        .foregroundColor(vm.color.toColor())
+                        .accessibility(label: Text(vm.completed ? "Checked" : "Unchecked"))
                         .imageScale(.large)
                 }
                 .font(.headline)
                 .frame(alignment: .topLeading)
                 .buttonStyle(PlainButtonStyle())
                 
-                Text(subTask.title)
+                Text(vm.subTask.title)
                     .foregroundColor(Color.subTaskCardText)
                     .minimumScaleFactor(0.2)
                     .truncationMode(.tail)
@@ -50,8 +48,8 @@ struct SubTaskCard: View {
                     }
                 } label: {
                     Image(systemName: showMore ? "chevron.up" : "chevron.down")
-                        .foregroundColor(color.toColor())
-                        .accessibility(label: Text(subTask.state == TaskState.Completed ? "Show More" : "Show less"))
+                        .foregroundColor(vm.color.toColor())
+                        .accessibility(label: Text(vm.completed ? "Show More" : "Show less"))
                         .imageScale(.large)
                 }
                 .font(.subheadline)

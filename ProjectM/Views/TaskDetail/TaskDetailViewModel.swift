@@ -31,6 +31,40 @@ class TaskDetailViewModel: ObservableObject {
     @Published var showEditSheet: Bool = false
     @Published var showInputField: Bool = false
     
+    func toggleState() {
+        var newTask: Task = task
+        
+        if (task.state == .ToDo) {
+            newTask.state = .Completed
+        } else {
+            newTask.state = .ToDo
+        }
+        
+        dataSource.updateAndSave(task: newTask)
+    }
+    
+    var progression: Double {
+        if (task.completed) {
+            return 1
+        } else if (task.hasSubTasks()) {
+            var completedSubTasks: Double = 0
+            let subtasks: [SubTask] = dataSource.subTasks.values.filter { $0.taskId == task.id }
+            for subtask in subtasks {
+                if (subtask.completed()) {
+                    completedSubTasks += 1
+                }
+            }
+            
+            return completedSubTasks / Double(subtasks.count)
+        } else {
+            return 0
+        }
+    }
+    
+    var markAsCompleted: Bool {
+        task.completed || progression == 1
+    }
+    
     func add() -> Void {
         
         newSubTask.taskId = task.id

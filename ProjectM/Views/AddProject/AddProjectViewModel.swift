@@ -11,7 +11,7 @@ class AddProjectViewModel: ObservableObject {
     
     @Published private var dataSource: DataSource
     
-    @Published var edititingTask: Task = Task()
+    @Published var editingTask: Task = Task()
     
     // MARK: UI booleans
     @Published var editMode: Bool = false
@@ -21,7 +21,7 @@ class AddProjectViewModel: ObservableObject {
     init(task: Task?, dataSource: DataSource = DataSource.shared) {
         self.dataSource = dataSource
         if let editTask = task {
-            self.edititingTask = editTask
+            self.editingTask = editTask
             self.editMode = true
             self.hasDeadline = editTask.deadline != nil
             self.hasEstimation = editTask.estimation != 0.0
@@ -31,14 +31,14 @@ class AddProjectViewModel: ObservableObject {
     func submit() -> Bool {
         
         if (!hasDeadline) {
-            edititingTask.deadline = nil
+            editingTask.deadline = nil
         }
         
         if (!hasEstimation) {
-            edititingTask.estimation = nil
+            editingTask.estimation = nil
         }
         
-        dataSource.updateAndSave(task: edititingTask)
+        dataSource.updateAndSave(task: editingTask)
         
         return true
     }

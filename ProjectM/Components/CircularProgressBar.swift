@@ -36,8 +36,9 @@ struct CircularProgressBar: View {
             
             if (progress == 1) {
                 Image(systemName: "checkmark")
-                    .foregroundColor(Color.text)
-                    .font(.system(size: 14))
+                    .foregroundColor(color)
+                    .font(.system(size: 16))
+                    .fontWeight(.black)
             } else {
                 Text(Formatter.percent.string(from: NSNumber(value: progress))!)
                     .foregroundColor(Color.progressBarText)

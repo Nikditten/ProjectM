@@ -30,3 +30,25 @@ struct Task: Identifiable, Hashable {
         self.subtasks = subtasks
     }
 }
+
+extension Task {
+    func hasSubTasks() -> Bool {
+        return !self.subtasks.isEmpty
+    }
+    
+    var completed: Bool {
+        return self.state == .Completed
+    }
+    
+    var hasDescription: Bool {
+        return self.description != nil && self.description?.count ?? 0 > 0
+    }
+    
+    var hasDeadline: Bool {
+        return self.deadline != nil
+    }
+    
+    var hasEstimation: Bool {
+        return self.estimation != 0.0
+    }
+}

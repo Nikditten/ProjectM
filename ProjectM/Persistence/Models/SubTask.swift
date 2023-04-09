@@ -24,3 +24,9 @@ struct SubTask: Identifiable, Hashable {
         self.taskId = taskId
     }
 }
+
+extension SubTask {
+    func completed() -> Bool {
+        return self.state == .Completed
+    }
+}
