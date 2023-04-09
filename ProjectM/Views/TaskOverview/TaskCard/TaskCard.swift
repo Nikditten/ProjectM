@@ -36,6 +36,8 @@ struct TaskCard: View {
     }
     
     var body: some View {
+        HStack {
+            
             HStack(alignment: .center) {
                 
                 VStack(alignment: .leading, spacing: 5) {
@@ -47,17 +49,17 @@ struct TaskCard: View {
                         .lineLimit(1)
                     
                     HStack {
-                        Image(systemName: "alarm")
-                        Text(
-                            task.hasEstimation ? Formatter.hoursBrief.string(from: task.estimation! * 60 * 60)! : "No estimation"
-                        )
+                        Image(systemName: "calendar")
+                        Text(task.hasDeadline ? task.deadline!.formatAsDate() : "No deadline")
                     }
                     .foregroundColor(Color.taskcardText.opacity(0.75))
                     .font(.system(size: 10))
                     
                     HStack {
-                        Image(systemName: "calendar")
-                        Text(task.hasDeadline ? task.deadline!.formatAsDate() : "No deadline")
+                        Image(systemName: "alarm")
+                        Text(
+                            task.hasEstimation ? Formatter.hoursBrief.string(from: task.estimation! * 60 * 60)! : "No estimation"
+                        )
                     }
                     .foregroundColor(Color.taskcardText.opacity(0.75))
                     .font(.system(size: 10))
@@ -73,14 +75,13 @@ struct TaskCard: View {
                 CircularProgressBar(color: task.color.toColor(), progress: progression)
             }
             .padding(15)
-            .background(Color.textfield_background)
-            .cornerRadius(10)
             
+            Rectangle()
+                .frame(width: 20)
+                .foregroundColor(task.color.toColor())
+        }
+        .background(Color.textfield_background)
+        .cornerRadius(10)
         
-        
-      }
-  }
-
-//Rectangle()
-//    .frame(height: 20)
-//    .foregroundColor(task.color.toColor())
+    }
+}

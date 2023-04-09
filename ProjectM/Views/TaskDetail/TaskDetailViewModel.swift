@@ -31,22 +31,8 @@ class TaskDetailViewModel: ObservableObject {
     @Published var showEditSheet: Bool = false
     @Published var showInputField: Bool = false
     
-    func toggleState() {
-        var newTask: Task = task
-        
-        if (task.state == .ToDo) {
-            newTask.state = .Completed
-        } else {
-            newTask.state = .ToDo
-        }
-        
-        dataSource.updateAndSave(task: newTask)
-    }
-    
     var progression: Double {
-        if (task.completed) {
-            return 1
-        } else if (task.hasSubTasks()) {
+        if (task.hasSubTasks()) {
             var completedSubTasks: Double = 0
             let subtasks: [SubTask] = dataSource.subTasks.values.filter { $0.taskId == task.id }
             for subtask in subtasks {
@@ -65,6 +51,20 @@ class TaskDetailViewModel: ObservableObject {
         task.completed || progression == 1
     }
     
+    func toggleState() {
+        var newTask: Task = task
+        
+        if (progression != 1) {
+            if (task.state == .ToDo) {
+                newTask.state = .Completed
+            } else {
+                newTask.state = .ToDo
+            }
+        }
+        
+        dataSource.updateAndSave(task: newTask)
+    }
+    
     func add() -> Void {
         
         newSubTask.taskId = task.id
@@ -72,7 +72,7 @@ class TaskDetailViewModel: ObservableObject {
         dataSource.updateAndSave(subTask: newSubTask)
         
         newSubTask = SubTask(taskId: task.id)
-    
+        
     }
     
 }

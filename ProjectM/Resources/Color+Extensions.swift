@@ -10,6 +10,8 @@ import SwiftUI
 extension Color {
     static let background = Color("Primary")
     
+    static let destructive = Color("Red")
+    
     static let text = Color("Text")
     
     static let taskcardText = Color("Text")

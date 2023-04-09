@@ -13,6 +13,10 @@ class TaskOverviewModel: ObservableObject {
     
     @Published private var dataSource: DataSource
     
+    @Published var isSorting: Bool = true
+    
+    @Published var taskToEdit: Task? = nil
+    
     var anyCancellable: AnyCancellable? = nil
     
     init(dataSource: DataSource = DataSource.shared) {
@@ -28,6 +32,22 @@ class TaskOverviewModel: ObservableObject {
     
     func fetchTasks() {
         dataSource.fetchTasks()
+    }
+    
+    func toggleState(task: Task) {
+        var newTask: Task = task
+        
+        if (task.state == .Completed) {
+            newTask.state = .ToDo
+        } else {
+            newTask.state = .Completed
+        }
+        
+        dataSource.updateAndSave(task: newTask)
+    }
+    
+    func deleteTask(task: Task) {
+        dataSource.delete(task: task)
     }
     
 }

@@ -21,11 +21,13 @@
 		854E999E29D07FFE000E411E /* TaskDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854E999D29D07FFE000E411E /* TaskDetailViewModel.swift */; };
 		854E99A029D0834E000E411E /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854E999F29D0834E000E411E /* View+Extensions.swift */; };
 		8555FE9D29D8012C001A6AF2 /* Formatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8555FE9C29D8012C001A6AF2 /* Formatter+Extensions.swift */; };
+		857555FB29E32C8A00F74C36 /* SortingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857555FA29E32C8A00F74C36 /* SortingButton.swift */; };
 		859C869629E2BD21008481E4 /* SubTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C869529E2BD21008481E4 /* SubTaskViewModel.swift */; };
 		85B6C0CF29C6EF4C00125B05 /* CheckToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0CE29C6EF4C00125B05 /* CheckToggleStyle.swift */; };
 		85B6C0D129C6F29700125B05 /* ColorPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D029C6F29700125B05 /* ColorPickerField.swift */; };
 		85B6C0D529C6F4B200125B05 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D429C6F4B200125B05 /* ColorButton.swift */; };
 		85B6C0D829C6F89900125B05 /* ProjectColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B6C0D729C6F89900125B05 /* ProjectColors.swift */; };
+		85C773C429E310FE00E71377 /* SortingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C773C329E310FE00E71377 /* SortingOptions.swift */; };
 		85CBE6A829D9E9680055C70D /* TimesheetMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CBE6A229D9E9680055C70D /* TimesheetMO+CoreDataClass.swift */; };
 		85CBE6A929D9E9680055C70D /* TimesheetMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CBE6A329D9E9680055C70D /* TimesheetMO+CoreDataProperties.swift */; };
 		85CBE6AA29D9E9680055C70D /* TaskMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CBE6A429D9E9680055C70D /* TaskMO+CoreDataClass.swift */; };
@@ -86,11 +88,13 @@
 		854E999D29D07FFE000E411E /* TaskDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewModel.swift; sourceTree = "<group>"; };
 		854E999F29D0834E000E411E /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		8555FE9C29D8012C001A6AF2 /* Formatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+Extensions.swift"; sourceTree = "<group>"; };
+		857555FA29E32C8A00F74C36 /* SortingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingButton.swift; sourceTree = "<group>"; };
 		859C869529E2BD21008481E4 /* SubTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskViewModel.swift; sourceTree = "<group>"; };
 		85B6C0CE29C6EF4C00125B05 /* CheckToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckToggleStyle.swift; sourceTree = "<group>"; };
 		85B6C0D029C6F29700125B05 /* ColorPickerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerField.swift; sourceTree = "<group>"; };
 		85B6C0D429C6F4B200125B05 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		85B6C0D729C6F89900125B05 /* ProjectColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectColors.swift; sourceTree = "<group>"; };
+		85C773C329E310FE00E71377 /* SortingOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingOptions.swift; sourceTree = "<group>"; };
 		85CBE6A229D9E9680055C70D /* TimesheetMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimesheetMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		85CBE6A329D9E9680055C70D /* TimesheetMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimesheetMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		85CBE6A429D9E9680055C70D /* TaskMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskMO+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -233,6 +237,7 @@
 				85B6C0D729C6F89900125B05 /* ProjectColors.swift */,
 				85CFC4BB29C736B300AD9186 /* TaskStates.swift */,
 				852E0DD929D9AD5100C5F95A /* DataSourceType.swift */,
+				85C773C329E310FE00E71377 /* SortingOptions.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 			children = (
 				8536E89D29D8BF19007E2023 /* ExpandableText.swift */,
 				851BF6A729E2D78400878EA0 /* CircularProgressBar.swift */,
+				857555FA29E32C8A00F74C36 /* SortingButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -508,6 +514,7 @@
 				85CFC4C229C73C4400AD9186 /* AddProjectViewModel.swift in Sources */,
 				85D9D6A829BE00D7008C8106 /* Color+Extensions.swift in Sources */,
 				85D9D68029BDFFE5008C8106 /* Persistence.swift in Sources */,
+				85C773C429E310FE00E71377 /* SortingOptions.swift in Sources */,
 				85B6C0CF29C6EF4C00125B05 /* CheckToggleStyle.swift in Sources */,
 				852E0DDA29D9AD5100C5F95A /* DataSourceType.swift in Sources */,
 				85386EFB29C6563800A69C15 /* DatePickerField.swift in Sources */,
@@ -520,6 +527,7 @@
 				8548109129C5CC29002DC597 /* CustomTextField.swift in Sources */,
 				85B6C0D529C6F4B200125B05 /* ColorButton.swift in Sources */,
 				854E99A029D0834E000E411E /* View+Extensions.swift in Sources */,
+				857555FB29E32C8A00F74C36 /* SortingButton.swift in Sources */,
 				851BF6A829E2D78400878EA0 /* CircularProgressBar.swift in Sources */,
 				85B6C0D829C6F89900125B05 /* ProjectColors.swift in Sources */,
 				85F6DC4329E299AC0090D29C /* Binding+Extensions.swift in Sources */,

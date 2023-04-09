@@ -68,7 +68,7 @@ class DataSource: NSObject, ObservableObject {
         }
         
         let taskFR: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
-        taskFR.sortDescriptors = [NSSortDescriptor(key: "deadline", ascending: true)]
+        taskFR.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
         tasksFRC = NSFetchedResultsController(fetchRequest: taskFR,
                                               managedObjectContext: managedObjectContext,
                                               sectionNameKeyPath: nil,
@@ -144,7 +144,7 @@ extension DataSource: NSFetchedResultsControllerDelegate {
     }
     
     func resetFetch() {
-        tasksFRC.fetchRequest.sortDescriptors = [NSSortDescriptor(key: "deadline", ascending: true)]
+        tasksFRC.fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
         tasksFRC.fetchRequest.predicate = nil
         try? tasksFRC.performFetch()
         if let newTasks = tasksFRC.fetchedObjects {
@@ -200,12 +200,21 @@ extension DataSource {
         switch result {
         case .success(let managedObject):
             if let taskMo = managedObject {
+                deleteSubtasks(task: task)
                 managedObjectContext.delete(taskMo)
             }
         case .failure(_):
             print("Couldn't fetch TaskMO to save")
         }
         saveData()
+    }
+    
+    func deleteSubtasks(task: Task) {
+        for id in task.subtasks {
+            if let foundSubTask = getSubTask(with: id) {
+                delete(subTask: foundSubTask)
+            }
+        }
     }
     
     func getTask(with id: UUID) -> Task? {

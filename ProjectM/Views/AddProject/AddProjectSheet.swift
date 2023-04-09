@@ -51,6 +51,19 @@ struct AddProjectSheet: View {
             .background(Color.background)
             .ignoresSafeArea(.container, edges: [.bottom])
             .navigationTitle("New Task")
+            .toolbar {
+                if (vm.editMode) {
+                    ToolbarItem(placement: .primaryAction) {
+                        Button(action: {
+                            vm.delete()
+                            isPresented = false
+                        }, label: {
+                            Text("Delete")
+                                .foregroundColor(Color.destructive)
+                        })
+                    }
+                }
+            }
         }
     }
 }

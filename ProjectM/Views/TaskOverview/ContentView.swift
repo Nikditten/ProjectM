@@ -25,6 +25,41 @@ struct ContentView: View {
                         } label: {
                             TaskCard(task: task)
                         }
+                        .contextMenu {
+                            Button(action: {
+                                withAnimation {
+                                    vm.toggleState(task: task)
+                                }
+                            }, label: {
+                                Text(!task.completed ? "Mark as completed" : "Unmark as completed")
+                                Image(systemName: !task.completed ? "checkmark.circle.fill" : "circle")
+                                    .accessibility(label: Text(!task.completed ? "Checked" : "Unchecked"))
+                                    .imageScale(.large)
+                            })
+                            
+                            Button(action: {
+                                withAnimation {
+                                    vm.taskToEdit = task
+                                    showingSheet = true
+                                }
+                            }, label: {
+                                Text("Edit")
+                                Image(systemName: "highlighter")
+                                    .accessibility(label: Text("Edit"))
+                                    .imageScale(.large)
+                            })
+                            
+                            Button(action: {
+                                withAnimation {
+                                    vm.deleteTask(task: task)
+                                }
+                            }, label: {
+                                Text("Delete")
+                                Image(systemName: "trash")
+                                    .accessibility(label: Text("Delete"))
+                                    .imageScale(.large)
+                            })
+                        }
                     }
                 }
             }
@@ -32,7 +67,7 @@ struct ContentView: View {
             .padding([.leading, .trailing])
             .navigationTitle("Tasks")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .primaryAction) {
                     Button(action: {
                         showingSheet.toggle()
                     }, label: {
@@ -43,8 +78,8 @@ struct ContentView: View {
             }
         }
         .background(Color.background)
-        .sheet(isPresented: $showingSheet) {
-            AddProjectSheet(task: nil, isPresented: $showingSheet)
+        .sheet(isPresented: $showingSheet, onDismiss: {vm.taskToEdit = nil}) {
+            AddProjectSheet(task: vm.taskToEdit, isPresented: $showingSheet)
         }
         .onAppear {
             withAnimation{

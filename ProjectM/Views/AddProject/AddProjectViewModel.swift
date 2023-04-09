@@ -28,6 +28,10 @@ class AddProjectViewModel: ObservableObject {
         }
     }
     
+    func delete() -> Void {
+        dataSource.delete(task: editingTask)
+    }
+    
     func submit() -> Bool {
         
         if (!hasDeadline) {

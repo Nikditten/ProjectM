@@ -39,22 +39,6 @@ struct SubTaskCard: View {
                     .foregroundColor(Color.subTaskCardText)
                     .minimumScaleFactor(0.2)
                     .truncationMode(.tail)
-                
-                Spacer()
-                
-                Button {
-                    withAnimation {
-                        showMore.toggle()
-                    }
-                } label: {
-                    Image(systemName: showMore ? "chevron.up" : "chevron.down")
-                        .foregroundColor(vm.color.toColor())
-                        .accessibility(label: Text(vm.completed ? "Show More" : "Show less"))
-                        .imageScale(.large)
-                }
-                .font(.subheadline)
-                .frame(alignment: .topLeading)
-                .buttonStyle(PlainButtonStyle())
             }
    
         }

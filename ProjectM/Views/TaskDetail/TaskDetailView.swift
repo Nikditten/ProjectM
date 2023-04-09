@@ -34,14 +34,12 @@ struct TaskDetailView: View {
                 HStack {
                     VStack (alignment: .leading, spacing: 5) {
                         HStack {
-                            Image(systemName: "alarm")
-                            Text(vm.task.hasEstimation ? Formatter.hoursFull.string(from: (vm.task.estimation ?? 0) * 60 * 60)! : "No estimation")
-                        }
-                        
-                        
-                        HStack {
                             Image(systemName: "calendar")
                             Text(vm.task.hasDeadline ? vm.task.deadline!.formatAsDate() : "No deadline")
+                        }
+                        HStack {
+                            Image(systemName: "alarm")
+                            Text(vm.task.hasEstimation ? Formatter.hoursFull.string(from: (vm.task.estimation ?? 0) * 60 * 60)! : "No estimation")
                         }
                     }
                     .foregroundColor(Color.taskcardText.opacity(0.75))
@@ -79,7 +77,7 @@ struct TaskDetailView: View {
                     
                     HStack (alignment: .center) {
                         
-                        Text(vm.markAsCompleted ? "Completed" : "Ongoing")
+                        Text(vm.markAsCompleted ? "Completed" :  "Ongoing")
                             .foregroundColor(Color.text)
                         
                         Spacer()
@@ -98,7 +96,7 @@ struct TaskDetailView: View {
                     }
                     .font(.headline)
                     
-                    ProgressView(value: vm.progression, total: 1)
+                    ProgressView(value: vm.markAsCompleted ? 1 : vm.progression, total: 1)
                         .tint(vm.task.color.toColor())
                         .scaleEffect(x: 1, y: 2, anchor: .center)
                         .padding(.bottom)
