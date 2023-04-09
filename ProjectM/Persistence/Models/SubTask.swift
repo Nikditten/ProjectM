@@ -10,12 +10,12 @@ import SwiftUI
 struct SubTask: Identifiable, Hashable {
     var id: UUID
     var title: String
-    var description: String
+    var description: String?
     var state: TaskState
     var timestamp: Date
-    var taskId: UUID?
+    var taskId: UUID
     
-    init(title: String = "", description: String = "", state: TaskState = TaskState.ToDo, timestamp: Date = Date(), taskId: UUID? = nil) {
+    init(title: String = "", description: String? = nil , state: TaskState = TaskState.ToDo, timestamp: Date = Date(), taskId: UUID) {
         self.id = UUID()
         self.title = title
         self.description = description

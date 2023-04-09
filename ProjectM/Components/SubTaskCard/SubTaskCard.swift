@@ -58,34 +58,7 @@ struct SubTaskCard: View {
                 .frame(alignment: .topLeading)
                 .buttonStyle(PlainButtonStyle())
             }
-            
-            if (showMore) {
-                Text(subTask.description)
-                    .font(.subheadline)
-                    .foregroundColor(subTask.description.count > 0 ? Color.text : Color.text.opacity(0.25))
-                    .lineLimit(2...)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 34)
-                
-                HStack (spacing: 20) {
-                    Spacer()
-                    
-                    Button {
-                        withAnimation {
-                            showMore.toggle()
-                        }
-                    } label: {
-                        Image(systemName: "highlighter")
-                            .foregroundColor(.subTaskCardText)
-                            .accessibility(label: Text("Edit"))
-                            .imageScale(.large)
-                    }
-                    .font(.subheadline)
-                    .frame(alignment: .topLeading)
-                    .buttonStyle(PlainButtonStyle())
-                }
-            }
-            
+   
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()

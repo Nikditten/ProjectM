@@ -68,7 +68,7 @@ class DataSource: NSObject, ObservableObject {
         }
         
         let taskFR: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
-        taskFR.sortDescriptors = [NSSortDescriptor(key: "deadline", ascending: false)]
+        taskFR.sortDescriptors = [NSSortDescriptor(key: "deadline", ascending: true)]
         tasksFRC = NSFetchedResultsController(fetchRequest: taskFR,
                                               managedObjectContext: managedObjectContext,
                                               sectionNameKeyPath: nil,
@@ -256,12 +256,10 @@ extension SubTask {
     fileprivate init(subTaskMO: SubTaskMO) {
         self.id = subTaskMO.id ?? UUID()
         self.title = subTaskMO.name!
-        self.description = subTaskMO.note ?? ""
+        self.description = subTaskMO.note
         self.state = subTaskMO.state
         self.timestamp = subTaskMO.timestamp!
-        if let taskMO = subTaskMO.task {
-            self.taskId = taskMO.id
-        }
+        self.taskId = (subTaskMO.task?.id)!
     }
 }
 
@@ -309,14 +307,16 @@ extension DataSource {
     
     private func update(subTaskMO: SubTaskMO, from subTask: SubTask) {
         subTaskMO.name = subTask.title
-        if let id = subTask.taskId, let task = getTask(with: id) {
+        subTaskMO.note = subTask.description
+        subTaskMO.state = subTask.state
+        subTaskMO.timestamp = subTask.timestamp
+        if let task = getTask(with: subTask.taskId) {
             subTaskMO.task = getTaskMO(from: task)
         } else {
             subTaskMO.task = nil
         }
     }
     
-    ///Get's the TaskMO that corresponds to the SubTask. If no TaskMO is found, returns nil.
     private func getSubTaskMO(from subTask: SubTask? ) -> SubTaskMO? {
         guard let subTask = subTask else { return nil }
         let predicate = NSPredicate(format: "id = %@", subTask.id as CVarArg)

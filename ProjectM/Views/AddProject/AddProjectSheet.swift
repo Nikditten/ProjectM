@@ -24,24 +24,24 @@ struct AddProjectSheet: View {
             ScrollView {
                 VStack (spacing: 25) {
                     
-                    CustomTextField(label: "Name", value: $vm.title)
+                    CustomTextField(label: "Name", value: $vm.edititingTask.title)
                     
-                    MultilineTextField(label: "Description", value: $vm.description, linelimit: 3)
+                    MultilineTextField(label: "Description", value: $vm.edititingTask.description.toUnwrapped(defaultValue: ""), linelimit: 3)
                     
-                    DatePickerField(label: "Deadline", color: vm.color.toColor(), value: $vm.deadline, hasDay: $vm.hasDeadline)
+                    DatePickerField(label: "Deadline", color: vm.edititingTask.color.toColor(), value: $vm.edititingTask.deadline.toUnwrapped(defaultValue: Date()), hasDay: $vm.hasDeadline)
                     
-                    HourPickerField(label: "Estimated hours", color: vm.color.toColor(), value: $vm.estimation, showHours: $vm.hasEstimation)
+                    HourPickerField(label: "Estimated hours", color: vm.edititingTask.color.toColor(), value: $vm.edititingTask.estimation.toUnwrapped(defaultValue: 0.0), showHours: $vm.hasEstimation)
 
-                    ColorPickerField(label: "Color", activeColor: $vm.color)
+                    ColorPickerField(label: "Color", activeColor: $vm.edititingTask.color)
                     
                     SubmitButton(
                         label: vm.editMode ? "Update" : "Create",
-                        color: vm.color.toColor()
+                        color: vm.edititingTask.color.toColor()
                     ) {
                         
                         isPresented = !vm.submit()
                     }
-                    .disabled(vm.title.count == 0)
+                    .disabled(vm.edititingTask.title.count == 0)
                     .padding(.bottom, 40)
                     
                     

@@ -11,44 +11,34 @@ class AddProjectViewModel: ObservableObject {
     
     @Published private var dataSource: DataSource
     
-    @Published var editMode = false
+    @Published var edititingTask: Task = Task()
     
-    @Published var title = ""
-    @Published var description = ""
-    @Published var color = ProjectColors.standard
-    @Published var deadline = Date()
-    @Published var estimation = 0.0
-    
-    init(task: Task?, dataSource: DataSource = DataSource.shared) {
-        self.dataSource = dataSource
-        if (task != nil) {
-            self.editMode = true
-            self.title = task?.title ?? ""
-            self.description = task?.description ?? ""
-            self.color = task?.color ?? ProjectColors.standard
-            self.deadline = task?.deadline ?? Date()
-            self.estimation = task?.estimation ?? 0.0
-        }
-    }
-    
+    // MARK: UI booleans
+    @Published var editMode: Bool = false
     @Published var hasDeadline: Bool = false
     @Published var hasEstimation: Bool = false
     
+    init(task: Task?, dataSource: DataSource = DataSource.shared) {
+        self.dataSource = dataSource
+        if let editTask = task {
+            self.edititingTask = editTask
+            self.editMode = true
+            self.hasDeadline = editTask.deadline != nil
+            self.hasEstimation = editTask.estimation != 0.0
+        }
+    }
+    
     func submit() -> Bool {
-        var task = Task()
-        task.title = title
-        task.description = description
-        task.color = color
         
-        if (hasDeadline) {
-            task.deadline = deadline
+        if (!hasDeadline) {
+            edititingTask.deadline = nil
         }
         
-        if (hasEstimation) {
-            task.estimation = estimation
+        if (!hasEstimation) {
+            edititingTask.estimation = nil
         }
         
-        dataSource.updateAndSave(task: task)
+        dataSource.updateAndSave(task: edititingTask)
         
         return true
     }
