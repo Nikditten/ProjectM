@@ -106,7 +106,7 @@
 		85CFC4BB29C736B300AD9186 /* TaskStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStates.swift; sourceTree = "<group>"; };
 		85CFC4C129C73C4400AD9186 /* AddProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectViewModel.swift; sourceTree = "<group>"; };
 		85CFC4C429C73E7C00AD9186 /* TaskOverviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskOverviewModel.swift; sourceTree = "<group>"; };
-		85D9D67329BDFFE5008C8106 /* ProjectM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85D9D67329BDFFE5008C8106 /* TaskR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85D9D67629BDFFE5008C8106 /* ProjectMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMApp.swift; sourceTree = "<group>"; };
 		85D9D67829BDFFE5008C8106 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		85D9D67A29BDFFE5008C8106 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 		85D9D67429BDFFE5008C8106 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				85D9D67329BDFFE5008C8106 /* ProjectM.app */,
+				85D9D67329BDFFE5008C8106 /* TaskR.app */,
 				85D9D68929BDFFE5008C8106 /* ProjectMTests.xctest */,
 				85D9D69329BDFFE5008C8106 /* ProjectMUITests.xctest */,
 			);
@@ -342,7 +342,6 @@
 				85D9D67D29BDFFE5008C8106 /* Preview Assets.xcassets */,
 				85D9D67A29BDFFE5008C8106 /* Assets.xcassets */,
 				85D9D68429BDFFE5008C8106 /* Info.plist */,
-				85D9D6A729BE00D7008C8106 /* Color+Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -350,6 +349,7 @@
 		85D9D6A929BE027E008C8106 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				85D9D6A729BE00D7008C8106 /* Color+Extensions.swift */,
 				85D9D6AA29BE029D008C8106 /* UIScreen+Extension.swift */,
 				85D9D6B529BE15DF008C8106 /* Date+Extensions.swift */,
 				854E999F29D0834E000E411E /* View+Extensions.swift */,
@@ -394,7 +394,7 @@
 			);
 			name = ProjectM;
 			productName = ProjectM;
-			productReference = 85D9D67329BDFFE5008C8106 /* ProjectM.app */;
+			productReference = 85D9D67329BDFFE5008C8106 /* TaskR.app */;
 			productType = "com.apple.product-type.application";
 		};
 		85D9D68829BDFFE5008C8106 /* ProjectMTests */ = {
@@ -710,6 +710,7 @@
 				DEVELOPMENT_TEAM = DJL65M64G7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -720,8 +721,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.nikditten.app.ProjectM;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.nikditten.app.TaskR;
+				PRODUCT_NAME = TaskR;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -739,6 +740,7 @@
 				DEVELOPMENT_TEAM = DJL65M64G7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -749,8 +751,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.nikditten.app.ProjectM;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.nikditten.app.TaskR;
+				PRODUCT_NAME = TaskR;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

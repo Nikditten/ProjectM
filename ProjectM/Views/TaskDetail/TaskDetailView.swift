@@ -102,7 +102,7 @@ struct TaskDetailView: View {
                         .padding(.bottom)
                     
                     if (vm.task.hasDescription) {
-
+                        
                         Text("Description")
                             .font(.title2)
                             .fontWeight(.bold)
@@ -159,10 +159,10 @@ struct TaskDetailView: View {
                             }
                             
                             ForEach(vm.task.subtasks, id: \.self) { subtaskId in
-                                    SubTaskCard(
-                                        subtaskId: subtaskId
-                                    )
-                                }
+                                SubTaskCard(
+                                    subtaskId: subtaskId
+                                )
+                            }
                             
                         }
                     }
