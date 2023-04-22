@@ -13,7 +13,6 @@
 		8536E89E29D8BF19007E2023 /* ExpandableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536E89D29D8BF19007E2023 /* ExpandableText.swift */; };
 		853804C529F3FA1C0079C21E /* GeneralInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853804C429F3FA1C0079C21E /* GeneralInformationView.swift */; };
 		853804C829F3FC160079C21E /* ProgressionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853804C729F3FC160079C21E /* ProgressionView.swift */; };
-		853804CA29F3FF970079C21E /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853804C929F3FF970079C21E /* DescriptionView.swift */; };
 		853804CC29F400590079C21E /* SubtaskContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853804CB29F400590079C21E /* SubtaskContainerView.swift */; };
 		853804CE29F40B790079C21E /* Spacer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853804CD29F40B790079C21E /* Spacer+Extensions.swift */; };
 		85386EF329C6383B00A69C15 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85386EF229C6383B00A69C15 /* MultilineTextField.swift */; };
@@ -85,7 +84,6 @@
 		8536E89D29D8BF19007E2023 /* ExpandableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableText.swift; sourceTree = "<group>"; };
 		853804C429F3FA1C0079C21E /* GeneralInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInformationView.swift; sourceTree = "<group>"; };
 		853804C729F3FC160079C21E /* ProgressionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressionView.swift; sourceTree = "<group>"; };
-		853804C929F3FF970079C21E /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		853804CB29F400590079C21E /* SubtaskContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtaskContainerView.swift; sourceTree = "<group>"; };
 		853804CD29F40B790079C21E /* Spacer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spacer+Extensions.swift"; sourceTree = "<group>"; };
 		85386EF229C6383B00A69C15 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 			children = (
 				853804C429F3FA1C0079C21E /* GeneralInformationView.swift */,
 				853804C729F3FC160079C21E /* ProgressionView.swift */,
-				853804C929F3FF970079C21E /* DescriptionView.swift */,
 				853804CB29F400590079C21E /* SubtaskContainerView.swift */,
 			);
 			path = SubViews;
@@ -570,7 +567,6 @@
 				85B6C0D129C6F29700125B05 /* ColorPickerField.swift in Sources */,
 				85CBE6AD29D9E9680055C70D /* SubTaskMO+CoreDataProperties.swift in Sources */,
 				852E0DD829D9AD3700C5F95A /* DataSource.swift in Sources */,
-				853804CA29F3FF970079C21E /* DescriptionView.swift in Sources */,
 				85CBE6AC29D9E9680055C70D /* SubTaskMO+CoreDataClass.swift in Sources */,
 				85EB960129C61438000B0AF2 /* SubmitButton.swift in Sources */,
 				85386EF329C6383B00A69C15 /* MultilineTextField.swift in Sources */,

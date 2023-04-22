@@ -22,21 +22,21 @@ struct TaskDetailView: View {
             
             GeneralInformationView(task: vm.task)
             
-            Spacer().height(40)
+            Spacer().height(10)
             
-            ProgressionView(color: vm.task.color, markAsCompleted: vm.markAsCompleted, progression: vm.progression) {
+            if (vm.task.hasDescription) {
+                ExpandableText(vm.task.description!, color: vm.task.color.toColor())
+                
+                Spacer().height(40)
+            }
+            
+            ProgressionView(task: vm.task, markAsCompleted: vm.markAsCompleted, progression: vm.progression) {
                 withAnimation {
                     vm.toggleState()
                 }
             }
             
             Spacer().height(40)
-            
-            if (vm.task.hasDescription) {
-                DescriptionView(description: vm.task.description!, color: vm.task.color.toColor())
-                
-                Spacer().height(40)
-            }
             
             SubtaskContainerView(newSubTaskTitle: $vm.newSubTask.title, showInputField: $vm.showInputField, color: vm.task.color.toColor(), subtasks: vm.task.subtasks) {
                 withAnimation {
@@ -46,8 +46,8 @@ struct TaskDetailView: View {
             
             Spacer(minLength: 40)
         }
-        .padding()
-        .background(Color.taskDetailBodyBackground)
+        .padding(.horizontal)
+        .background(Color.taskDetailBackground)
         .ignoresSafeArea(.all, edges: .bottom)
         .navigationBarBackButtonHidden()
         .toolbar {

@@ -24,8 +24,8 @@ extension Color {
     static let progressBarBackground = Color("Primary")
     static let progressBarText = Color("Text")
     
-    static let taskDetailHeaderBackground = Color("Secondary")
-    static let taskDetailBodyBackground = Color("Primary")
+    static let taskDetailBackground = Color("Primary")
+    static let taskDetailCardBackground = Color("Secondary")
     static let taskDetailIcon = Color("Text")
     static let taskDetailAddSubTask = Color.white
     

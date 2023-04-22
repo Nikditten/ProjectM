@@ -35,36 +35,5 @@ struct GeneralInformationView: View {
             .minimumScaleFactor(0.1)
             .truncationMode(.tail)
         
-        Spacer().height(20)
-        
-        
-        HStack {
-            VStack (alignment: .leading, spacing: 5) {
-                HStack {
-                    Image(systemName: "calendar")
-                    Text(hasDeadline ? deadline.formatAsDate() : "No deadline")
-                }
-                HStack {
-                    Image(systemName: "alarm")
-                    Text(hasEstimation ? Formatter.hoursFull.string(from: estimation * 60 * 60)! : "No estimation")
-                }
-            }
-            .foregroundColor(Color.taskcardText.opacity(0.75))
-            .font(.headline)
-            
-            Spacer()
-            
-            Button {
-                withAnimation {
-                    print("TIMETRACKING")
-                }
-                
-            } label: {
-                Image(systemName: "play.circle.fill")
-                
-            }
-            .font(.largeTitle)
-            .foregroundColor(color)
-        }
     }
 }

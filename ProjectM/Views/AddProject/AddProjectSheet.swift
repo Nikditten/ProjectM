@@ -52,6 +52,7 @@ struct AddProjectSheet: View {
                             Text("Delete")
                                 .foregroundColor(Color.destructive)
                         })
+                        .font(.title3)
                         
                     }
                     
