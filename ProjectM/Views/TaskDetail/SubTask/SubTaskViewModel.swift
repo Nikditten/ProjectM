@@ -18,7 +18,7 @@ class SubTaskViewModel: ObservableObject {
         self.dataSource = dataSource
         
         let fetchedSubTask = dataSource.getSubTask(with: subTaskId)!
-        let task: Task = dataSource.getTask(with: fetchedSubTask.taskId)!
+        let task: Task = dataSource.getTask(with: fetchedSubTask.taskId) ?? Task()
         
         self.subTask = fetchedSubTask
         self.color = task.color

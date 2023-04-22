@@ -31,7 +31,7 @@ struct AddProjectSheet: View {
                     DatePickerField(label: "Deadline", color: vm.editingTask.color.toColor(), value: $vm.editingTask.deadline.toUnwrapped(defaultValue: Date()), hasDay: $vm.hasDeadline)
                     
                     HourPickerField(label: "Estimated hours", color: vm.editingTask.color.toColor(), value: $vm.editingTask.estimation.toUnwrapped(defaultValue: 0.0), showHours: $vm.hasEstimation)
-
+                    
                     ColorPickerField(label: "Color", activeColor: $vm.editingTask.color)
                     
                     SubmitButton(
@@ -42,7 +42,20 @@ struct AddProjectSheet: View {
                         isPresented = !vm.submit()
                     }
                     .disabled(vm.editingTask.title.count == 0)
-                    .padding(.bottom, 40)
+                    
+                    if (vm.editMode) {
+                        
+                        Button(action: {
+                            vm.delete()
+                            isPresented = false
+                        }, label: {
+                            Text("Delete")
+                                .foregroundColor(Color.destructive)
+                        })
+                        
+                    }
+                    
+                    Spacer(minLength: 40)
                     
                     
                 }
@@ -51,19 +64,6 @@ struct AddProjectSheet: View {
             .background(Color.background)
             .ignoresSafeArea(.container, edges: [.bottom])
             .navigationTitle("New Task")
-            .toolbar {
-                if (vm.editMode) {
-                    ToolbarItem(placement: .primaryAction) {
-                        Button(action: {
-                            vm.delete()
-                            isPresented = false
-                        }, label: {
-                            Text("Delete")
-                                .foregroundColor(Color.destructive)
-                        })
-                    }
-                }
-            }
         }
     }
 }

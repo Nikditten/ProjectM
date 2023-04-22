@@ -24,7 +24,6 @@ struct TaskCard: View {
             var completedSubTasks: Double = 0
             let subtasks: [SubTask] = dataSource.subTasks.values.filter { $0.taskId == task.id }
             for subtask in subtasks {
-                print(subtask)
                 if (subtask.completed()) {
                     completedSubTasks += 1
                 }
