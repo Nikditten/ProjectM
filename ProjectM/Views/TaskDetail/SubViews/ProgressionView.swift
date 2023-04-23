@@ -31,38 +31,10 @@ struct ProgressionView: View {
     
     var body: some View {
         
-        Text("Progression")
-            .font(.title2)
-            .fontWeight(.bold)
-            .foregroundColor(Color.text)
-        
-        Spacer().height(20)
-        
-        HStack (alignment: .center, spacing: 5) {
-            HStack {
-                Image(systemName: "calendar")
-                Text(hasDeadline ? deadline.formatAsDate() : "No deadline")
-            }
-            
-            Spacer()
-            
-            HStack {
-                Image(systemName: "alarm")
-                Text(hasEstimation ? Formatter.hoursBrief.string(from: estimation * 60 * 60)! : "No estimation")
-            }
-        }
-        .foregroundColor(Color.taskcardText.opacity(0.75))
-        .font(.headline)
-        .padding()
-        .background(Color.taskDetailCardBackground)
-        .cornerRadius(10)
-        
-        Spacer().height(10)
-        
         VStack {
             HStack (alignment: .center) {
                 
-                Text(markAsCompleted ? "Completed" :  "Ongoing")
+                Text(markAsCompleted ? "Completed" :  "\(Formatter.percent.string(from: NSNumber(value: progression))!) completed")
                     .foregroundColor(Color.text)
                 
                 Spacer()
@@ -86,8 +58,31 @@ struct ProgressionView: View {
             
             ProgressView(value: markAsCompleted ? 1 : progression, total: 1)
                 .tint(color)
+                .foregroundColor(Color.taskDetailCardBackground)
                 .scaleEffect(x: 1, y: 2, anchor: .center) 
         }
+        .background(Color.taskDetailCardBackground)
+        .cornerRadius(10)
+        
+        Spacer().height(10)
+        
+        HStack (alignment: .center) {
+            
+            HStack {
+                Image(systemName: "calendar")
+                Text(hasDeadline ? deadline.formatAsDate() : "No deadline")
+            }
+            
+            Spacer()
+            
+            HStack {
+                Image(systemName: "alarm")
+                Text(hasEstimation ? Formatter.hoursBrief.string(from: estimation * 60 * 60)! : "No estimation")
+            }
+        }
+        .foregroundColor(Color.taskcardText.opacity(0.75))
+        .font(.headline)
+        .padding()
         .background(Color.taskDetailCardBackground)
         .cornerRadius(10)
     }

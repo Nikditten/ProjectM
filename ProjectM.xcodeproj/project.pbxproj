@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		850B4C4829F47E580028A8D6 /* SmallCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B4C4729F47E580028A8D6 /* SmallCardView.swift */; };
 		851BF6A829E2D78400878EA0 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851BF6A729E2D78400878EA0 /* CircularProgressBar.swift */; };
 		852E0DD829D9AD3700C5F95A /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E0DD729D9AD3700C5F95A /* DataSource.swift */; };
 		852E0DDA29D9AD5100C5F95A /* DataSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E0DD929D9AD5100C5F95A /* DataSourceType.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		850B4C4729F47E580028A8D6 /* SmallCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCardView.swift; sourceTree = "<group>"; };
 		851BF6A729E2D78400878EA0 /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		852E0DD729D9AD3700C5F95A /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		852E0DD929D9AD5100C5F95A /* DataSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceType.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				8536E89D29D8BF19007E2023 /* ExpandableText.swift */,
 				851BF6A729E2D78400878EA0 /* CircularProgressBar.swift */,
 				857555FA29E32C8A00F74C36 /* SortingButton.swift */,
+				850B4C4729F47E580028A8D6 /* SmallCardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				85CBE6AC29D9E9680055C70D /* SubTaskMO+CoreDataClass.swift in Sources */,
 				85EB960129C61438000B0AF2 /* SubmitButton.swift in Sources */,
 				85386EF329C6383B00A69C15 /* MultilineTextField.swift in Sources */,
+				850B4C4829F47E580028A8D6 /* SmallCardView.swift in Sources */,
 				85CBE6A929D9E9680055C70D /* TimesheetMO+CoreDataProperties.swift in Sources */,
 				85CFC4BC29C736B300AD9186 /* TaskStates.swift in Sources */,
 				853804CE29F40B790079C21E /* Spacer+Extensions.swift in Sources */,

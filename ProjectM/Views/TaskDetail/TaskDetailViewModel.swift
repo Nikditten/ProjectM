@@ -31,6 +31,14 @@ class TaskDetailViewModel: ObservableObject {
     @Published var showEditSheet: Bool = false
     @Published var showInputField: Bool = false
     
+    var description: String {
+        if (task.description == nil || task.description?.count ?? 0 == 0) {
+            return "No description..."
+        }
+        
+        return task.description!
+    }
+    
     var progression: Double {
         if (task.hasSubTasks()) {
             var completedSubTasks: Double = 0

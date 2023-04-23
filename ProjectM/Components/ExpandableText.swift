@@ -51,7 +51,9 @@ struct ExpandableText: View {
                         .hidden()
                 )
             
-            if truncated { toggleButton }
+            if truncated {
+                toggleButton
+            }
         }
     }
     
@@ -62,14 +64,10 @@ struct ExpandableText: View {
             }
             
         } label: {
-            HStack {
-                Text(expanded ? "Minimize description" : "See full description")
-                Image(systemName: self.expanded ? "chevron.up" : "chevron.down")
-            }
-            
+            Image(systemName: expanded ? "chevron.up" : "chevron.down")
         }
-        .padding(.top, 2)
-        .font(.callout)
+        .padding(.top, 1)
+        .font(.footnote)
         .fontWeight(.bold)
         .foregroundColor(color)
         .frame(maxWidth: .infinity, alignment: .center)

@@ -18,38 +18,37 @@ struct TaskDetailView: View {
     }
     
     var body: some View {
-        VStack (alignment: .leading) {
-            
-            GeneralInformationView(task: vm.task)
-            
-            Spacer().height(10)
-            
-            if (vm.task.hasDescription) {
-                ExpandableText(vm.task.description!, color: vm.task.color.toColor())
+        ScrollView {
+            VStack (alignment: .leading) {
+                
+                Spacer().height(15)
+                
+                GeneralInformationView(task: vm.task)
                 
                 Spacer().height(40)
-            }
-            
-            ProgressionView(task: vm.task, markAsCompleted: vm.markAsCompleted, progression: vm.progression) {
-                withAnimation {
-                    vm.toggleState()
+                
+                ProgressionView(task: vm.task, markAsCompleted: vm.markAsCompleted, progression: vm.progression) {
+                    withAnimation {
+                        vm.toggleState()
+                    }
                 }
-            }
-            
-            Spacer().height(40)
-            
-            SubtaskContainerView(newSubTaskTitle: $vm.newSubTask.title, showInputField: $vm.showInputField, color: vm.task.color.toColor(), subtasks: vm.task.subtasks) {
-                withAnimation {
-                    vm.add()
+                
+                Spacer().height(40)
+                
+                SubtaskContainerView(newSubTaskTitle: $vm.newSubTask.title, showInputField: $vm.showInputField, color: vm.task.color.toColor(), subtasks: vm.task.subtasks) {
+                    withAnimation {
+                        vm.add()
+                    }
                 }
+                
+                Spacer(minLength: 40)
             }
-            
-            Spacer(minLength: 40)
         }
         .padding(.horizontal)
         .background(Color.taskDetailBackground)
         .ignoresSafeArea(.all, edges: .bottom)
         .navigationBarBackButtonHidden()
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
