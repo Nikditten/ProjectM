@@ -1,5 +1,5 @@
 //
-//  TaskMO+CoreDataClass.swift
+//  ProjectMO+CoreDataClass.swift
 //  ProjectM
 //
 //  Created by Niklas Børner on 23/04/2023.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(TaskMO)
-public class TaskMO: NSManagedObject {
+@objc(ProjectMO)
+public class ProjectMO: NSManagedObject {
 
 }
