@@ -13,9 +13,9 @@ struct AddProjectSheet: View {
     
     @ObservedObject var vm: AddProjectViewModel
     
-    init(project: Project?, isPresented: Binding<Bool>) {
+    init(task: Task?, isPresented: Binding<Bool>) {
         self._isPresented = isPresented
-        self.vm = AddProjectViewModel(project: project)
+        self.vm = AddProjectViewModel(task: task)
     }
     
     var body: some View {
@@ -24,24 +24,24 @@ struct AddProjectSheet: View {
             ScrollView {
                 VStack (spacing: 25) {
                     
-                    CustomTextField(label: "Name", value: $vm.editingProject.title)
+                    CustomTextField(label: "Name", value: $vm.editingTask.title)
                     
-                    MultilineTextField(label: "Description", value: $vm.editingProject.description.toUnwrapped(defaultValue: ""), linelimit: 3)
+                    MultilineTextField(label: "Description", value: $vm.editingTask.description.toUnwrapped(defaultValue: ""), linelimit: 3)
                     
-                    DatePickerField(label: "Deadline", color: vm.editingProject.color.toColor(), value: $vm.editingProject.deadline.toUnwrapped(defaultValue: Date()), hasDay: $vm.hasDeadline)
+                    DatePickerField(label: "Deadline", color: vm.editingTask.color.toColor(), value: $vm.editingTask.deadline.toUnwrapped(defaultValue: Date()), hasDay: $vm.hasDeadline)
                     
-                    HourPickerField(label: "Estimated hours", color: vm.editingProject.color.toColor(), value: $vm.editingProject.estimation.toUnwrapped(defaultValue: 0.0), showHours: $vm.hasEstimation)
+                    HourPickerField(label: "Estimated hours", color: vm.editingTask.color.toColor(), value: $vm.editingTask.estimation.toUnwrapped(defaultValue: 0.0), showHours: $vm.hasEstimation)
                     
-                    ColorPickerField(label: "Color", activeColor: $vm.editingProject.color)
+                    ColorPickerField(label: "Color", activeColor: $vm.editingTask.color)
                     
                     SubmitButton(
                         label: vm.editMode ? "Update" : "Create",
-                        color: vm.editingProject.color.toColor()
+                        color: vm.editingTask.color.toColor()
                     ) {
                         
                         isPresented = !vm.submit()
                     }
-                    .disabled(vm.editingProject.title.count == 0)
+                    .disabled(vm.editingTask.title.count == 0)
                     
                     if (vm.editMode) {
                         
@@ -64,7 +64,7 @@ struct AddProjectSheet: View {
             .padding()
             .background(Color.background)
             .ignoresSafeArea(.container, edges: [.bottom])
-            .navigationTitle("New project")
+            .navigationTitle("New Task")
         }
     }
 }
