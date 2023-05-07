@@ -7,26 +7,26 @@
 
 import SwiftUI
 
-struct TaskContainerView: View {
+struct SubtaskContainerView: View {
     
     
-    @Binding var newTaskTitle: String
+    @Binding var newSubTaskTitle: String
     @Binding var showInputField: Bool
     var color: Color
-    var tasks: [UUID]
+    var subtasks: [UUID]
     var onSubmit: () -> Void
     
-    init(newTaskTitle: Binding<String>, showInputField: Binding<Bool>, color: Color, tasks: [UUID], _ onSubmit: @escaping () -> Void) {
-        self._newTaskTitle = newTaskTitle
+    init(newSubTaskTitle: Binding<String>, showInputField: Binding<Bool>, color: Color, subtasks: [UUID], _ onSubmit: @escaping () -> Void) {
+        self._newSubTaskTitle = newSubTaskTitle
         self._showInputField = showInputField
         self.color = color
-        self.tasks = tasks
+        self.subtasks = subtasks
         self.onSubmit = onSubmit
     }
     
     var body: some View {
         HStack {
-            Text("Tasks")
+            Text("Sub task")
                 .foregroundColor(Color.text)
                 .fontWeight(.bold)
             
@@ -53,7 +53,7 @@ struct TaskContainerView: View {
                     .imageScale(.large)
                     .font(.headline)
                 
-                TextField("New task", text: $newTaskTitle)
+                TextField("New subtask", text: $newSubTaskTitle)
                     .keyboardType(.default)
                     .cornerRadius(10)
                     .foregroundColor(Color.subTaskCardText)
@@ -68,9 +68,9 @@ struct TaskContainerView: View {
             .cornerRadius(10)
         }
         
-        ForEach(tasks, id: \.self) { taskId in
-            TaskCardView(
-                taskId: taskId
+        ForEach(subtasks, id: \.self) { subtaskId in
+            SubTaskCard(
+                subtaskId: subtaskId
             )
         }
     }

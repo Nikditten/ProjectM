@@ -26,7 +26,7 @@ extension Color {
     
     static let taskDetailBackground = Color("Primary")
     static let taskDetailCardBackground = Color("Secondary")
-    static let taskDetailIcon = Color.white
+    static let taskDetailIcon = Color("Text")
     static let taskDetailAddSubTask = Color.white
     
     static let subTaskCardBackground = Color("Secondary")

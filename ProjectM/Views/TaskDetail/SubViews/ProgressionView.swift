@@ -18,23 +18,18 @@ struct ProgressionView: View {
     var deadline: Date
     var estimation: Double
     
-    init (project: Project, markAsCompleted: Bool, progression: Double, _ toggleState: @escaping () -> Void) {
-        self.color = project.color.toColor()
+    init (task: Task, markAsCompleted: Bool, progression: Double, _ toggleState: @escaping () -> Void) {
+        self.color = task.color.toColor()
         self.markAsCompleted = markAsCompleted
         self.toggleState = toggleState
         self.progression = progression
-        self.hasDeadline = project.hasDeadline
-        self.hasEstimation = project.hasEstimation
-        self.deadline = project.deadline ?? Date()
-        self.estimation = project.estimation ?? 0.0
+        self.hasDeadline = task.hasDeadline
+        self.hasEstimation = task.hasEstimation
+        self.deadline = task.deadline ?? Date()
+        self.estimation = task.estimation ?? 0.0
     }
     
     var body: some View {
-        
-        Text("Overview")
-            .foregroundColor(Color.text)
-            .fontWeight(.bold)
-            .font(.title2)
         
         VStack {
             HStack (alignment: .center) {

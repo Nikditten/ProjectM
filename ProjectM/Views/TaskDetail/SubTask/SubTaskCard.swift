@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct TaskCardView: View {
+struct SubTaskCard: View {
     
-    @ObservedObject var vm: TaskViewModel
+    @ObservedObject var vm: SubTaskViewModel
     
-    init(taskId: UUID, dataSource: DataSource = DataSource.shared) {
-        self.vm = TaskViewModel(taskId: taskId, dataSource: dataSource)
+    init(subtaskId: UUID, dataSource: DataSource = DataSource.shared) {
+        self.vm = SubTaskViewModel(subTaskId: subtaskId, dataSource: dataSource)
     }
     
     @State var showMore = false
@@ -35,7 +35,7 @@ struct TaskCardView: View {
                 .frame(alignment: .topLeading)
                 .buttonStyle(PlainButtonStyle())
                 
-                Text(vm.task.title)
+                Text(vm.subTask.title)
                     .foregroundColor(Color.subTaskCardText)
                     .minimumScaleFactor(0.2)
                     .truncationMode(.tail)
