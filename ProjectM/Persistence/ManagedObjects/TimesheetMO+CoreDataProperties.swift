@@ -2,7 +2,7 @@
 //  TimesheetMO+CoreDataProperties.swift
 //  ProjectM
 //
-//  Created by Niklas Børner on 02/04/2023.
+//  Created by Niklas Børner on 23/04/2023.
 //
 //
 
@@ -19,7 +19,7 @@ extension TimesheetMO {
     @NSManaged public var end: Date?
     @NSManaged public var id: UUID?
     @NSManaged public var start: Date?
-    @NSManaged public var task: TaskMO?
+    @NSManaged public var task: ProjectMO?
 
 }
 

@@ -10,30 +10,27 @@ import SwiftUI
 struct GeneralInformationView: View {
     
     var title: String
-    var description: String
+    var description: String?
     var hasDeadline: Bool
     var deadline: Date
     var hasEstimation: Bool
     var estimation: Double
     var color: Color
     
-    init (task: Task) {
-        self.title = task.title
-        self.hasDeadline = task.hasDeadline
-        self.deadline = task.deadline ?? Date()
-        self.hasEstimation = task.hasEstimation
-        self.estimation = task.estimation ?? 0.0
-        self.color = task.color.toColor()
+    init (project: Project) {
+        self.title = project.title
+        self.hasDeadline = project.hasDeadline
+        self.deadline = project.deadline ?? Date()
+        self.hasEstimation = project.hasEstimation
+        self.estimation = project.estimation ?? 0.0
+        self.color = project.color.toColor()
         
-        if (task.description?.count ?? 0 > 0) {
-            self.description = task.description!
-        } else {
-            self.description = "No description"
+        if (project.description?.count ?? 0 > 0) {
+            self.description = project.description
         }
     }
     
     var body: some View {
-        
         
         Text(title)
             .foregroundColor(Color.taskcardText)
@@ -42,9 +39,10 @@ struct GeneralInformationView: View {
             .minimumScaleFactor(0.1)
             .truncationMode(.tail)
         
-        Spacer().height(15)
-        
-        ExpandableText(description, color: color)
+        if (description != nil) {
+            Spacer().height(15)
+            ExpandableText(description!, color: color)
+        }
         
     }
 }
