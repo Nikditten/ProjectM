@@ -12,7 +12,6 @@
 		852E0DD829D9AD3700C5F95A /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E0DD729D9AD3700C5F95A /* DataSource.swift */; };
 		852E0DDA29D9AD5100C5F95A /* DataSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E0DD929D9AD5100C5F95A /* DataSourceType.swift */; };
 		8536E89E29D8BF19007E2023 /* ExpandableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536E89D29D8BF19007E2023 /* ExpandableText.swift */; };
-		853804C529F3FA1C0079C21E /* GeneralInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853804C429F3FA1C0079C21E /* GeneralInformationView.swift */; };
 		853804C829F3FC160079C21E /* ProgressionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853804C729F3FC160079C21E /* ProgressionView.swift */; };
 		853804CC29F400590079C21E /* SubtaskContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853804CB29F400590079C21E /* SubtaskContainerView.swift */; };
 		853804CE29F40B790079C21E /* Spacer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853804CD29F40B790079C21E /* Spacer+Extensions.swift */; };
@@ -84,7 +83,6 @@
 		852E0DD729D9AD3700C5F95A /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		852E0DD929D9AD5100C5F95A /* DataSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceType.swift; sourceTree = "<group>"; };
 		8536E89D29D8BF19007E2023 /* ExpandableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableText.swift; sourceTree = "<group>"; };
-		853804C429F3FA1C0079C21E /* GeneralInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInformationView.swift; sourceTree = "<group>"; };
 		853804C729F3FC160079C21E /* ProgressionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressionView.swift; sourceTree = "<group>"; };
 		853804CB29F400590079C21E /* SubtaskContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtaskContainerView.swift; sourceTree = "<group>"; };
 		853804CD29F40B790079C21E /* Spacer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spacer+Extensions.swift"; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 		853804C329F3F9FA0079C21E /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				853804C429F3FA1C0079C21E /* GeneralInformationView.swift */,
 				853804C729F3FC160079C21E /* ProgressionView.swift */,
 				853804CB29F400590079C21E /* SubtaskContainerView.swift */,
 			);
@@ -565,7 +562,6 @@
 				85386EF929C6505100A69C15 /* HourPickerField.swift in Sources */,
 				85CBE6A829D9E9680055C70D /* TimesheetMO+CoreDataClass.swift in Sources */,
 				853804CC29F400590079C21E /* SubtaskContainerView.swift in Sources */,
-				853804C529F3FA1C0079C21E /* GeneralInformationView.swift in Sources */,
 				85444E3B29D208480093243C /* SubTaskCard.swift in Sources */,
 				85B6C0D129C6F29700125B05 /* ColorPickerField.swift in Sources */,
 				85CBE6AD29D9E9680055C70D /* SubTaskMO+CoreDataProperties.swift in Sources */,

@@ -61,7 +61,7 @@ struct ProgressionView: View {
                 .foregroundColor(Color.taskDetailCardBackground)
                 .scaleEffect(x: 1, y: 2, anchor: .center) 
         }
-        .background(Color.taskDetailCardBackground)
+        .background(Color.taskDetailBackground)
         .cornerRadius(10)
         
         Spacer().height(10)
@@ -83,7 +83,7 @@ struct ProgressionView: View {
         .foregroundColor(Color.taskcardText.opacity(0.75))
         .font(.headline)
         .padding()
-        .background(Color.taskDetailCardBackground)
+        .background(Color.taskDetailBackground)
         .cornerRadius(10)
     }
 }
