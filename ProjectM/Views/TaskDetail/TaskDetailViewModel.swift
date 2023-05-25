@@ -39,6 +39,7 @@ class TaskDetailViewModel: ObservableObject {
         return task.description!
     }
     
+    // getter and setter
     var progression: Double {
         if (task.hasSubTasks()) {
             var completedSubTasks: Double = 0

@@ -77,7 +77,7 @@ struct TaskDetailView: View {
                     
                     HStack (alignment: .center) {
                         
-                        Text("\(Formatter.percent.string(from: NSNumber(value: vm.progression))!) completed")
+                        Text(vm.markAsCompleted ? "Completed" :  "\(Formatter.percent.string(from: NSNumber(value: vm.progression))!) completed")
                             .foregroundColor(Color.text)
                         
                         Spacer()
@@ -133,38 +133,51 @@ struct TaskDetailView: View {
                     .font(.title2)
                     .padding(.bottom, 5)
                     
-                    ScrollView {
-                        VStack{
-                            if (vm.showInputField) {
-                                HStack {
-                                    Image(systemName: vm.task.completed ? "checkmark.circle.fill" : "circle")
-                                        .foregroundColor(vm.task.color.toColor())
-                                        .accessibility(label: Text(vm.task.completed ? "Checked" : "Unchecked"))
-                                        .imageScale(.large)
-                                        .font(.headline)
-                                    
-                                    TextField("New subtask", text: $vm.newSubTask.title)
-                                        .keyboardType(.default)
-                                        .cornerRadius(10)
-                                        .foregroundColor(Color.subTaskCardText)
-                                        .submitLabel(.done)
-                                        .onSubmit {
-                                            vm.add()
-                                        }
-                                }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding()
-                                .background(Color.subTaskCardBackground)
-                                .cornerRadius(10)
+                    VStack{
+                        if (vm.showInputField) {
+                            HStack {
+                                Image(systemName: "circle")
+                                    .foregroundColor(vm.task.color.toColor())
+                                    .accessibility(label: Text("Unchecked"))
+                                    .imageScale(.large)
+                                    .font(.headline)
+                                
+                                TextField("New subtask", text: $vm.newSubTask.title)
+                                    .keyboardType(.default)
+                                    .cornerRadius(10)
+                                    .foregroundColor(Color.subTaskCardText)
+                                    .submitLabel(.done)
+                                    .onSubmit {
+                                        vm.add()
+                                    }
                             }
-                            
-                            ForEach(vm.task.subtasks, id: \.self) { subtaskId in
-                                SubTaskCard(
-                                    subtaskId: subtaskId
-                                )
-                            }
-                            
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding()
+                            .background(Color.subTaskCardBackground)
+                            .cornerRadius(10)
                         }
+                        
+                        ForEach(vm.task.subtasks, id: \.self) { subtaskId in
+                            SubTaskCard(
+                                subtaskId: subtaskId
+                            )
+                        }
+                        
+                    }
+                    .padding(.bottom, 5)
+                    
+                    Text("Timesheets")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.text)
+                        .padding(.bottom, 5)
+                        .padding(.top)
+                    
+                    ForEach(vm.task.subtasks, id: \.self) { subtaskId in
+                        SubTaskCard(
+                            subtaskId: subtaskId
+                        )
+                        
                     }
                     .padding(.bottom)
                 }
