@@ -1,4 +1,4 @@
-<img src="[https://i.imgur.com/ZWnhY9T.png](https://github.com/Nikditten/ProjectM/assets/48121115/7e666bea-8dc5-4237-abf9-73b067b18a8e)" width=50% height=50%>
+<img src="https://github.com/Nikditten/ProjectM/assets/48121115/7e666bea-8dc5-4237-abf9-73b067b18a8e" width=50% height=50%>
 
 ![Simulator Screenshot - iPhone 15 Pro - 2024-06-29 at 18 34 05](https://github.com/Nikditten/ProjectM/assets/48121115/ff633bc9-79ed-488b-9fb7-727c1f0b1bc0)
 
