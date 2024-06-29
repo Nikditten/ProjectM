@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Nikditten/ProjectM/assets/48121115/7e666bea-8dc5-4237-abf9-73b067b18a8e" width=40% height=50% style="margin-right: 20px; box-shadow: 2px 2px 5px rgba(0,0,0,0.3);">
+  <img src="https://github.com/Nikditten/ProjectM/assets/48121115/7e666bea-8dc5-4237-abf9-73b067b18a8e" width=40% height=50% style="margin-right: 20px; border: 2px solid #000;">
   
   <img src="https://github.com/Nikditten/ProjectM/assets/48121115/ff633bc9-79ed-488b-9fb7-727c1f0b1bc0" width=40% height=50%>
 </p>
