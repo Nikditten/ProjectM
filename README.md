@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="https://github.com/Nikditten/ProjectM/assets/48121115/7e666bea-8dc5-4237-abf9-73b067b18a8e" width=300 height=50%>
+  <img src="https://github.com/Nikditten/ProjectM/assets/48121115/7e666bea-8dc5-4237-abf9-73b067b18a8e" width=40% height=50%>
   
-  <img src="https://github.com/Nikditten/ProjectM/assets/48121115/ff633bc9-79ed-488b-9fb7-727c1f0b1bc0" width=300 height=50%>
+  <img src="https://github.com/Nikditten/ProjectM/assets/48121115/ff633bc9-79ed-488b-9fb7-727c1f0b1bc0" width=40% height=50%>
 </p>
 
 <p align="center">
