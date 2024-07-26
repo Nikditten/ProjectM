@@ -165,21 +165,6 @@ struct TaskDetailView: View {
                         
                     }
                     .padding(.bottom, 5)
-                    
-                    Text("Timesheets")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.text)
-                        .padding(.bottom, 5)
-                        .padding(.top)
-                    
-                    ForEach(vm.task.subtasks, id: \.self) { subtaskId in
-                        SubTaskCard(
-                            subtaskId: subtaskId
-                        )
-                        
-                    }
-                    .padding(.bottom)
                 }
             }
             .padding()

@@ -64,7 +64,7 @@ struct AddProjectSheet: View {
             .padding()
             .background(Color.background)
             .ignoresSafeArea(.container, edges: [.bottom])
-            .navigationTitle("New Task")
+            .navigationTitle(vm.editMode ? "Edit Task" : "New Task")
         }
     }
 }
